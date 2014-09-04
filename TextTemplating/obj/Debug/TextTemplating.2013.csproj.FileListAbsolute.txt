@@ -1,0 +1,9 @@
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating.2013\bin\Debug\TextTemplating.dll
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating.2013\bin\Debug\TextTemplating.pdb
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating.2013\obj\Debug\TextTemplating.dll
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating.2013\obj\Debug\TextTemplating.pdb
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\bin\Debug\TextTemplating.dll
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\bin\Debug\TextTemplating.pdb
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\obj\Debug\TextTemplating.dll
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\obj\Debug\TextTemplating.pdb
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\obj\Debug\TextTemplating.2013.csprojResolveAssemblyReference.cache
