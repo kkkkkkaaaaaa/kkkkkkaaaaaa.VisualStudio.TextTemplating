@@ -32,6 +32,20 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.2013.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="xunit">
+      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextTemplating\TextTemplating.2013.csproj">
+      <Project>{c48dfc70-cadc-48e2-9581-b735882682ec}</Project>
+      <Name>TextTemplating.2013</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

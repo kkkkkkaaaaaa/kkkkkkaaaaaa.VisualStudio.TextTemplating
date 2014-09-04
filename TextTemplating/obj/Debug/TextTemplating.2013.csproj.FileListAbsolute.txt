@@ -6,4 +6,3 @@ C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\bin\Debug\Te
 C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\bin\Debug\TextTemplating.pdb
 C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\obj\Debug\TextTemplating.dll
 C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\obj\Debug\TextTemplating.pdb
-C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\obj\Debug\TextTemplating.2013.csprojResolveAssemblyReference.cache
