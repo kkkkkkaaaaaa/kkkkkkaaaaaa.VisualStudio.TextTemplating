@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +31,54 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\SqlColumnSchemaEntity.cs" />
+    <Compile Include="DataTransferObjects\T4Context.cs" />
+    <Compile Include="DataTransferObjects\T4EntityContext.cs" />
+    <Compile Include="Data\Repositories\SqlSchemaRepository.cs" />
+    <Compile Include="Data\Repositories\T4Repository.cs" />
+    <Compile Include="Data\TableDataGateways\T4TableDataGateway.cs" />
+    <Compile Include="DomainModels\T4Entities.cs" />
+    <Compile Include="DomainModels\T4DomainModel.cs" />
+    <Compile Include="SqlSelectTableTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlSelectTableTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlSelectTableTemplate.partial.cs" />
+    <Compile Include="DataTransferObjects\SqlTableContext.cs" />
+    <Compile Include="Data\T4ProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.2013.cs" />
+    <Compile Include="SqlTableSchemaEntity.cs" />
+    <Compile Include="T4EntityTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>T4EntityTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="kkkkkkaaaaaa">
+      <HintPath>..\Externals\kkkkkkaaaaaa\kkkkkkaaaaaa.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\SqlClient\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SqlSelectTableTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SqlSelectTableTemplate.cs</LastGenOutput>
+    </None>
+    <Compile Include="T4EntityTemplate.partial.cs" />
+    <None Include="T4EntityTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>T4EntityTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

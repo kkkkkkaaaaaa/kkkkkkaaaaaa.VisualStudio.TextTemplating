@@ -4,5 +4,6 @@ C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating.2013\obj\Deb
 C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating.2013\obj\Debug\TextTemplating.pdb
 C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\bin\Debug\TextTemplating.dll
 C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\bin\Debug\TextTemplating.pdb
+C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\bin\Debug\kkkkkkaaaaaa.dll
 C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\obj\Debug\TextTemplating.dll
 C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\obj\Debug\TextTemplating.pdb
