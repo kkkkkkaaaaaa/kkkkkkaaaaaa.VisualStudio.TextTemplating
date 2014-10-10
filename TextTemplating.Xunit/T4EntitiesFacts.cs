@@ -17,7 +17,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit
                 TypeNameSuffix = @"Entity",
             };
             var entities = new T4Entities(context)
-                .CreatEntity();
+                .Create();
         }
     }
 }

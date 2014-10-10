@@ -1,7 +1,6 @@
-﻿using System.Data;
-using kkkkkkaaaaaa.Data.Common;
+﻿using kkkkkkaaaaaa.Data.Common;
 
-namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
+namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 {
     public class SqlTableSchemaEntity
     {

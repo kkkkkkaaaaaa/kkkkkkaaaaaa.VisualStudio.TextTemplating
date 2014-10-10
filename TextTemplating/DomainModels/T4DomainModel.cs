@@ -2,9 +2,7 @@
 using System.Data.Common;
 using System.Diagnostics;
 using System.IO;
-using System.Net.Mime;
 using System.Text;
-using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
@@ -12,7 +10,7 @@ using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 {
     /// <summary>
-    /// 
+    /// ドメインモデルの基底クラスを表します。
     /// </summary>
     /// <typeparam name="TContext"></typeparam>
     public class T4DomainModel<TContext>
@@ -34,8 +32,10 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             get {return this._context; }
         }
 
+        #region Protected members...
+
         /// <summary>
-        /// 
+        /// 現在のデータベースのプロバイダーのファクトリーを取得します。
         /// </summary>
         protected T4ProviderFactory Factory
         {
@@ -43,15 +43,16 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         }
 
         /// <summary>
-        /// 
+        /// スキーマの Repository を取得します。
         /// </summary>
         protected SqlSchemaRepository SqlSchema
         {
             get { return SqlSchemaRepository.Instance; }
         }
 
+
         /// <summary>
-        /// 
+        /// 現在のデータベースのテーブルのスキーマを取得して返します。
         /// </summary>
         /// <returns></returns>
         protected IEnumerable<SqlTableSchemaEntity> GetTablesSchema()
@@ -74,7 +75,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         }
 
         /// <summary>
-        /// 
+        /// 指定したテーブルの列のスキーマを取得して返します。
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
@@ -98,12 +99,12 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         }
 
         /// <summary>
-        /// 
+        /// 指定した文字列をファイルに書き込みます。
         /// </summary>
         /// <param name="path"></param>
         /// <param name="text"></param>
         /// <param name="encoding"></param>
-        protected void WrtieToFile(string path, string text, Encoding encoding)
+        protected void Flush(string path, string text, Encoding encoding)
         {
             var stream = default(TextWriter);
 
@@ -120,6 +121,22 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         }
 
         /// <summary>
+        /// エクスプローラーを開始します。
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        protected Process StartExplorer(string path)
+        {
+            var info = new ProcessStartInfo();
+            info.FileName = @"explorer.exe";
+            info.Arguments = string.Format(@"/e, /root, ""{0}""", path);
+
+            var process = Process.Start(info);
+
+            return process;
+        }
+
+        /// <summary>
         /// 何もしません。
         /// </summary>
         [DebuggerStepThrough()]
@@ -128,9 +145,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             // 何もしない
         }
 
+        #endregion
+
         #region Private memberes...
 
-        /// <summary></summary>
+        /// <summary>コンテキスト。</summary>
         private readonly TContext _context;
 
         #endregion

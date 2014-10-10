@@ -34,21 +34,23 @@
     <Compile Include="DataTransferObjects\SqlColumnSchemaEntity.cs" />
     <Compile Include="DataTransferObjects\T4Context.cs" />
     <Compile Include="DataTransferObjects\T4EntityContext.cs" />
+    <Compile Include="DataTransferObjects\T4SqlStoredProcedureContext.cs" />
     <Compile Include="Data\Repositories\SqlSchemaRepository.cs" />
     <Compile Include="Data\Repositories\T4Repository.cs" />
     <Compile Include="Data\TableDataGateways\T4TableDataGateway.cs" />
     <Compile Include="DomainModels\T4Entities.cs" />
     <Compile Include="DomainModels\T4DomainModel.cs" />
-    <Compile Include="SqlSelectTableTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SqlSelectTableTemplate.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />
     <Compile Include="SqlSelectTableTemplate.partial.cs" />
     <Compile Include="DataTransferObjects\SqlTableContext.cs" />
     <Compile Include="Data\T4ProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.2013.cs" />
-    <Compile Include="SqlTableSchemaEntity.cs" />
+    <Compile Include="SqlSelectTableTemplate1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlSelectTableTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />
     <Compile Include="T4EntityTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,7 +74,7 @@
   <ItemGroup>
     <None Include="SqlSelectTableTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>SqlSelectTableTemplate.cs</LastGenOutput>
+      <LastGenOutput>SqlSelectTableTemplate1.cs</LastGenOutput>
     </None>
     <Compile Include="T4EntityTemplate.partial.cs" />
     <None Include="T4EntityTemplate.tt">

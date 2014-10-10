@@ -8,12 +8,12 @@ using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 {
     /// <summary>
-    /// 
+    /// Entity のドメインモデルです。
     /// </summary>
     public class T4Entities : T4DomainModel<T4EntityContext>
     {
         /// <summary>
-        /// コンテキスト。
+        /// コンストラクター。
         /// </summary>
         /// <param name="context"></param>
         public T4Entities(T4EntityContext context) : base(context)
@@ -21,7 +21,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             this.DoNothing();
         }
 
-        public T4Entities CreatEntity()
+        /// <summary>
+        /// テンプレートとコンテキストから Entity を生成します。
+        /// </summary>
+        /// <returns></returns>
+        public T4Entities Create()
         {
             var tables = this.GetTablesSchema();
 
@@ -33,23 +37,16 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
                 this.Context.TypeName = table.TableName;
                 this.Context.Columns = this.GetColumnsSchema(table.TableName);
 
-                var text = this.transformEntity();
+                var template = new T4EntityTemplate(this.Context);
+                var text = template.TransformText();
 
                 var path = Path.Combine(dir, string.Format(@"{0}.cs", this.Context.TypeName));
-                this.WrtieToFile(path, text, new UTF8Encoding(true, true));
+                this.Flush(path, text, new UTF8Encoding(true, true));
             }
 
-            Process.Start(@"explorer", string.Format(@"/e, /root, {0}", dir));
+            Process.Start(@"explorer", string.Format(@"/e, /root, ""{0}""", dir));
 
             return this;
-        }
-
-        private string transformEntity()
-        {
-            var template = new T4EntityTemplate(this.Context);
-            var text = template.TransformText();
-
-            return text;
         }
     }
 }

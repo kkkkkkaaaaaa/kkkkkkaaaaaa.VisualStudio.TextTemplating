@@ -8,16 +8,16 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// コンストラクター。
         /// </summary>
         /// <param name="context"></param>
-        public SqlSelectTableTemplate(SqlTableContext context)
+        public SqlSelectTableTemplate(T4SqlStoredProcedureContext context)
         {
             this._context = context;
         }
 
-        protected SqlTableContext Context
+        protected T4SqlStoredProcedureContext Context
         {
             get { return this._context; }
         }
 
-        private SqlTableContext _context;
+        private T4SqlStoredProcedureContext _context;
     }
 }

@@ -3,29 +3,3 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-
-CREATE PROCEDURE <#= string.Format(@"{0}{1}Select{2}", this.Context.SchemaName, this.Context.ProcedurePrefix, this.Context.TableName) #> (
-
-) AS BEGIN
-
-	DECLARE
-		@stmt		nvarcahr(max)
-		, @select	nvarcahr(max)
-		, @from		nvarchar(max)
-		, @where	nvarcahr(max)
-		, @orderBy	nvarchar(max)
-		, @status	int
-		, @error	int
-
-	SET @select = N'SELECT'
-		+ N' '
-
-	EXECUTE @status = sp_executesql
-		@stmt
-		, @params
-		, @entityId = @entityId, @entityName = @entityName, @identity = @identity OUTPUT
-
-	SET @error = @@ERROR
-
-END
- 
