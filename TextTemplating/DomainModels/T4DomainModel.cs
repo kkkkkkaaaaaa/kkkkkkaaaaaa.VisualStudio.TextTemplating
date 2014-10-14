@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Diagnostics;
 using System.IO;
@@ -118,22 +119,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             {
                 if (stream != null) { stream.Close(); }
             }
-        }
-
-        /// <summary>
-        /// エクスプローラーを開始します。
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        protected Process StartExplorer(string path)
-        {
-            var info = new ProcessStartInfo();
-            info.FileName = @"explorer.exe";
-            info.Arguments = string.Format(@"/e, /root, ""{0}""", path);
-
-            var process = Process.Start(info);
-
-            return process;
         }
 
         /// <summary>

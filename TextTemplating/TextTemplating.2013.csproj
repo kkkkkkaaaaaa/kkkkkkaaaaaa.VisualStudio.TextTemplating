@@ -35,26 +35,36 @@
     <Compile Include="DataTransferObjects\T4Context.cs" />
     <Compile Include="DataTransferObjects\T4EntityContext.cs" />
     <Compile Include="DataTransferObjects\T4SqlStoredProcedureContext.cs" />
+    <Compile Include="DataTransferObjects\T4TableDataGatewayContext.cs" />
     <Compile Include="Data\Repositories\SqlSchemaRepository.cs" />
     <Compile Include="Data\Repositories\T4Repository.cs" />
     <Compile Include="Data\TableDataGateways\T4TableDataGateway.cs" />
     <Compile Include="DomainModels\T4Entities.cs" />
     <Compile Include="DomainModels\T4DomainModel.cs" />
+    <Compile Include="DomainModels\T4Process.cs" />
     <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />
-    <Compile Include="SqlSelectTableTemplate.partial.cs" />
+    <Compile Include="DomainModels\T4TableDataGateways.cs" />
     <Compile Include="DataTransferObjects\SqlTableContext.cs" />
     <Compile Include="Data\T4ProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.2013.cs" />
-    <Compile Include="SqlSelectTableTemplate1.cs">
+    <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />
+    <Compile Include="SqlSelectTableTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SqlSelectTableTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />
+    <Compile Include="SqlSelectTableTemplate.partial.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="T4EntityTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>T4EntityTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableDataGatewayTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TableDataGatewayTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -72,14 +82,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="T4EntityTemplate.partial.cs" />
     <None Include="SqlSelectTableTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>SqlSelectTableTemplate1.cs</LastGenOutput>
+      <LastGenOutput>SqlSelectTableTemplate.cs</LastGenOutput>
     </None>
-    <Compile Include="T4EntityTemplate.partial.cs" />
     <None Include="T4EntityTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>T4EntityTemplate.cs</LastGenOutput>
+    </None>
+    <Compile Include="TableDataGatewayTemplate.partial.cs" />
+    <None Include="TableDataGatewayTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TableDataGatewayTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

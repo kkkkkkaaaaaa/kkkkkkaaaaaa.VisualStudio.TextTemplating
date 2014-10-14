@@ -9,10 +9,8 @@
 // ------------------------------------------------------------------------------
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 {
-    using System.Linq;
-    using System.Text;
-    using System.Collections.Generic;
     using System;
+    using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
     
     /// <summary>
     /// Class to produce the template output
@@ -28,6 +26,47 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// </summary>
         public virtual string TransformText()
         {
+            this.Write("CREATE PROCEDURE ");
+            
+            #line 4 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\SqlSelectTableTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0}.{1}Select{2}", this.Context.SchemaName, this.Context.ProcedureNamePrefix, this.Context.TableName)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 5 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\SqlSelectTableTemplate.tt"
+	var index = 0; 
+            
+            #line default
+            #line hidden
+            
+            #line 6 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\SqlSelectTableTemplate.tt"
+	foreach (var column in this.Context.Columns) { 
+            
+            #line default
+            #line hidden
+            
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\SqlSelectTableTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetParameter(column, index)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\SqlSelectTableTemplate.tt"
+		index++; 
+            
+            #line default
+            #line hidden
+            
+            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\SqlSelectTableTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("AS BEGIN\r\n\tDECLARE\r\n\t\t@error int\r\n\r\n\tSET @error = @@ERROR\r\n\r\n\tRETURN @error\r\n\r\nEN" +
+                    "D");
             return this.GenerationEnvironment.ToString();
         }
     }

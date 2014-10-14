@@ -1,31 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using kkkkkkaaaaaa.Data.Common;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
+﻿using System.Diagnostics;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
 {
     /// <summary>
-    /// 
+    /// このアプリケーションの Repository の基底クラスを表します。
     /// </summary>
-    public class T4Repository
+    public abstract class T4Repository
     {
-        /*
         /// <summary>
-        /// Singleton インスタンス。
-        /// </summary>
-        public static T4Repository Instance
-        {
-            get { return T4Repository._instance.Value; }
-        }
-        */
-
-        /// <summary>
-        /// 
+        /// コンストラクター。・
         /// </summary>
         protected T4Repository()
         {
@@ -33,7 +16,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Singleton インスタンスを取得します。
         /// </summary>
         protected T4ProviderFactory Factory
         {
@@ -50,9 +33,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         }
 
         #region Private members...
-
-        /// <summary></summary>
-        private readonly static Lazy<T4Repository> _instance = new Lazy<T4Repository>(() => new T4Repository());
 
         #endregion
 

@@ -25,7 +25,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// テンプレートとコンテキストから Entity を生成します。
         /// </summary>
         /// <returns></returns>
-        public T4Entities Create()
+        public T4Entities CreateEntities()
         {
             var tables = this.GetTablesSchema();
 
