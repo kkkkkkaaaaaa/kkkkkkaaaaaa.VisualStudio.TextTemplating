@@ -10,6 +10,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 
         public string ProcedureNamePrefix { get; set; }
 
-        public IEnumerable<SqlColumnSchemaEntity> Columns { get; set; }
+        public IEnumerable<SqlColumnsSchemaEntity> Columns { get; set; }
     }
 }

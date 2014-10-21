@@ -21,25 +21,25 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             get { return this._context; }
         }
 
-        protected string GetParameter(SqlColumnSchemaEntity column, int index)
+        protected string GetParameter(SqlColumnsSchemaEntity columns, int index)
         {
-            var parameter = string.Format(@"@{0}", column.ColumnName.ToLower());
+            var parameter = string.Format(@"@{0}", columns.ColumnName.ToLower());
 
-            if (new[] {@"nvarchar", @"varchar",}.Any(t => t == column.DataTypeName))
+            if (new[] {@"nvarchar", @"varchar",}.Any(t => t == columns.DataTypeName))
             {
-                parameter = string.Format(@"{0} {1}({2})", parameter, column.DataTypeName, column.ColumnSize);
+                parameter = string.Format(@"{0} {1}({2})", parameter, columns.DataTypeName, columns.ColumnSize);
             }
-            else if (new[] {@"money", @"numeric", @"decimal",}.Any(t => t == column.DataTypeName))
+            else if (new[] {@"money", @"numeric", @"decimal",}.Any(t => t == columns.DataTypeName))
             {
-                parameter = string.Format(@"{0} {1}({2})", parameter, column.DataTypeName, column.ColumnSize);
+                parameter = string.Format(@"{0} {1}({2})", parameter, columns.DataTypeName, columns.ColumnSize);
             }
-            else if (new[] {@"datetime2", @"datetime",}.Any(t => t == column.DataTypeName))
+            else if (new[] {@"datetime2", @"datetime",}.Any(t => t == columns.DataTypeName))
             {
-                parameter = string.Format(@"{0} {1}({2})", parameter, column.DataTypeName, column.NumericScale);
+                parameter = string.Format(@"{0} {1}({2})", parameter, columns.DataTypeName, columns.NumericScale);
             }
             else
             {
-                parameter = string.Format(@"{0} {1}", parameter, column.DataTypeName);
+                parameter = string.Format(@"{0} {1}", parameter, columns.DataTypeName);
             }
 
             if (index > 0) { parameter = string.Format(@", {0}", parameter); }

@@ -8,7 +8,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// コンストラクター。
         /// </summary>
         /// <param name="context"></param>
-		public T4EntityTemplate(T4EntityContext context)
+		public T4EntityTemplate(EntitiesContext context)
 		{
 			this._context = context;
 		}
@@ -18,7 +18,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// <summary>
         /// コンテキストを取得します。
         /// </summary>
-        protected T4EntityContext Context
+        protected EntitiesContext Context
         {
             get { return this._context; }
         }
@@ -28,7 +28,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         #region Private members...
 
         /// <summary></summary>
-        private readonly T4EntityContext _context;
+        private readonly EntitiesContext _context;
 
         #endregion
 	}

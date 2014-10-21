@@ -42,7 +42,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         /// <param name="tableName"></param>
         /// <param name="connection"></param>
         /// <returns></returns>
-        public IEnumerable<SqlColumnSchemaEntity> GetColumnsSchema(string tableName, DbConnection connection)
+        public IEnumerable<SqlColumnsSchemaEntity> GetColumnsSchema(string tableName, DbConnection connection)
         {
             var reader = default(DbDataReader);
 
@@ -52,7 +52,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
 
                 var schema = reader.GetSchemaTable();
 
-                var columns = KandaDbDataMapper.MapToEnumerable<SqlColumnSchemaEntity>(schema);
+                var columns = KandaDbDataMapper.MapToEnumerable<SqlColumnsSchemaEntity>(schema);
 
                 return columns;
             }

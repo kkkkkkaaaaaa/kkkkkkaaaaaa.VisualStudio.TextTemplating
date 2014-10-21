@@ -80,7 +80,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
-        protected IEnumerable<SqlColumnSchemaEntity> GetColumnsSchema(string tableName)
+        protected IEnumerable<SqlColumnsSchemaEntity> GetColumnsSchema(string tableName)
         {
             var connection = default(DbConnection);
 

@@ -10,13 +10,22 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// <summary>
     /// Entity のドメインモデルです。
     /// </summary>
-    public class T4Entities : T4DomainModel<T4EntityContext>
+    public class T4Entities : T4DomainModel<EntitiesContext>
     {
         /// <summary>
         /// コンストラクター。
         /// </summary>
         /// <param name="context"></param>
-        public T4Entities(T4EntityContext context) : base(context)
+        public T4Entities(EntitiesContext context) : base(context)
+        {
+            this.DoNothing();
+        }
+
+        /// <summary>
+        /// コンストラクター。
+        /// </summary>
+        public T4Entities()
+            : this(new EntitiesContext())
         {
             this.DoNothing();
         }

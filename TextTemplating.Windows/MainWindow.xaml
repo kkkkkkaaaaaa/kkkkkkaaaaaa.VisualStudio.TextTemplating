@@ -1,8 +1,11 @@
-﻿<Window x:Class="TextTemplating.Windows._2013.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:t4="clr-namespace:TextTemplating.Windows.Controls"
+        x:Class="TextTemplating.Windows.MainWindow"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <WrapPanel>
+        <t4:EntitiesControl x:Name="Entities" VerticalAlignment="Center" Width="Auto" Height="Auto" />
+        <Button VerticalAlignment="Bottom"  Width="Auto" Height="Auto"  />
+    </WrapPanel>
 </Window>

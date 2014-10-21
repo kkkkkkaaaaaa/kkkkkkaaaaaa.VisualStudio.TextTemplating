@@ -31,9 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ComponentModel\EntitiesViewModel.cs" />
     <Compile Include="DataTransferObjects\SqlColumnSchemaEntity.cs" />
     <Compile Include="DataTransferObjects\T4Context.cs" />
-    <Compile Include="DataTransferObjects\T4EntityContext.cs" />
+    <Compile Include="DataTransferObjects\EntitiesContext.cs" />
     <Compile Include="DataTransferObjects\T4SqlStoredProcedureContext.cs" />
     <Compile Include="DataTransferObjects\T4TableDataGatewayContext.cs" />
     <Compile Include="Data\Repositories\SqlSchemaRepository.cs" />
@@ -44,7 +45,6 @@
     <Compile Include="DomainModels\T4Process.cs" />
     <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />
     <Compile Include="DomainModels\T4TableDataGateways.cs" />
-    <Compile Include="DataTransferObjects\SqlTableContext.cs" />
     <Compile Include="Data\T4ProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.2013.cs" />
     <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />

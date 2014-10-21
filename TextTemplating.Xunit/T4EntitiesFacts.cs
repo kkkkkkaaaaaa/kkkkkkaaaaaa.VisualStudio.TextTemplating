@@ -10,7 +10,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit
         [Fact()]
         public void CreateEntitiesFact()
         {
-            var context = new T4EntityContext
+            var context = new EntitiesContext
             {
                 Namespace = @"kkkkkkaaaaaa.DataTransferObjects",
                 Imports = new[] { "System", },

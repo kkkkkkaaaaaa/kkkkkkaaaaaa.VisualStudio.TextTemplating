@@ -2,10 +2,10 @@
 {
     public class T4Context
     {
-        public string Namespace { get; set; }
+        public virtual string Namespace { get; set; }
 
         public string[] Imports { get; set; }
-
+        
         public string TypeName { get; set; }
 
         public string TypeNameSuffix { get; set; }
