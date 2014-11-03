@@ -17,7 +17,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             var info = new ProcessStartInfo
             {
                 FileName = @"explorer.exe",
-                Arguments = string.Format(@"/e, /root, ""{0}""", path),
+                Arguments = string.Format(@"/e, ""{0}""", path),
             };
 
             var process = Process.Start(info);

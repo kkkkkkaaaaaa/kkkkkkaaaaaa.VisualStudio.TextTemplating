@@ -1,20 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.CodeDom;
+using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
 
 namespace TextTemplating.Windows
 {
@@ -30,10 +18,20 @@ namespace TextTemplating.Windows
         {
             InitializeComponent();
 
-            this.Entities.DataContext = new EntitiesViewModel
+            var vm = new EntitiesViewModel
             {
-                Namespace = @"あああ",
+                Namespace = @"kkkkkkaaaaaa.VisualStudio.TextTemplating",
+                Imports = new []{ @"System", },
+                TypeAttributes = TypeAttributes.Public,
+                TypeNameSuffix = "Entity",
+                Inherits = @"",
+                Implements = @"",
+                MemberAttributes = MemberAttributes.Assembly,
             };
+            this.Entities.DataContext = vm;
+
+            var click = this.ButtonTransform.ClickAsObservable()
+                .Subscribe(_ => vm.TransformText());
         }
     }
 }

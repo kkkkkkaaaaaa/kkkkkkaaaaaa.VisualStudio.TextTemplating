@@ -9,9 +9,10 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
     /// </summary>
     public class EntitiesContext : T4Context
     {
-        /// <summary>
-        /// 
-        /// </summary>
+        public string Inherits { get; set; }
+
+        public string Implements { get; set; }
+
         public IEnumerable<SqlColumnsSchemaEntity> Columns { get; set; }
     }
 }

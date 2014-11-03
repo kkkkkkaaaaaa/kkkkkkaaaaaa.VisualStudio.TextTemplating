@@ -14,7 +14,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// ドメインモデルの基底クラスを表します。
     /// </summary>
     /// <typeparam name="TContext"></typeparam>
-    public class T4DomainModel<TContext>
+    public class T4DomainModel<TContext> where TContext : T4Context
     {
         /// <summary>
         /// 
@@ -31,6 +31,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         public TContext Context
         {
             get {return this._context; }
+        }
+
+        /// <summary>
+        /// 出力先ディレクトリーのパスを取得します。
+        /// </summary>
+        public string OutputPath
+        {
+            get { return this._context.OutputPath; }
         }
 
         #region Protected members...

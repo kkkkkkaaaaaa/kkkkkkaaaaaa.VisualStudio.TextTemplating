@@ -1,0 +1,82 @@
+﻿<#@ template language="C#" #>
+namespace <#= this.Context.Namespace #>
+<#	foreach(var import in this.Context.Imports) { #>
+	using <#= string.Format(@"{0};", import) #>
+<#	} #>
+
+	/// <summary>
+	/// <#= string.Format(@"{0} の View Model を表します。", this.Context.TypeName)  #>
+	/// </sumary>
+	<#= string.Format(@"public class {0}{1} : {2}, INotifyPropertyChanged", this.Context.TypeName, this.Context.TypeNameSuffix, this.Context.Inherits) #>
+	{
+        /// <summary>
+        /// コンストラクター。
+        /// </summary>
+		public <#= string.Format(@"{0}{1}", this.Context.TypeName, this.Context.TypeNameSuffix) #>()
+		{
+			this.DoNothing();
+		}
+
+<#		foreach (var column in this.Context.Columns) { #>
+        /// <summary>
+        /// <#= string.Format(@"{0} を取得または設定します。", column.ColumnName) #>
+        /// </summary>
+        public override <#= string.Format(@"{0} {1}", column.DataTypeName, column.ColumnName) #>
+        {
+            <#= string.Format(@"get { return base.{1}; }", column.DataTypeName, column.ColumnName) #> }
+            set
+            {
+				<#= string.Format(@"if (value != base.{0}", column.ColumnName) #>
+                {
+					<#= string.Format(@"base.{0} = value;", column.ColumnName) #>
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+<#		} #>
+
+        #region Protected members...
+
+        /// <summary>
+        /// PropertyChanged イベントを発生させます。
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
+	}
+<##>
+<##>
+<##>
+<##>
+<##>
+<##>
+
+
+
+namespace <#= this.Context.Namespace #>
+{
+<#	foreach(var import in this.Context.Imports) { #>
+	using <#= string.Format(@"{0};", import) #>
+<#	} #>
+
+	/// <summary>
+	/// <#= string.Format(@"{0} のエンティティを表します。", this.Context.TypeName) #>
+	/// </summary>
+	public class <#= string.Format(@"{0}{1}", this.Context.TypeName, this.Context.TypeNameSuffix) #>
+	{
+<#		foreach(var column in this.Context.Columns) { #>
+		/// <summary>
+		/// <#= string.Format(@"{0} を取得または設定します。", column.ColumnName) #>
+		/// </summary>
+		public virtual <#= string.Format(@"{0} {1}", column.DataType.FullName, column.ColumnName) #> { get; set; }
+
+<#		} #>
+	}
+}

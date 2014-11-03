@@ -1,7 +1,5 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
@@ -38,8 +36,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         {
             var tables = this.GetTablesSchema();
 
-            var dir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), @"DataTransferObjects");
-            Directory.CreateDirectory(dir);
+            this.Context.OutputPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), @"DataTransferObjects");
+            Directory.CreateDirectory(this.Context.OutputPath);
 
             foreach (var table in tables)
             {
@@ -49,11 +47,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
                 var template = new T4EntityTemplate(this.Context);
                 var text = template.TransformText();
 
-                var path = Path.Combine(dir, string.Format(@"{0}.cs", this.Context.TypeName));
+                var path = Path.Combine(this.Context.OutputPath, string.Format(@"{0}.cs", this.Context.TypeName));
                 this.Flush(path, text, new UTF8Encoding(true, true));
             }
-
-            Process.Start(@"explorer", string.Format(@"/e, /root, ""{0}""", dir));
 
             return this;
         }
