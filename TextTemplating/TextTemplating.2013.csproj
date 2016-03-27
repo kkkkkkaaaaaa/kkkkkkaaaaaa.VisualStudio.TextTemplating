@@ -32,11 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\EntitiesViewModel.cs" />
-    <Compile Include="NotifyPropertyChangedTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NotifyPropertyChangedTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Include="ComponentModel\T4ButtonExtensions.cs" />
     <Compile Include="ComponentModel\T4ViewModelExtensions.cs" />
     <Compile Include="DataTransferObjects\SqlColumnSchemaEntity.cs" />
@@ -53,6 +48,11 @@
     <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />
     <Compile Include="DomainModels\T4TableDataGateways.cs" />
     <Compile Include="Data\T4ProviderFactory.cs" />
+    <Compile Include="NotifyPropertyChangedTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotifyPropertyChangedTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="NotifyPropertyChangedTemplate.partial.cs" />
     <Compile Include="Properties\AssemblyInfo.2013.cs" />
     <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />
