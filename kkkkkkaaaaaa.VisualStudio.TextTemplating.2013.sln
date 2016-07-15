@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextTemplating.Xunit.2013", "TextTemplating.Xunit\TextTemplating.Xunit.2013.csproj", "{791155F4-2F88-47DE-BDB6-6C48EAE1B4FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextTemplating.2013", "TextTemplating\TextTemplating.2013.csproj", "{C48DFC70-CADC-48E2-9581-B735882682EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextTemplating.Windows.2013", "TextTemplating.Windows\TextTemplating.Windows.2013.csproj", "{BED4E094-3789-4E25-BD45-0967A055A676}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A75344E4-AD4C-4CDF-97D0-FF1D95A787BC}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextTemplating.Windows.2013", "TextTemplating.Windows\TextTemplating.Windows.2013.csproj", "{BED4E094-3789-4E25-BD45-0967A055A676}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

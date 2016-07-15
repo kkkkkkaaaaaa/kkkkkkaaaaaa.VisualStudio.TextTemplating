@@ -68,6 +68,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override MemberAttributes MemberAttributes
         {
             get { return base.MemberAttributes; }

@@ -16,3 +16,11 @@
 /packages
 /kkkkkkaaaaaa.VisualStudio.TextTemplating.2013.sln.DotSettings.user
 /TextTemplating/TextTemplating.2013.csproj.DotSettings
+/TextTemplating.Windows/bin
+/TextTemplating.Windows/obj
+/TextTemplating.Windows/TextTemplating.Windows.2013.csproj.user
+/kkkkkkaaaaaa.VisualStudio.TextTemplating.2013.sln.DotSettings
+/bin
+/TextTemplating/bin
+/TextTemplating.Xunit/bin
+/TextTemplating.Xunit/obj

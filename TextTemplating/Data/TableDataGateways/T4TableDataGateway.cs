@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Common;
-using kkkkkkaaaaaa.Data.Common;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
 {
@@ -19,7 +16,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
         /// <returns></returns>
         public static DbDataReader GetColumnsSchema(string tableName, DbConnection connection)
         {
-            var reader = T4TableDataGateway.Factory.CreateReader(connection);
+            var reader = Factory.CreateReader(connection);
 
             reader.CommandText = string.Format(@"SELECT TOP 0 * FROM {0} WHERE 1 <> 1", tableName);
 
@@ -52,7 +49,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
         /// </summary>
         private T4TableDataGateway()
         {
-            T4TableDataGateway.DoNOthing();
+            DoNOthing();
         }
 
         #endregion

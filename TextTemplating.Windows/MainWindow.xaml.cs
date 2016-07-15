@@ -18,6 +18,7 @@ namespace TextTemplating.Windows
         {
             InitializeComponent();
 
+            // 規定値
             var vm = new EntitiesViewModel
             {
                 Namespace = @"kkkkkkaaaaaa.VisualStudio.TextTemplating",
@@ -28,10 +29,13 @@ namespace TextTemplating.Windows
                 Implements = @"",
                 MemberAttributes = MemberAttributes.Assembly,
             };
-            this.Entities.DataContext = vm;
 
+            // [Transform] クリック
             var click = this.ButtonTransform.ClickAsObservable()
                 .Subscribe(_ => vm.TransformText());
+
+            // データバインド
+            this.Entities.DataContext = vm;
         }
     }
 }
