@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Class="TextTemplating.Windows.Controls.EntitiesContextControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:System.CodeDom;assembly=System"
+    mc:Ignorable="d" 
+    d:DesignHeight="300" d:DesignWidth="400">
+    <Grid x:Name="GridEntities">
+        <Label x:Name="LabelNamespace" Content="Namespace" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="TextNamespace" Text="{Binding Namespace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="92,10,10,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <Label x:Name="LabelImports" HorizontalAlignment="Left" Margin="10,38,0,0" Content="Imports" VerticalAlignment="Top" />
+        <TextBox x:Name="TextImports" Text="{Binding ImportsText, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="23" Margin="92,38,10,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <Label x:Name="LabelTypeNamePrefix" Content="Prefix" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="TextTypeNamePrefix" Text="{Binding TypeNamePrefix, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="23" Margin="92,66,208,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <CheckBox Content="Virtual" IsChecked="{Binding IsVirtual}" HorizontalAlignment="Left" Margin="92,171,0,0" VerticalAlignment="Top" />
+        <Label x:Name="LabelTypeNameSuffix" Content="Suffix" HorizontalAlignment="Left" Margin="197,64,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="TextTypeNameSuffix" Text="{Binding TypeNameSuffix, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="23" Margin="245,66,55,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <RadioButton x:Name="RadioPublic" Content="Public" GroupName="MemberAttributes" IsChecked="{Binding MemberAttributes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MemberAttributesConverter}, ConverterParameter={x:Static local:MemberAttributes.Public}}" HorizontalAlignment="Left" Margin="8,131,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="RadioInternal" Content="Internal" GroupName="MemberAttributes" IsChecked="{Binding MemberAttributes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MemberAttributesConverter}, ConverterParameter={x:Static local:MemberAttributes.Assembly}}" HorizontalAlignment="Left" Margin="92,131,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LabelInherits" HorizontalAlignment="Left" Margin="11,94,0,0" Content="Inherits" VerticalAlignment="Top" />
+        <TextBox x:Name="TextInherits" Text="{Binding InheritsText, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="23" Margin="92,96,10,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+    </Grid>
+</UserControl>

@@ -9,28 +9,128 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>kkkkkkaaaaaa.VisualStudio.TextTemplating</RootNamespace>
     <AssemblyName>TextTemplating</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\TextTemplating\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <DocumentationFile>..\bin\TextTemplating\Debug\TextTemplating.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>..\bin\TextTemplating\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DocumentationFile>..\bin\TextTemplating\Release\TextTemplating.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ComponentModel\EntitiesViewModel.cs" />
+    <Compile Include="ComponentModel\T4ButtonExtensions.cs" />
+    <Compile Include="ComponentModel\T4ViewModelExtensions.cs" />
+    <Compile Include="DataTransferObjects\SqlColumnSchemaEntity.cs" />
+    <Compile Include="DataTransferObjects\T4Context.cs" />
+    <Compile Include="DataTransferObjects\EntitiesContext.cs" />
+    <Compile Include="DataTransferObjects\T4SqlStoredProcedureContext.cs" />
+    <Compile Include="DataTransferObjects\T4TableDataGatewayContext.cs" />
+    <Compile Include="Data\Repositories\SqlSchemaRepository.cs" />
+    <Compile Include="Data\Repositories\T4Repository.cs" />
+    <Compile Include="Data\TableDataGateways\T4TableDataGateway.cs" />
+    <Compile Include="DomainModels\T4Entities.cs" />
+    <Compile Include="DomainModels\T4DomainModel.cs" />
+    <Compile Include="DomainModels\T4Process.cs" />
+    <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />
+    <Compile Include="DomainModels\T4TableDataGateways.cs" />
+    <Compile Include="Data\T4ProviderFactory.cs" />
+    <Compile Include="NotifyPropertyChangedTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotifyPropertyChangedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotifyPropertyChangedTemplate.partial.cs" />
     <Compile Include="Properties\AssemblyInfo.2013.cs" />
+    <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />
+    <Compile Include="SqlSelectTableTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlSelectTableTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlSelectTableTemplate.partial.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="T4EntityTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>T4EntityTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableDataGatewayTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TableDataGatewayTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="kkkkkkaaaaaa">
+      <HintPath>..\Externals\kkkkkkaaaaaa\kkkkkkaaaaaa.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\SqlClient\" />
+    <Folder Include="Windows\Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="T4EntityTemplate.partial.cs" />
+    <None Include="NotifyPropertyChangedTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NotifyPropertyChangedTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="SqlSelectTableTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SqlSelectTableTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4EntityTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>T4EntityTemplate.cs</LastGenOutput>
+    </None>
+    <Compile Include="TableDataGatewayTemplate.partial.cs" />
+    <None Include="TableDataGatewayTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TableDataGatewayTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

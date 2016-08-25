@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="TextTemplating.Windows.Controls.T4ContextControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignWidth="300" d:DesignHeight="100" >
+    <Grid>
+        <Label x:Name="LabelNamespace" Content="Namespace" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" />
+        <TextBox x:Name="TextNamespace" Text="{Binding Namespace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="23" Margin="92,10,10,0" TextWrapping="Wrap"  Grid.Column="2"/>
+    </Grid>
+</UserControl>

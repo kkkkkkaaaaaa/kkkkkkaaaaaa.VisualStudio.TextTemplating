@@ -1,0 +1,21 @@
+﻿<#@ template language="C#" #>
+namespace <#= this.Context.Namespace #>
+{
+<#	foreach(var import in this.Context.Imports) { #>
+	using <#= string.Format(@"{0};", import) #>
+<#	} #>
+
+	/// <summary>
+	/// <#= string.Format(@"{0} のエンティティを表します。", this.Context.TypeName) #>
+	/// </summary>
+	public class <#= string.Format(@"{0}{1}", this.Context.TypeName, this.Context.TypeNameSuffix) #>
+	{
+<#		foreach(var column in this.Context.Columns) { #>
+		/// <summary>
+		/// <#= string.Format(@"{0} を取得または設定します。", column.ColumnName) #>
+		/// </summary>
+		public virtual <#= string.Format(@"{0} {1}", column.DataType.FullName, column.ColumnName) #> { get; set; }
+
+<#		} #>
+	}
+}

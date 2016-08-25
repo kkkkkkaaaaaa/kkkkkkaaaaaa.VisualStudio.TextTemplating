@@ -1,0 +1,18 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="System" #>
+<#@ import namespace="kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects" #>
+CREATE PROCEDURE <#= string.Format(@"{0}.{1}Select{2}", this.Context.SchemaName, this.Context.ProcedureNamePrefix, this.Context.TableName) #>
+<#	var index = 0; #>
+<#	foreach (var column in this.Context.Columns) { #>
+<#=		this.GetParameter(column, index) #>
+<#		index++; #>
+<# } #>
+AS BEGIN
+	DECLARE
+		@error int
+
+	SET @error = @@ERROR
+
+	RETURN @error
+
+END

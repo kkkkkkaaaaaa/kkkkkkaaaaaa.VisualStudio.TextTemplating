@@ -1,0 +1,32 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:t4="clr-namespace:TextTemplating.Windows.Controls"
+    xmlns:vm="clr-namespace:kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel;assembly=TextTemplating"
+    x:Class="TextTemplating.Windows.MainWindow"
+    Title="kkkkkkaaaaaa.VisualStudio.TextTemplating" Height="600" Width="400">
+    <DockPanel x:Name="DockWindow">
+        <DockPanel.DataContext>
+            <vm:EntitiesViewModel x:Name="VM" />
+        </DockPanel.DataContext>
+        <t4:T4ContextControl x:Name="T4Context" Margin="0,0,0.333,0" DockPanel.Dock="Top" Height="60" />
+        <TabControl x:Name="TabContexts" Padding="10" Margin="0,0,0,0" DockPanel.Dock="Top" >
+            <TabItem x:Name="TabItemEntities" Header="Entities" Width="Auto">
+                <t4:EntitiesContextControl x:Name="Entities" />
+            </TabItem>
+            <TabItem x:Name="TabItemGateways" Header="Table Data Gateways" Width="Auto">
+                <t4:TableDataGatewaysControl x:Name="Gateways" />
+            </TabItem>
+            <TabItem x:Name="TabItemRepositories" Header="Repositories" Width="Auto" Height="Auto">
+                <t4:RepositoriesControl x:Name="Repositories" />
+            </TabItem>
+            <TabItem x:Name="TabItemDomainModels" Header="Domain Models" Width="Auto">
+                <t4:DomainModelsControl x:Name="DomainModels" />
+            </TabItem>
+            <TabItem x:Name="TabItemSqlProcedures" Header="Transact-SQL" Width="Auto">
+                <t4:SqlStoredProceduresControl x:Name="SqlProcedures" />
+            </TabItem>
+        </TabControl>
+        <Button x:Name="ButtonTransform" Width="50" Height="30" DockPanel.Dock="Bottom" />
+    </DockPanel>
+</Window>

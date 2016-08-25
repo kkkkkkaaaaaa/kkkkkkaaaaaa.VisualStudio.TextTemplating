@@ -1,0 +1,10 @@
+﻿<Application
+    x:Class="TextTemplating.Windows.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:data="clr-namespace:TextTemplating.Windows.Data"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <data:MemberAttributesConverter x:Key="MemberAttributesConverter" />
+    </Application.Resources>
+</Application>
