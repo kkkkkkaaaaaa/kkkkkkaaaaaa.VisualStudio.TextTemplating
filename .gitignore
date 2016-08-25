@@ -6,3 +6,10 @@
 /TextTemplating.2013/obj
 /TextTemplating.2013/bin
 /TextTemplating.2013/TextTemplating.2013.csproj.user
+/.vs
+/TextTemplating.Windows/bin
+/TextTemplating.Windows/obj
+/TextTemplating/bin
+/TextTemplating/obj
+/TextTemplating.Xunit/obj
+/TextTemplating.Xunit/bin
