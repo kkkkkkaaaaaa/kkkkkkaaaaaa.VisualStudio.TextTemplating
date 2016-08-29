@@ -5,7 +5,7 @@ using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 {
-    public class T4SqlStoredProcedures : T4DomainModel<T4SqlStoredProcedureContext>
+    public class T4SqlStoredProcedures : TextTemplatingDomainModel<T4SqlStoredProcedureContext>
     {
         /// <summary>
         /// コンストラクター。

@@ -5,19 +5,19 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// <summary>
     /// プロセスにアクセスします。ｃ
     /// </summary>
-    public static class T4Process
+    public static class TextTemplatingProcess
     {
         /// <summary>
         /// エクスプローラーを開始します。
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static Process Start(string path)
+        public static Process StartExplorer(string path)
         {
             var info = new ProcessStartInfo
             {
                 FileName = @"explorer.exe",
-                Arguments = string.Format(@"/e, ""{0}""", path),
+                Arguments = $@"/e, ""{path}""",
             };
 
             var process = Process.Start(info);

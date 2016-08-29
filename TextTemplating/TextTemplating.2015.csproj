@@ -33,20 +33,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\EntitiesViewModel.cs" />
-    <Compile Include="ComponentModel\T4ButtonExtensions.cs" />
-    <Compile Include="ComponentModel\T4ViewModelExtensions.cs" />
+    <Compile Include="Reactive\T4ButtonExtensions.cs" />
+    <Compile Include="Reactive\TextTemplatingViewModelExtensions.cs" />
     <Compile Include="DataTransferObjects\EntitiesContext.cs" />
     <Compile Include="DataTransferObjects\SqlColumnSchemaEntity.cs" />
     <Compile Include="DataTransferObjects\SqlTableContext.cs" />
     <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />
-    <Compile Include="DataTransferObjects\T4Context.cs" />
+    <Compile Include="DataTransferObjects\TextTemplatingContext.cs" />
     <Compile Include="DataTransferObjects\T4SqlStoredProcedureContext.cs" />
     <Compile Include="DataTransferObjects\T4TableDataGatewayContext.cs" />
-    <Compile Include="Data\Repositories\SqlSchemaRepository.cs" />
+    <Compile Include="Data\Repositories\SchemaRepository.cs" />
     <Compile Include="Data\Repositories\T4Repository.cs" />
-    <Compile Include="Data\T4ProviderFactory.cs" />
+    <Compile Include="Data\TextTemplatingProviderFactory.cs" />
     <Compile Include="Data\TableDataGateways\T4TableDataGateway.cs" />
-    <Compile Include="DomainModels\T4DomainModel.cs" />
+    <Compile Include="DomainModels\TextTemplatingDomainModel.cs" />
     <Compile Include="DomainModels\Entities.cs" />
     <Compile Include="DomainModels\T4Process.cs" />
     <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />

@@ -8,8 +8,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// <summary>
     /// Entity のドメインモデルです。
     /// </summary>
-    public class Entities : T4DomainModel<EntitiesContext>
+    public class Entities : TextTemplatingDomainModel<EntitiesContext>
     {
+        [DebuggerStepThrough()]
         /// <summary>
         /// コンストラクター。
         /// </summary>
@@ -19,11 +20,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             this.DoNothing();
         }
 
+        [DebuggerStepThrough()]
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        public Entities()
-            : this(new EntitiesContext())
+        public Entities() : this(new EntitiesContext())
         {
             this.DoNothing();
         }
@@ -35,8 +36,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         public Entities CreateEntities()
         {
             var tables = this.GetTablesSchema();
-
-            this.Context.OutputPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), @"DataTransferObjects");
+            
             Directory.CreateDirectory(this.Context.OutputPath);
 
             foreach (var table in tables)

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Reactive;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
 {
@@ -112,7 +113,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
 
             this._model.CreateEntities();
 
-            T4Process.Start(this._model.OutputPath);
+            TextTemplatingProcess.StartExplorer(this._model.OutputPath);
         }
 
         #region Protected members...

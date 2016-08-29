@@ -14,13 +14,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// ドメインモデルの基底クラスを表します。
     /// </summary>
     /// <typeparam name="TContext"></typeparam>
-    public class T4DomainModel<TContext> where TContext : T4Context
+    public class TextTemplatingDomainModel<TContext> where TContext : TextTemplatingContext
     {
+        [DebuggerStepThrough()]
         /// <summary>
         /// 
         /// </summary>
         /// <param name="context"></param>
-        public  T4DomainModel(TContext context)
+        public  TextTemplatingDomainModel(TContext context)
         {
             this._context = context;
         }
@@ -46,19 +47,10 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// <summary>
         /// 現在のデータベースのプロバイダーのファクトリーを取得します。
         /// </summary>
-        protected T4ProviderFactory Factory
+        protected TextTemplatingProviderFactory Factory
         {
-            get { return T4ProviderFactory.Instance; }
+            get { return TextTemplatingProviderFactory.Instance; }
         }
-
-        /// <summary>
-        /// スキーマの Repository を取得します。
-        /// </summary>
-        protected SqlSchemaRepository SqlSchema
-        {
-            get { return SqlSchemaRepository.Instance; }
-        }
-
 
         /// <summary>
         /// 現在のデータベースのテーブルのスキーマを取得して返します。
@@ -73,7 +65,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
                 connection = this.Factory.CreateConnection();
                 connection.Open();
 
-                var tables = this.SqlSchema.GetTablesSchema(connection);
+                var schema = new SchemaRepository();
+                var tables = schema.GetTablesSchema(connection);
 
                 return tables;
             }
@@ -97,7 +90,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
                 connection = this.Factory.CreateConnection();
                 connection.Open();
 
-                var columns = this.SqlSchema.GetColumnsSchema(tableName, connection);
+                var schema = new SchemaRepository();
+                var columns = schema.GetColumnsSchema(tableName, connection);
 
                 return columns;
             }

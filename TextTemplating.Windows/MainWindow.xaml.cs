@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Reflection;
 using System.Windows;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Reactive;
 
 namespace TextTemplating.Windows
 {

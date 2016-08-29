@@ -2,7 +2,7 @@
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 {
-    public class T4SqlStoredProcedureContext : T4Context
+    public class T4SqlStoredProcedureContext : TextTemplatingContext
     {
         public string SchemaName { get; set; }
 

@@ -18,7 +18,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
         {
             var reader = Factory.CreateReader(connection);
 
-            reader.CommandText = string.Format(@"SELECT TOP 0 * FROM {0} WHERE 1 <> 1", tableName);
+            reader.CommandText = string.Format(@"SELECT * FROM {0} WHERE 1 <> 1", tableName);
 
             reader.ExecuteReader(CommandBehavior.SchemaOnly);
 
@@ -27,9 +27,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
 
         #region Protected members...
 
-        protected static T4ProviderFactory Factory
+        protected static TextTemplatingProviderFactory Factory
         {
-            get { return T4ProviderFactory.Instance; }
+            get { return TextTemplatingProviderFactory.Instance; }
         }
 
         /// <summary>

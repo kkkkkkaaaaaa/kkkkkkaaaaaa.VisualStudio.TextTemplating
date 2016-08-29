@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 {
-    public class T4Context
+    public class TextTemplatingContext
     {
         public virtual string OutputPath { get; set; }
 

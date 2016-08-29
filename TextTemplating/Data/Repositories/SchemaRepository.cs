@@ -11,15 +11,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
     /// <summary>
     /// 
     /// </summary>
-    public class SqlSchemaRepository : T4Repository
+    public class SchemaRepository : T4Repository
     {
         /// <summary>
         /// Singleton インスタンスを取得します。。
         /// </summary>
-        public static SqlSchemaRepository Instance
-        {
-            get { return SqlSchemaRepository._instance.Value; }
-        }
 
         /// <summary>
         /// 現在のカタログのテーブル定義を取得して返します。
@@ -28,8 +24,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         /// <returns></returns>
         public IEnumerable<SqlTableSchemaEntity> GetTablesSchema(DbConnection connection)
         {
-            //var schema = connection.GetTablesSchema();
-            var schema = connection.GetSchema(@"Tables");
+            var schema = connection.GetTablesSchema();
             var reader = new DataTableReader(schema);
 
             var tables = KandaDbDataMapper.MapToEnumerable<SqlTableSchemaEntity>(reader);
@@ -66,7 +61,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         #region Private members...
 
         /// <summary>Instance のバッキングフィールド。</summary>
-        private static readonly Lazy<SqlSchemaRepository> _instance = new Lazy<SqlSchemaRepository>(() => new SqlSchemaRepository());
+        private static readonly Lazy<SchemaRepository> _instance = new Lazy<SchemaRepository>(() => new SchemaRepository());
 
         #endregion
     }

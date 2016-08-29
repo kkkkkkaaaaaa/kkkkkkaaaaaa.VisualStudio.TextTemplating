@@ -2,7 +2,7 @@
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 {
-    public class T4TableDataGateways : T4DomainModel<T4TableDataGatewayContext>
+    public class T4TableDataGateways : TextTemplatingDomainModel<T4TableDataGatewayContext>
     {
         /// <summary>
         /// コンストラクター。

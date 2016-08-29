@@ -2,15 +2,13 @@
 using System.ComponentModel;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Windows;
-using System.Windows.Controls.Primitives;
 
-namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
+namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Reactive
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class T4ViewModelExtensions
+    public static class TextTemplatingViewModelExtensions
     {
         /// <summary>
         /// 

@@ -7,8 +7,10 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
     /// <summary>
     /// 
     /// </summary>
-    public class EntitiesContext : T4Context
+    public class EntitiesContext : TextTemplatingContext
     {
+        public bool IsPartial { get; set; }
+
         /// <summary>
         /// 
         /// </summary>

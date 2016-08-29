@@ -18,9 +18,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         /// <summary>
         /// Singleton インスタンスを取得します。
         /// </summary>
-        protected T4ProviderFactory Factory
+        protected TextTemplatingProviderFactory Factory
         {
-            get { return T4ProviderFactory.Instance; }
+            get { return TextTemplatingProviderFactory.Instance; }
         }
 
         /// <summary>

@@ -4,12 +4,12 @@ using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 
-namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
+namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Reactive
 {
     /// <summary>
     /// ButtonBase 拡張メソッド。
     /// </summary>
-    public static class T4ButtonBaseExtensions
+    public static class TextTemplatingButtonBaseExtensions
     {
         /// <summary>
         /// Click イベント Observable。
