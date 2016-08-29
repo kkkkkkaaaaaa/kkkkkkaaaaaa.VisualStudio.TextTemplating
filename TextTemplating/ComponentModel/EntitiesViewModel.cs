@@ -32,7 +32,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
             this.PropertyChangedAsObservable()
                 .Subscribe(p => this.DoNothing());
 
-            this._model = new T4Entities(this);
+            this._model = new Entities(this);
         }
 
 
@@ -134,7 +134,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
         #region Private members...
 
         /// <summary></summary>
-        private readonly T4Entities _model;
+        private readonly Entities _model;
 
         #endregion
 

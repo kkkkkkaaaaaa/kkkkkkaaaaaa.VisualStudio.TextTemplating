@@ -28,7 +28,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         /// <returns></returns>
         public IEnumerable<SqlTableSchemaEntity> GetTablesSchema(DbConnection connection)
         {
-            var schema = connection.GetTablesSchema();
+            //var schema = connection.GetTablesSchema();
+            var schema = connection.GetSchema(@"Tables");
             var reader = new DataTableReader(schema);
 
             var tables = KandaDbDataMapper.MapToEnumerable<SqlTableSchemaEntity>(reader);

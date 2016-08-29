@@ -16,7 +16,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit
                 Imports = new[] { "System", },
                 TypeNameSuffix = @"Entity",
             };
-            var entities = new T4Entities(context)
+            var entities = new Entities(context)
                 .CreateEntities();
         }
     }

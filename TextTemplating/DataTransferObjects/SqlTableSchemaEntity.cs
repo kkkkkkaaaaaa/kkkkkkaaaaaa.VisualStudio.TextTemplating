@@ -4,7 +4,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 {
     public class SqlTableSchemaEntity
     {
-        [KandaDataMapping(@"TABLE_SCHEMA")]
+        [KandaDataMapping(@"TABLE_SCHEMA", DefaultValue = @"")]
         public string TableSchema { get; set; }
 
         [KandaDataMapping(@"TABLE_CATALOG")]

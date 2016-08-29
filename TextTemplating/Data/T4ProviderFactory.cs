@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.Common;
 using kkkkkkaaaaaa.Data.Common;
 
@@ -23,13 +24,18 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data
         /// <returns></returns>
         public override DbConnection CreateConnection()
         {
+            /*
             var builder = base.CreateConnectionStringBuilder();
             builder.Add(@"Server", @"(local)");
             builder.Add(@"Initial Catalog", @"kkkkkkaaaaaa");
             builder.Add(@"Integrated Security", @"True");
+            */
+            var section = ConfigurationManager.ConnectionStrings[@"db3"];
+            //var section = ConfigurationManager.ConnectionStrings[@"wwi"];
+            //var section = ConfigurationManager.ConnectionStrings[@"wwi"];
 
             var connection = base.CreateConnection();
-            connection.ConnectionString = builder.ConnectionString;
+            connection.ConnectionString = section.ConnectionString;
 
             return connection;
             // return base.CreateConnection();
@@ -40,7 +46,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        protected T4ProviderFactory() : base(DbProviderFactories.GetFactory(@"System.Data.SqlClient"))
+        protected T4ProviderFactory() : base(DbProviderFactories.GetFactory(@"System.Data.SQLite"))
         {
             this.DoNothing();
         }

@@ -8,13 +8,13 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// <summary>
     /// Entity のドメインモデルです。
     /// </summary>
-    public class T4Entities : T4DomainModel<EntitiesContext>
+    public class Entities : T4DomainModel<EntitiesContext>
     {
         /// <summary>
         /// コンストラクター。
         /// </summary>
         /// <param name="context"></param>
-        public T4Entities(EntitiesContext context) : base(context)
+        public Entities(EntitiesContext context) : base(context)
         {
             this.DoNothing();
         }
@@ -22,7 +22,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        public T4Entities()
+        public Entities()
             : this(new EntitiesContext())
         {
             this.DoNothing();
@@ -32,7 +32,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// テンプレートとコンテキストから Entity を生成します。
         /// </summary>
         /// <returns></returns>
-        public T4Entities CreateEntities()
+        public Entities CreateEntities()
         {
             var tables = this.GetTablesSchema();
 
