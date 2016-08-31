@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
@@ -13,15 +15,45 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
         public void Fact()
         {
             var ns = @"Windows.Reactive";
+            ns = string.IsNullOrWhiteSpace(ns) ? "" : $".{ns}";
+            var imports = new[]
+            {
+                "System.Windows",
+                "System.Windows.Controler.Primitives",
+            };
+            var types = new[]
+            {
+                // WPF コントロール
+                typeof(UIElement),
+                typeof(FrameworkElement),
+                // typeof(Panel),
+                // typeof(ContentControl),
+                // typeof(TextBlock),
+                // typeof(Page),
+                // typeof(AccessText),
+                // typeof(AdornedElementPlaceholder),
+                typeof(Control),
+                typeof(Calendar),
+                typeof(Window),
+                typeof(ButtonBase),
+                // typeof(Button),
+                typeof(ToggleButton),
+                typeof(RangeBase),
+                typeof(Image),
+                typeof(InkCanvas),
+                typeof(MediaElement),
+                typeof(DatePicker),
+                // typeof(ContentPresenter),
+                // typeof(),
+            };
             var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
 
-            ns = string.IsNullOrWhiteSpace(ns) ? "" : $".{ns}";
             var context = new EventAsObservableContext
             {
-                Types = new [] { typeof(ButtonBase), typeof(ToggleButton), },
-                OutputPath = output,
-                Imports = new[] { "System.Windows.Controler.Primitives", },
                 Namespace = $@"kkkkkkaaaaaa.VisualStudio.TextTemplating{ns}",
+                Imports = imports,
+                Types = types,
+                OutputPath = output,
             };
 
             var obersvable = new EventAsObservable(context);

@@ -63,14 +63,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\r\n    {\r\n");
             
             #line 14 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-		foreach (var v in this._context.Events) { 
+		foreach (var info in this._context.Events) { 
             
             #line default
             #line hidden
             this.Write("\t\t/// <summary>\r\n        /// ");
             
             #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(v.Name));
+            this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
             
             #line default
             #line hidden
@@ -85,14 +85,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
                     "entPattern<RoutedEventArgs>> ");
             
             #line 20 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(v.Name));
+            this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
             
             #line default
             #line hidden
             this.Write("Observable(this ");
             
             #line 20 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(v.DeclaringType.Name));
+            this.Write(this.ToStringHelper.ToStringWithCulture(info.DeclaringType.Name));
             
             #line default
             #line hidden
@@ -103,8 +103,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write(")\r\n        {\r\n            return Observable.FromEventPattern<RoutedEventHandler, " +
-                    "RoutedEventArgs>(\r\n                handler => (sender, e) => handler?.Invoke(");
+            this.Write(")\r\n        {\r\n            return Observable.FromEventPattern<");
+            
+            #line 22 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(info.EventHandlerType.Name.Replace(@"`1", @"")));
+            
+            #line default
+            #line hidden
+            this.Write(", RoutedEventArgs>(\r\n                handler => (_, e) => handler?.Invoke(");
             
             #line 23 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this._context.SenderName));
@@ -121,7 +127,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(".");
             
             #line 24 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(v.Name));
+            this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
             
             #line default
             #line hidden
@@ -135,7 +141,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(".");
             
             #line 25 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(v.Name));
+            this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
             
             #line default
             #line hidden

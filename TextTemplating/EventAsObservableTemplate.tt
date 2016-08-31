@@ -11,18 +11,18 @@ namespace <#= this._context.Namespace #>
 
     public static class <#= this._context.TypeName #>
     {
-<#		foreach (var v in this._context.Events) { #>
+<#		foreach (var info in this._context.Events) { #>
 		/// <summary>
-        /// <#= v.Name #> イベントを Observable 化して返します。
+        /// <#= info.Name #> イベントを Observable 化して返します。
         /// </summary>
         /// <param name="<#= this._context.SenderName #>"></param>
         /// <returns></returns>
-        public static IObservable<EventPattern<RoutedEventArgs>> <#= v.Name #>Observable(this <#= v.DeclaringType.Name #> <#= this._context.SenderName #>)
+        public static IObservable<EventPattern<RoutedEventArgs>> <#= info.Name #>Observable(this <#= info.DeclaringType.Name #> <#= this._context.SenderName #>)
         {
-            return Observable.FromEventPattern<RoutedEventHandler, RoutedEventArgs>(
-                handler => (sender, e) => handler?.Invoke(<#= this._context.SenderName #>, e)
-                , handler => <#= this._context.SenderName #>.<#= v.Name #> += handler
-                , handler => <#= this._context.SenderName #>.<#= v.Name #> -= handler);
+            return Observable.FromEventPattern<<#= info.EventHandlerType.Name.Replace(@"`1", @"") #>, RoutedEventArgs>(
+                handler => (_, e) => handler?.Invoke(<#= this._context.SenderName #>, e)
+                , handler => <#= this._context.SenderName #>.<#= info.Name #> += handler
+                , handler => <#= this._context.SenderName #>.<#= info.Name #> -= handler);
         }
 
 <#		} #>
