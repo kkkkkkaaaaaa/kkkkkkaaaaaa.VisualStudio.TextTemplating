@@ -33,8 +33,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\EntitiesViewModel.cs" />
-    <Compile Include="Reactive\T4ButtonExtensions.cs" />
-    <Compile Include="Reactive\TextTemplatingViewModelExtensions.cs" />
+    <Compile Include="DataTransferObjects\EventAsObservableContext.cs" />
+    <Compile Include="DomainModels\EventAsObservable.cs" />
+    <Compile Include="EventAsObservableTemplate.partial.cs" />
+    <Compile Include="EventAsObservableTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventAsObservableTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataTransferObjects\EntitiesContext.cs" />
     <Compile Include="DataTransferObjects\SqlColumnSchemaEntity.cs" />
     <Compile Include="DataTransferObjects\SqlTableContext.cs" />
@@ -48,7 +54,7 @@
     <Compile Include="Data\TableDataGateways\T4TableDataGateway.cs" />
     <Compile Include="DomainModels\TextTemplatingDomainModel.cs" />
     <Compile Include="DomainModels\Entities.cs" />
-    <Compile Include="DomainModels\T4Process.cs" />
+    <Compile Include="DomainModels\TextTemplatingProcess.cs" />
     <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />
     <Compile Include="DomainModels\T4TableDataGateways.cs" />
     <Compile Include="NotifyPropertyChangedTemplate.cs" />
@@ -99,6 +105,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EventAsObservableTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EventAsObservableTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="NotifyPropertyChangedTemplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NotifyPropertyChangedTemplate1.cs</LastGenOutput>

@@ -16,6 +16,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// <typeparam name="TContext"></typeparam>
     public class TextTemplatingDomainModel<TContext> where TContext : TextTemplatingContext
     {
+
         [DebuggerStepThrough()]
         /// <summary>
         /// 
@@ -40,6 +41,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         public string OutputPath
         {
             get { return this._context.OutputPath; }
+        }
+        
+        /// <summary>
+        /// エンコーディング。
+        /// </summary>
+        public Encoding Encoding
+        {
+            get { return this._encoding; }
         }
 
         #region Protected members...
@@ -119,8 +128,18 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             }
             finally
             {
-                if (stream != null) { stream.Close(); }
+                stream?.Close();
             }
+        }
+
+        /// <summary>
+        /// 指定した文字列をファイルに書き込みます。
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="text"></param>
+        protected void Flush(string path, string text)
+        {
+            this.Flush(path, text, this.Encoding);
         }
 
         /// <summary>
@@ -138,6 +157,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 
         /// <summary>コンテキスト。</summary>
         private readonly TContext _context;
+        /// <summary>エンコード。</summary>
+        private readonly Encoding _encoding = new UTF8Encoding(true, true);
 
         #endregion
     }

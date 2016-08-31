@@ -3,7 +3,7 @@ using System.CodeDom;
 using System.Reflection;
 using System.Windows;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.Reactive;
+using kkkkkkaaaaaa.Windows.Reactive;
 
 namespace TextTemplating.Windows
 {
@@ -20,7 +20,7 @@ namespace TextTemplating.Windows
             InitializeComponent();
 
             // 規定値
-            var vm = new EntitiesViewModel
+            this._vm = new EntitiesViewModel
             {
                 Namespace = @"kkkkkkaaaaaa.VisualStudio.TextTemplating",
                 Imports = new []{ @"System", },
@@ -33,10 +33,23 @@ namespace TextTemplating.Windows
 
             // [Transform] クリック
             var click = this.ButtonTransform.ClickAsObservable()
-                .Subscribe(_ => vm.TransformText());
+                .Subscribe(_ => this._vm.TransformText());
+                //.Subscribe(_ => this.ButtonTransform_Click());
 
             // データバインド
-            this.Entities.DataContext = vm;
+            this.Entities.DataContext = this._vm;
         }
+
+        #region Private members...
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void ButtonTransform_Click()
+        {
+            this._vm.TransformText();
+        }
+        
+        #endregion
     }
 }

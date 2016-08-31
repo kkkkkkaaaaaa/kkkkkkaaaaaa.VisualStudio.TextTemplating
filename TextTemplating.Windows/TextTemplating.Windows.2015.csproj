@@ -113,6 +113,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="kkkkkkaaaaaa">
+      <HintPath>..\Externals\kkkkkkaaaaaa\kkkkkkaaaaaa.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />

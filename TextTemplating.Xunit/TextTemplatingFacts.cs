@@ -1,4 +1,5 @@
-﻿using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data;
+﻿using System.Diagnostics;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit
@@ -7,6 +8,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit
     {
         protected TextTemplatingProviderFactory Factory
         {
+            [DebuggerStepThrough()]
             get { return TextTemplatingProviderFactory.Instance; }
         }
     }

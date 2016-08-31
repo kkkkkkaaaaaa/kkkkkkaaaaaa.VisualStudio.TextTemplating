@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.Reactive;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
 {
@@ -29,11 +28,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
                 .Where(p => (p.EventArgs.PropertyName == @"Namespace"))
                 .Subscribe(p => this.TransformText());
             */
-
-            this.PropertyChangedAsObservable()
-                .Subscribe(p => this.DoNothing());
-
-            this._model = new Entities(this);
         }
 
 

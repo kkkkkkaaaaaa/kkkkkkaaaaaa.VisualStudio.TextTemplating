@@ -7,7 +7,7 @@
     Title="kkkkkkaaaaaa.VisualStudio.TextTemplating" Height="600" Width="400">
     <DockPanel x:Name="DockWindow">
         <DockPanel.DataContext>
-            <vm:EntitiesViewModel x:Name="VM" />
+            <vm:EntitiesViewModel x:Name="_vm" />
         </DockPanel.DataContext>
         <t4:T4ContextControl x:Name="T4Context" Margin="0,0,0.333,0" DockPanel.Dock="Top" Height="60" />
         <TabControl x:Name="TabContexts" Padding="10" Margin="0,0,0,0" DockPanel.Dock="Top" >

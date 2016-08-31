@@ -1,0 +1,30 @@
+﻿<#@ template language="C#" #>
+
+namespace <#= this._context.Namespace #>
+{
+	using System;
+	using System.Reactive;
+	using System.Reactive.Linq;
+<#	foreach (var import in this._context.Imports) { #>
+	using <#= import #>;
+<#	} #>
+
+    public static class <#= this._context.TypeName #>
+    {
+<#		foreach (var v in this._context.Events) { #>
+		/// <summary>
+        /// <#= v.Name #> イベントを Observable 化して返します。
+        /// </summary>
+        /// <param name="<#= this._context.SenderName #>"></param>
+        /// <returns></returns>
+        public static IObservable<EventPattern<RoutedEventArgs>> <#= v.Name #>Observable(this <#= v.DeclaringType.Name #> <#= this._context.SenderName #>)
+        {
+            return Observable.FromEventPattern<RoutedEventHandler, RoutedEventArgs>(
+                handler => (sender, e) => handler?.Invoke(<#= this._context.SenderName #>, e)
+                , handler => <#= this._context.SenderName #>.<#= v.Name #> += handler
+                , handler => <#= this._context.SenderName #>.<#= v.Name #> -= handler);
+        }
+
+<#		} #>
+    }
+}
