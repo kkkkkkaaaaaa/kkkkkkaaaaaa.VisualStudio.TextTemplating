@@ -138,7 +138,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write("());\r\n\r\n        #endregion\r\n\t}\r\n}");
+            this.Write("());\r\n\r\n        #endregion\r\n\t}\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

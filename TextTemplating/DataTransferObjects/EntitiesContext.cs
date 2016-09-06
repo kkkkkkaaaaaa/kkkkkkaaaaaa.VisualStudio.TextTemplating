@@ -19,7 +19,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
         /// <summary>
         /// 
         /// </summary>
-        public string Implements { get; set; }
+        public string[] Implements { get; set; }
 
         /// <summary>
         /// 

@@ -1,13 +1,13 @@
 ﻿<#@ template language="C#" #>
-<#= string.Format(@"namespace {0} ", this.Context.Namespace) #> {
+namaspace <#= this.Context.Namespace #>
+{
 <#	foreach(var import in this.Context.Imports) { #>
-<#=		string.Format(@"	using {0};", import) #>
+<#=		string.Format(@"using {0}", import) #>
 <#	} #>
-
 	/// <summary>
-<#=	string.Format(@"	/// {0} の View Model を表します。", this.Context.TypeName)  #>
+<#= string.Format(@"	///		{0} の View Model を表します。", this.Context.TypeName) #>
 	/// </sumary>
-<#=	string.Format(@"	public class {0}{1} : {2}, INotifyPropertyChanged", this.Context.TypeName, this.Context.TypeNameSuffix, this.Context.Inherits) #>
+<#= string.Format(@"	public {0}{1} : {2}", this.Context.TypeName, this.Context.TypeNameSuffix, this.Context.Inherits) #><# foreach(var implement in this.Context.Implements) { #><#= string.Format(@", {0}", implement) #><# } #>
 	{
 		/// <summary>
 		/// コンストラクター。
@@ -19,17 +19,17 @@
 
 <#		foreach (var column in this.Context.Columns) { #>
 		/// <summary>
-<#=		string.Format(@"		/// {0} を取得または設定します。", column.ColumnName) #>
+<#= string.Format(@"		/// {0} を取得または設定します。", column.ColumnName) #>
 		/// </summary>
-<#=		string.Format(@"		public override {0} {1}", column.DataTypeName, column.ColumnName) #>
+<#= string.Format(@"		public override {0} {1}", column.DataTypeName, column.ColumnName) #>
 		{
-<#=			string.Format(@"			get {{ return base.{0}; }}", column.ColumnName) #>
+<#= string.Format(@"			get {{ return base.{0}; }}", column.ColumnName) #>
 			set
 			{
-<#=			string.Format(@"				if (value != base.{0})", column.ColumnName) #>
+<#= string.Format(@"				if (value != base.{0})", column.ColumnName) #>
 				{
-<#=				string.Format(@"					base.{0} = value;", column.ColumnName) #>
-<#=				string.Format(@"					this.OnPropertyChanged({0});", column.ColumnName) #>
+<#= string.Format(@"					base.{0} = value;", column.ColumnName) #>
+<#= string.Format(@"					this.OnPropertyChanged({0});", column.ColumnName) #>
 				}
 			}
 		}

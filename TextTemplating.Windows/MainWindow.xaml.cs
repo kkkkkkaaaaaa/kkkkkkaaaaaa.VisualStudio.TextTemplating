@@ -27,7 +27,6 @@ namespace TextTemplating.Windows
                 TypeAttributes = TypeAttributes.Public,
                 TypeNameSuffix = "Entity",
                 Inherits = @"",
-                Implements = @"",
                 MemberAttributes = MemberAttributes.Assembly,
             };
 

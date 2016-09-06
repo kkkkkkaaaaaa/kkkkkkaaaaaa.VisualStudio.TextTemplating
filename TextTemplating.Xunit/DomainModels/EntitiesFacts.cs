@@ -24,7 +24,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 IsPartial = true,
                 TypeNameSuffix = "Entity",
                 Inherits = @"EntityBase",
-                Implements = @"IEntity",
+                Implements = new [] { @"IEntity" },
                 MemberAttributes = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
                 OutputPath =  output,
             };
@@ -50,7 +50,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 IsPartial = true,
                 TypeNameSuffix = "Entity",
                 Inherits = @"EntityBase",
-                Implements = @"IEntity",
+                Implements = new [] { @"IEntity" },
                 MemberAttributes = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
                 OutputPath = output,
             };

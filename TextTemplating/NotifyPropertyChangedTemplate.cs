@@ -25,14 +25,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\n");
+            this.Write("\nnamaspace ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"namespace {0} ", this.Context.Namespace)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Namespace));
             
             #line default
             #line hidden
-            this.Write(" {\n");
+            this.Write("\n{\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
 	foreach(var import in this.Context.Imports) { 
@@ -42,7 +42,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"	using {0};", import)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"using {0}", import)));
             
             #line default
             #line hidden
@@ -53,17 +53,35 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write("\n\n\t/// <summary>\n");
+            this.Write("\n\t/// <summary>\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"	/// {0} の View Model を表します。", this.Context.TypeName)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"	///		{0} の View Model を表します。", this.Context.TypeName)));
             
             #line default
             #line hidden
             this.Write("\n\t/// </sumary>\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"	public class {0}{1} : {2}, INotifyPropertyChanged", this.Context.TypeName, this.Context.TypeNameSuffix, this.Context.Inherits)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"	public {0}{1} : {2}", this.Context.TypeName, this.Context.TypeNameSuffix, this.Context.Inherits)));
+            
+            #line default
+            #line hidden
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
+ foreach(var implement in this.Context.Implements) { 
+            
+            #line default
+            #line hidden
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@", {0}", implement)));
+            
+            #line default
+            #line hidden
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
+ } 
             
             #line default
             #line hidden

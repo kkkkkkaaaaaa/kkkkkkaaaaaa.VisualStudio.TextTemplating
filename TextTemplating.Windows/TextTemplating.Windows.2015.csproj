@@ -113,7 +113,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="kkkkkkaaaaaa">
+    <Reference Include="kkkkkkaaaaaa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Externals\kkkkkkaaaaaa\kkkkkkaaaaaa.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />

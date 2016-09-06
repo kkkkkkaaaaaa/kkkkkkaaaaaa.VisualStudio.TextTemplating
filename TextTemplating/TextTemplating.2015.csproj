@@ -32,6 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\NotifyPropertyChangedContext.cs" />
+    <Compile Include="DomainModels\NotifyPropertyChanged.cs" />
     <Compile Include="EntityTemplate.cs">
       <DependentUpon>EntityTemplate.tt</DependentUpon>
       <DesignTime>True</DesignTime>
