@@ -1,0 +1,56 @@
+﻿<#@ template language="C#" #>
+namespace <#= this.Context.Namespace #>
+{
+<# foreach (var import in this.Context.Imports ) { #>
+	using <#= import #>;
+<# } #>
+	
+    /// <summary>
+	/// データベースプロバイダーのファクトリーメソッドを提供します。
+    /// </summary>
+	public class <#= this.Context.TypeName #> : KandaDbProvoderFactory
+	{
+        /// <summary>
+        /// Singleton インスタンス。
+        /// </summary>
+        public static <#= this.Context.TypeName #> Instance
+        {
+            get { return <#= this.Context.TypeName #>._instance.Value; }
+        }
+
+        /// <summary>
+        /// データーベースへの接続を生成して返します。
+        /// </summary>
+        /// <returns></returns>
+        public override DbConnection CreateConnection()
+        {
+            var section = ConfigurationManager.ConnectionStrings[@"<#= this.Context.ConnectionStringSectionName #>"];
+
+            var connection = base.CreateConnection();
+            connection.ConnectionString = section.ConnectionString;
+
+            return connection;
+        }
+
+        #region Protected members...
+
+        /// <summary>
+        /// コンストラクター。
+        /// </summary>
+        protected TextTemplatingProviderFactory() : base(DbProviderFactories.GetFactory(@"<#= this.Context.InvariantName #>"))
+        {
+            this.DoNothing();
+        }
+
+        #endregion
+
+        #region Private members...
+
+        /// <summary>
+        /// Instance のバッキングフィールド。
+        /// </summary>
+        private static readonly Lazy<TextTemplatingProviderFactory> _instance = new Lazy<<#= this.Context.TypeName #>>(() => new <#= this.Context.TypeName #>());
+
+        #endregion
+	}
+}

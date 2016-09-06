@@ -2,13 +2,13 @@
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 {
-	public partial class T4EntityTemplate
+	public partial class EntityTemplate
 	{
         /// <summary>
         /// コンストラクター。
         /// </summary>
         /// <param name="context"></param>
-		public T4EntityTemplate(EntitiesContext context)
+		public EntityTemplate(EntitiesContext context)
 		{
 			this._context = context;
 		}

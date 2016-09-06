@@ -16,7 +16,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// <typeparam name="TContext"></typeparam>
     public class TextTemplatingDomainModel<TContext> where TContext : TextTemplatingContext
     {
-
         [DebuggerStepThrough()]
         /// <summary>
         /// 
@@ -42,14 +41,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         {
             get { return this._context.OutputPath; }
         }
-        
+
         /// <summary>
         /// エンコーディング。
         /// </summary>
-        public Encoding Encoding
-        {
-            get { return this._encoding; }
-        }
+        public Encoding Encoding { get; } = new UTF8Encoding(true, true);
 
         #region Protected members...
 
@@ -157,8 +153,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 
         /// <summary>コンテキスト。</summary>
         private readonly TContext _context;
-        /// <summary>エンコード。</summary>
-        private readonly Encoding _encoding = new UTF8Encoding(true, true);
 
         #endregion
     }

@@ -9,18 +9,15 @@
 // ------------------------------------------------------------------------------
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 {
-    using System.Linq;
-    using System.Text;
-    using System.Collections.Generic;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+    #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public partial class TableDataGatewayTemplate : TableDataGatewayTemplateBase
+    public partial class ProviderFactoryTemplate : ProviderFactoryTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,11 +25,120 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\n");
-            this.Write("\n");
-            this.Write("\n");
-            this.Write("\n");
-            this.Write("\npublic static class ");
+            this.Write("namespace ");
+            
+            #line 2 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Namespace));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n");
+            
+            #line 4 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+ foreach (var import in this.Context.Imports ) { 
+            
+            #line default
+            #line hidden
+            this.Write("\tusing ");
+            
+            #line 5 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(import));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n");
+            
+            #line 6 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\t\r\n    /// <summary>\r\n\t/// データベースプロバイダーのファクトリーメソッドを提供します。\r\n    /// </summary>\r\n\tp" +
+                    "ublic class ");
+            
+            #line 11 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" : KandaDbProvoderFactory\r\n\t{\r\n        /// <summary>\r\n        /// Singleton インスタン" +
+                    "ス。\r\n        /// </summary>\r\n        public static ");
+            
+            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" Instance\r\n        {\r\n            get { return ");
+            
+            #line 18 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(@"._instance.Value; }
+        }
+
+        /// <summary>
+        /// データーベースへの接続を生成して返します。
+        /// </summary>
+        /// <returns></returns>
+        public override DbConnection CreateConnection()
+        {
+            var section = ConfigurationManager.ConnectionStrings[@""");
+            
+            #line 27 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.ConnectionStringSectionName));
+            
+            #line default
+            #line hidden
+            this.Write(@"""];
+
+            var connection = base.CreateConnection();
+            connection.ConnectionString = section.ConnectionString;
+
+            return connection;
+        }
+
+        #region Protected members...
+
+        /// <summary>
+        /// コンストラクター。
+        /// </summary>
+        protected TextTemplatingProviderFactory() : base(DbProviderFactories.GetFactory(@""");
+            
+            #line 40 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.InvariantName));
+            
+            #line default
+            #line hidden
+            this.Write(@"""))
+        {
+            this.DoNothing();
+        }
+
+        #endregion
+
+        #region Private members...
+
+        /// <summary>
+        /// Instance のバッキングフィールド。
+        /// </summary>
+        private static readonly Lazy<TextTemplatingProviderFactory> _instance = new Lazy<");
+            
+            #line 52 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(">(() => new ");
+            
+            #line 52 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\ProviderFactoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write("());\r\n\r\n        #endregion\r\n\t}\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -44,7 +150,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public class TableDataGatewayTemplateBase
+    public class ProviderFactoryTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

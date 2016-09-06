@@ -32,16 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="EntityTemplate.cs">
+      <DependentUpon>EntityTemplate.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.2015.cs" />
     <Compile Include="ComponentModel\EntitiesViewModel.cs" />
     <Compile Include="DataTransferObjects\EventAsObservableContext.cs" />
-    <Compile Include="DomainModels\EventAsObservable.cs" />
-    <Compile Include="EventAsObservableTemplate.partial.cs" />
-    <Compile Include="EventAsObservableTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EventAsObservableTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataTransferObjects\EntitiesContext.cs" />
+    <Compile Include="DataTransferObjects\ProviderFactoryContext.cs" />
     <Compile Include="DataTransferObjects\SqlColumnSchemaEntity.cs" />
     <Compile Include="DataTransferObjects\SqlTableContext.cs" />
     <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />
@@ -52,19 +52,43 @@
     <Compile Include="Data\Repositories\T4Repository.cs" />
     <Compile Include="Data\TextTemplatingProviderFactory.cs" />
     <Compile Include="Data\TableDataGateways\T4TableDataGateway.cs" />
-    <Compile Include="DomainModels\TextTemplatingDomainModel.cs" />
     <Compile Include="DomainModels\Entities.cs" />
+    <Compile Include="DomainModels\EventAsObservable.cs" />
+    <Compile Include="DomainModels\ProviderFactory.cs" />
+    <Compile Include="DomainModels\TextTemplatingDomainModel.cs" />
     <Compile Include="DomainModels\TextTemplatingProcess.cs" />
     <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />
     <Compile Include="DomainModels\T4TableDataGateways.cs" />
-    <Compile Include="NotifyPropertyChangedTemplate.cs" />
+    <Compile Include="EntityTemplate.partial.cs" />
+    <Compile Include="EventAsObservableTemplate.partial.cs" />
+    <Compile Include="EventAsObservableTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventAsObservableTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProviderFactoryTemplate.partial.cs" />
+    <Compile Include="ProviderFactoryTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ProviderFactoryTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotifyPropertyChangedTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotifyPropertyChangedTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="NotifyPropertyChangedTemplate.partial.cs" />
-    <Compile Include="Properties\AssemblyInfo.2015.cs" />
-    <Compile Include="SqlSelectTableTemplate.cs" />
+    <Compile Include="SqlSelectTableTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlSelectTableTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="SqlSelectTableTemplate.partial.cs" />
-    <Compile Include="T4EntityTemplate.cs" />
-    <Compile Include="T4EntityTemplate.partial.cs" />
-    <Compile Include="TableDataGatewayTemplate.cs" />
+    <Compile Include="TableDataGatewayTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TableDataGatewayTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="TableDataGatewayTemplate.partial.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,25 +129,29 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EntityTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="EventAsObservableTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EventAsObservableTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="NotifyPropertyChangedTemplate.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>NotifyPropertyChangedTemplate1.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NotifyPropertyChangedTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="ProviderFactoryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ProviderFactoryTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="SqlSelectTableTemplate.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SqlSelectTableTemplate1.cs</LastGenOutput>
-    </Content>
-    <Content Include="T4EntityTemplate.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>T4EntityTemplate1.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SqlSelectTableTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="TableDataGatewayTemplate.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TableDataGatewayTemplate1.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TableDataGatewayTemplate.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,18 +9,15 @@
 // ------------------------------------------------------------------------------
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 {
-    using System.Linq;
-    using System.Text;
-    using System.Collections.Generic;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+    #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public partial class TableDataGatewayTemplate : TableDataGatewayTemplateBase
+    public partial class EntityTemplate : EntityTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,11 +25,77 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// </summary>
         public virtual string TransformText()
         {
+            this.Write("\nnamespace ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Namespace));
+            
+            #line default
+            #line hidden
+            this.Write("\n{\n");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+	foreach(var import in this.Context.Imports) { 
+            
+            #line default
+            #line hidden
+            this.Write("\n\tusing ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0};", import)));
+            
+            #line default
+            #line hidden
             this.Write("\n");
-            this.Write("\n");
-            this.Write("\n");
-            this.Write("\n");
-            this.Write("\npublic static class ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+	} 
+            
+            #line default
+            #line hidden
+            this.Write("\n\n\t/// <summary>\n\t/// ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0} のエンティティを表します。", this.Context.TypeName)));
+            
+            #line default
+            #line hidden
+            this.Write("\n\t/// </summary>\n\tpublic class ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0}{1}", this.Context.TypeName, this.Context.TypeNameSuffix)));
+            
+            #line default
+            #line hidden
+            this.Write("\n\t{\n");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+		foreach(var column in this.Context.Columns) { 
+            
+            #line default
+            #line hidden
+            this.Write("\n\t\t/// <summary>\n\t\t/// ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0} を取得または設定します。", column.ColumnName)));
+            
+            #line default
+            #line hidden
+            this.Write("\n\t\t/// </summary>\n\t\tpublic virtual ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0} {1}", column.DataType.FullName, column.ColumnName)));
+            
+            #line default
+            #line hidden
+            this.Write(" { get; set; }\n\n");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+		} 
+            
+            #line default
+            #line hidden
+            this.Write("\n\t}\n}\n");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -44,7 +107,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public class TableDataGatewayTemplateBase
+    public class EntityTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;
