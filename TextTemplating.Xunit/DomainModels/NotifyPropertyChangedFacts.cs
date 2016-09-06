@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
 using Xunit;
@@ -35,6 +34,5 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 TextTemplatingProcess.StartExplorer(context.OutputPath);
             }
         }
-
     }
 }

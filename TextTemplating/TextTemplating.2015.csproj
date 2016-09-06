@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ComponentModel\EntitiesViewModel.partial.cs" />
     <Compile Include="DataTransferObjects\NotifyPropertyChangedContext.cs" />
     <Compile Include="DomainModels\NotifyPropertyChanged.cs" />
     <Compile Include="EntityTemplate.cs">

@@ -33,21 +33,13 @@ namespace TextTemplating.Windows
             // [Transform] クリック
             var click = this.ButtonTransform.ClickAsObservable()
                 .Subscribe(_ => this._vm.TransformText());
-                //.Subscribe(_ => this.ButtonTransform_Click());
 
             // データバインド
             this.Entities.DataContext = this._vm;
+
         }
 
         #region Private members...
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private void ButtonTransform_Click()
-        {
-            this._vm.TransformText();
-        }
         
         #endregion
     }

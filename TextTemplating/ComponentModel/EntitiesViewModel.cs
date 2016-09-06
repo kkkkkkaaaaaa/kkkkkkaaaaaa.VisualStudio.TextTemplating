@@ -10,7 +10,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
     /// <summary>
     /// 
     /// </summary>
-    public class EntitiesViewModel : EntitiesContext, INotifyPropertyChanged
+    public partial class EntitiesViewModel : EntitiesContext, INotifyPropertyChanged
     {
         /// <summary>
         /// プロパティー変更イベントハンドラ―。
@@ -86,7 +86,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
         {
             get
             {
-                return string.Join(@", ", base.Imports);
+                var text = (base.Imports == null)
+                    ? @""
+                    : string.Join(@", ", base.Imports);
+
+                return text;
             }
             set
             {
@@ -97,19 +101,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
             }
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void TransformText()
-        {
-            if (this.Imports == null) { return; }
-
-            this._model.CreateEntities();
-
-            TextTemplatingProcess.StartExplorer(this._model.OutputPath);
-        }
-
         #region Protected members...
 
         /// <summary>
@@ -118,20 +109,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
         /// <param name="propertyName"></param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion
-
-        #region Private members...
-
-        /// <summary></summary>
-        private readonly Entities _model;
-
-        #endregion
-
     }
 }
