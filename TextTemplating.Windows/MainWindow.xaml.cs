@@ -2,8 +2,8 @@
 using System.CodeDom;
 using System.Reflection;
 using System.Windows;
+using kkkkkkaaaaaa.Reactive.Windows;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel;
-using kkkkkkaaaaaa.Windows.Reactive;
 
 namespace TextTemplating.Windows
 {
@@ -32,7 +32,7 @@ namespace TextTemplating.Windows
 
             // [Transform] クリック
             var click = this.ButtonTransform.ClickAsObservable()
-                .Subscribe(_ => this._vm.TransformText());
+                 .Subscribe(_ => this._vm.TransformText());
 
             // データバインド
             this.Entities.DataContext = this._vm;

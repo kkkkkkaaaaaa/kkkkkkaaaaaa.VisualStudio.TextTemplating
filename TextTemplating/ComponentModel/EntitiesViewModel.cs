@@ -1,86 +1,24 @@
 ﻿using System;
-using System.CodeDom;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
+using System.IO;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
 {
     /// <summary>
-    /// 
+    /// Entity のビューモデルを表します。
     /// </summary>
-    public partial class EntitiesViewModel : EntitiesContext, INotifyPropertyChanged
+    public partial class EntitiesViewModel
     {
-        /// <summary>
-        /// プロパティー変更イベントハンドラ―。
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
         /// <summary>
         /// コンストラクター。
         /// </summary>
         public EntitiesViewModel()
         {
-            /*
-            this.PropertyChangedAsObservable()
-                .Where(p => (p.EventArgs.PropertyName == @"Namespace"))
-                .Subscribe(p => this.TransformText());
-            */
-        }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public override string Namespace
-        {
-            get { return base.Namespace; }
-            set
-            {
-                if (value != base.Namespace)
-                {
-                    base.Namespace = value;
-                    this.OnPropertyChanged();
-                }
-            }
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        public override string TypeNameSuffix
-        {
-            get { return base.TypeNameSuffix; }
-            set
-            {
-                if (value != base.TypeNameSuffix)
-                {
-                    base.TypeNameSuffix = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public override MemberAttributes MemberAttributes
-        {
-            get { return base.MemberAttributes; }
-            set
-            {
-                if (value != base.MemberAttributes)
-                {
-                    base.MemberAttributes = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
-
-        /// <summary>
-        /// 
+        /// using。
         /// </summary>
         public string ImportsText
         {
@@ -97,21 +35,27 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
                 if (value != this.ImportsText)
                 {
                     base.Imports = value.Split(new[] { ' ', ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    this.OnPropertyChanged();
                 }
             }
         }
 
-        #region Protected members...
-
         /// <summary>
-        /// 
+        /// テキスト変換を実行します。
         /// </summary>
-        /// <param name="propertyName"></param>
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public void TransformText()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            this.OutputPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), this.Namespace);
+
+            var entities = new Entities(this);
+            entities.CreateEntities();
+
+            TextTemplatingProcess.StartExplorer(this.OutputPath);
         }
 
+        #region Private members...
+
         #endregion
+
     }
 }

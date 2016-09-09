@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ComponentModel\EntitiesViewModel.partial.cs" />
+    <Compile Include="ComponentModel\EntitiesViewModel.vm.cs" />
     <Compile Include="DataTransferObjects\NotifyPropertyChangedContext.cs" />
     <Compile Include="DomainModels\NotifyPropertyChanged.cs" />
     <Compile Include="EntityTemplate.cs">
@@ -156,6 +156,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>TableDataGatewayTemplate.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Windows\Input\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.102.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.102.0\build\net46\System.Data.SQLite.Core.targets')" />

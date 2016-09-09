@@ -27,6 +27,7 @@
                 <t4:SqlStoredProceduresControl x:Name="SqlProcedures" />
             </TabItem>
         </TabControl>
-        <Button x:Name="ButtonTransform" Width="50" Height="30" DockPanel.Dock="Bottom" />
+        <Button x:Name="ButtonTransform" Width="50" Height="30" DockPanel.Dock="Bottom" Command="{Binding TransformText}">
+        </Button>
     </DockPanel>
 </Window>

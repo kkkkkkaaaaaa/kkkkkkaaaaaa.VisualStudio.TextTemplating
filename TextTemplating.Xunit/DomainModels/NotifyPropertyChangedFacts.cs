@@ -23,7 +23,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                     Imports = new[] {@"System.ComponentModel", @"DataTransferObjects" },
                     TypeName = @"TB_MATE_SALE_PRICE",
                     TypeNameSuffix = @"ViewModel",
-                    Inherits = @"BaseViewModel",
+                    Inherits = @"TestViewModel",
                     Implements = new [] { @"INortifyPropertyChanged" },
                     OutputPath = output,
                 };
