@@ -15,7 +15,6 @@ namespace <#= this.Context.Namespace #>
 		/// <#= string.Format(@"{0} を取得または設定します。", column.ColumnName) #>
 		/// </summary>
 		public virtual <#= string.Format(@"{0} {1}", column.DataType.FullName, column.ColumnName) #> { get; set; }
-
 <#		} #>
 	}
 }

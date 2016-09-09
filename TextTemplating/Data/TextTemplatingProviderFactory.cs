@@ -24,7 +24,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data
         /// <returns></returns>
         public override DbConnection CreateConnection()
         {
-            var section = ConfigurationManager.ConnectionStrings[@"db3"];
+            var section = ConfigurationManager.ConnectionStrings[@"redmine"];
 
             var connection = base.CreateConnection();
             connection.ConnectionString = section.ConnectionString;
@@ -37,7 +37,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        protected TextTemplatingProviderFactory() : base(DbProviderFactories.GetFactory(@"System.Data.SQLite"))
+        protected TextTemplatingProviderFactory() : base(DbProviderFactories.GetFactory(@"MySql.Data.MySqlClient"))
         {
             this.DoNothing();
         }

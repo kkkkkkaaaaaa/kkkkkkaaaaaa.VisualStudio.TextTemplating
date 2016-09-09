@@ -88,7 +88,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\n\n");
+            this.Write(" { get; set; }\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
 		} 
