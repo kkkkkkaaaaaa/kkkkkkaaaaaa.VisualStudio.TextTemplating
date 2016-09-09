@@ -35,7 +35,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// <returns></returns>
         public Entities CreateEntities()
         {
-            Directory.CreateDirectory(this.Context.OutputPath);
+            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
 
             var tables = this.GetTablesSchema();
             foreach (var table in tables)
@@ -53,7 +53,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// <returns></returns>
         public Entities CreateEntity(string table)
         {
-            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); } // テーブル単体
+            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
 
             this.Context.TypeName = table;
             this.Context.Columns = this.GetColumnsSchema(table);

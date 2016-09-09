@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit;
 using Xunit;
@@ -14,8 +15,6 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
         [Fact()]
         public void Fact()
         {
-            var ns = @"Windows.Reactive";
-            ns = string.IsNullOrWhiteSpace(ns) ? "" : $".{ns}";
             var imports = new[]
             {
                 "System.Windows",
@@ -46,11 +45,13 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 // typeof(ContentPresenter),
                 // typeof(),
             };
+
+            var ns = @"Windows.Reactive";
             var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
 
             var context = new EventAsObservableContext
             {
-                Namespace = $@"kkkkkkaaaaaa.VisualStudio.TextTemplating{ns}",
+                Namespace = new Namespace(NAMESPACE, ns),
                 Imports = imports,
                 Types = types,
                 OutputPath = output,
@@ -61,5 +62,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 
             TextTemplatingProcess.StartExplorer(context.OutputPath);
         }
+
+        private const string NAMESPACE = @"Estelle.Asme";
     }
 }

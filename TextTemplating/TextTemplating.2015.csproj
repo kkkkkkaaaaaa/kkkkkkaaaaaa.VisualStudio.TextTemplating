@@ -33,8 +33,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\EntitiesViewModel.vm.cs" />
+    <Compile Include="DataTransferObjects\Namespace.cs" />
     <Compile Include="DataTransferObjects\NotifyPropertyChangedContext.cs" />
+    <Compile Include="DataTransferObjects\TableDataGatewaysContext.cs" />
     <Compile Include="DomainModels\NotifyPropertyChanged.cs" />
+    <Compile Include="DomainModels\TableDataGateways.cs" />
     <Compile Include="EntityTemplate.cs">
       <DependentUpon>EntityTemplate.tt</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -50,7 +53,6 @@
     <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />
     <Compile Include="DataTransferObjects\TextTemplatingContext.cs" />
     <Compile Include="DataTransferObjects\T4SqlStoredProcedureContext.cs" />
-    <Compile Include="DataTransferObjects\T4TableDataGatewayContext.cs" />
     <Compile Include="Data\Repositories\SchemaRepository.cs" />
     <Compile Include="Data\Repositories\T4Repository.cs" />
     <Compile Include="Data\TextTemplatingProviderFactory.cs" />
@@ -59,9 +61,8 @@
     <Compile Include="DomainModels\EventAsObservable.cs" />
     <Compile Include="DomainModels\ProviderFactory.cs" />
     <Compile Include="DomainModels\TextTemplatingDomainModel.cs" />
-    <Compile Include="DomainModels\TextTemplatingProcess.cs" />
+    <Compile Include="Diagnostics\TextTemplatingProcess.cs" />
     <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />
-    <Compile Include="DomainModels\T4TableDataGateways.cs" />
     <Compile Include="EntityTemplate.partial.cs" />
     <Compile Include="EventAsObservableTemplate.partial.cs" />
     <Compile Include="EventAsObservableTemplate.cs">

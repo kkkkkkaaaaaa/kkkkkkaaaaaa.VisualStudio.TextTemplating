@@ -3,7 +3,7 @@ using System.CodeDom;
 using System.Reflection;
 using System.Windows;
 using kkkkkkaaaaaa.Reactive.Windows;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace TextTemplating.Windows
 {
@@ -20,7 +20,7 @@ namespace TextTemplating.Windows
             this.InitializeComponent();
 
             // 規定値
-            this._vm.Namespace = @"kkkkkkaaaaaa.VisualStudio.TextTemplating";
+            this._vm.Namespace = new Namespace(@"kkkkkkaaaaaa.VisualStudio.TextTemplating", @"");
             this._vm.Imports = new []{ @"System", };
             this._vm.TypeAttributes = TypeAttributes.Public;
             this._vm.TypeNameSuffix = "Entity";

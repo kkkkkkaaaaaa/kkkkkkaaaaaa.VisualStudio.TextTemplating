@@ -14,11 +14,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
         /// <summary>
         /// 
         /// </summary>
-        public string Inherits { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string[] Implements { get; set; }
 
         /// <summary>

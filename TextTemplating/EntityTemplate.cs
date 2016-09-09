@@ -25,7 +25,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\nnamespace ");
+            this.Write("namespace ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Namespace));
@@ -35,7 +35,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\n{\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
-	foreach(var import in this.Context.Imports) { 
+ foreach(var import in this.Context.Imports) { 
             
             #line default
             #line hidden
@@ -49,11 +49,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
-	} 
+ } 
             
             #line default
             #line hidden
-            this.Write("\n\n\t/// <summary>\n\t/// ");
+            this.Write("\n\t/// <summary>\n\t/// ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0} のエンティティを表します。", this.Context.TypeName)));

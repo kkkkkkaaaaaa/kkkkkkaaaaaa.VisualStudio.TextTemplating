@@ -1,6 +1,92 @@
-﻿<#@ template language="C#" #>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Collections.Generic" #>
-public static class 
+﻿<#@ import namespace="System.Linq" #>
+namespace <#= this.Context.Namespace #>
+{
+<# foreach(var import in this.Context.Imports) { #>
+	using <#= $@"{ import }" #>;
+<# } #>
+    /// <summary>
+    /// <#= this.Context.TableName #> への TableDataGateway です。
+    /// </summary>
+	internal static class <#= this.Context.TypeName #> : <#= this.Context.Inherits #>
+	{
+
+		public string TableName
+		{
+			get { return @"<#= this.Context.TableName #>"; }
+		}
+
+		public static KandaDbDataReader Select(<#= this.Entity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		{
+			var reader = <#= this.Context.Inherits #>.CreateDataReader(connection, transaction);
+	
+			KandaDbDataMapper.MapToParameters(reader.Parameters, criteria);
+
+			reader.CommandText = string.Format(@"SELECT
+	*
+FROM
+	<#= this.Context.TableName #>
+WHERE 1 = 1
+	AND <#= this.Context.Columns.First().ColumnName #> = {0}
+ORDER BY
+	<#= this.Context.Columns.First().ColumnName #> ASC", criteria.<#= this.Context.Columns.First().ColumnName #>);
+
+			reader.ExecuteReader();
+
+			return reader;
+		}
+
+		public static int Insert(<#= this.Entity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		{
+			var command = <#= this.Context.Inherits #>.CreateCommand(connection, transaction);
+
+			KandaDbDataMapper.MapToParameters(command.Parameters, criteria);
+			
+			command.CommandText = string.Format(@"INSERT INTO <#= this.Context.TableName  #> (
+) values (
+, criteria.<#= this.Context.Columns.First().ColumnName #>);
+			
+			var affected = command.ExecuteNonQuery();
+
+			return affected;
+		}
+
+		public int Update(<#= this.Entity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		{
+			var command = <#= this.Context.Inherits #>.CreateCommand(connection, transaction);
+
+			KandaDbDataMapper.MapToParameters(command.Parameters, criteria);
+			
+			command.CommandText = string.Format(@"UPDATE SET 
+WHERE 1 = 1
+, criteria.<#= this.Context.Columns.First().ColumnName #>);
+			
+			var affected = command.ExecuteNonQuery();
+
+			return affected;
+		}
+
+		#region Internal members...
+
+		internal int Delete(<#= this.Entity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		{
+			var command = <#= this.Context.Inherits #>.CreateCommand(connection, transaction);
+
+			KandaDbDataMapper.MapToParameters(command.Parameters, criteria);
+			
+			command.CommandText = string.Format(@"DELETE
+WHERE 1 = 1"
+, criteria.<#= this.Context.Columns.First().ColumnName #>);
+			
+			var affected = command.ExecuteNonQuery();
+
+			return affected;
+		}
+
+		internal static int Truncate()
+		{
+			return <#= this.Context.Inherits #>.Truncate(<#= this.Context.TableName #>);
+		}
+
+		#endregion
+	}
+}

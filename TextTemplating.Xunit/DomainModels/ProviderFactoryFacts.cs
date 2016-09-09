@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
 using Xunit;
 
@@ -15,7 +16,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             ns = string.IsNullOrWhiteSpace(ns) ? "" : $".{ns}";
             var context = new ProviderFactoryContext
             {
-                Namespace = ns,
+                Namespace = new Namespace(NAMESPACE, ns),
                 Imports = new[] {@"System", @"System.Data.Common", @"System.Configuration", @"kkkkkkaaaaaa.Data.Common",},
                 TypeName = @"TestProviderFactory",
                 ConnectionStringSectionName = @"db",
@@ -29,5 +30,6 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             TextTemplatingProcess.StartExplorer(context.OutputPath);
         }
 
+        private const string NAMESPACE = @"Estelle.Asme.Redmine";
     }
 }

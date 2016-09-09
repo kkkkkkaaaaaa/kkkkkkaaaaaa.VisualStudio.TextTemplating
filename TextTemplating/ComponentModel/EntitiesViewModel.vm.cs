@@ -19,7 +19,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
         /// <summary>
         /// 
         /// </summary>
-        public override string Namespace
+        public override Namespace Namespace
         {
             get { return base.Namespace; }
             set

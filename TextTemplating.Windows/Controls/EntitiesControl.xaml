@@ -9,7 +9,7 @@
     d:DesignHeight="300" d:DesignWidth="400">
     <Grid x:Name="GridEntities">
         <Label x:Name="LabelNamespace" Content="Namespace" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" />
-        <TextBox x:Name="TextNamespace" Text="{Binding Namespace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="92,10,10,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <TextBox x:Name="TextNamespace" Text="{Binding NamespaceText, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="92,10,10,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
         <Label x:Name="LabelImports" HorizontalAlignment="Left" Margin="10,38,0,0" Content="Imports" VerticalAlignment="Top" />
         <TextBox x:Name="TextImports" Text="{Binding ImportsText, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="23" Margin="92,38,10,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
         <Label x:Name="LabelTypeNamePrefix" Content="Prefix" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" />

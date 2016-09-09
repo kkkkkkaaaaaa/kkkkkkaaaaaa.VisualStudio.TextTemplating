@@ -1,5 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
@@ -15,6 +18,16 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
         public EntitiesViewModel()
         {
 
+        }
+
+        public string NamespaceText
+        {
+            get { return this.Namespace.ToString(); }
+            set
+            {
+                var temp = value.Split('.');
+                this.Namespace = new Namespace(string.Concat(temp.Where((_, indecies) => indecies != temp.Length - 2)), temp[temp.Length - 1]);
+            }
         }
 
         /// <summary>
@@ -45,7 +58,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
         /// </summary>
         public void TransformText()
         {
-            this.OutputPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), this.Namespace);
+            this.OutputPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), this.Namespace.Name);
 
             var entities = new Entities(this);
             entities.CreateEntities();

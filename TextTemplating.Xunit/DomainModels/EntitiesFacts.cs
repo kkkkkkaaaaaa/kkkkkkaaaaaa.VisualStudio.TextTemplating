@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
 using Xunit;
 
@@ -15,10 +16,9 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             var ns = @"DataTransferObjects";
             var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
 
-            ns = string.IsNullOrWhiteSpace(ns) ? "" : $".{ns}";
             var context = new EntitiesContext
             {
-                Namespace = $@"kkkkkkaaaaaa.VisualStudio.TextTemplating{ns}",
+                Namespace = new Namespace(NAMESPACE, ns),
                 Imports = new[] { @"System", },
                 TypeAttributes = TypeAttributes.Public | TypeAttributes.Class, 
                 IsPartial = true,
@@ -35,16 +35,18 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             TextTemplatingProcess.StartExplorer(output);
         }
 
+        /// <summary></summary>
+        private const string NAMESPACE = @"Estelle.Asme.Redmine";
+
         [Fact()]
         public void CreateEntityFact()
         {
             var ns = @"DataTransferObjects";
             var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
 
-            ns = string.IsNullOrWhiteSpace(ns) ? "" : $".{ns}";
             var context = new EntitiesContext
             {
-                Namespace = $@"kkkkkkaaaaaa.VisualStudio.TextTemplating{ns}",
+                Namespace = new Namespace(NAMESPACE, ns),
                 Imports = new[] { @"System", },
                 TypeAttributes = TypeAttributes.Public | TypeAttributes.Class,
                 IsPartial = true,
@@ -54,7 +56,8 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 MemberAttributes = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
                 OutputPath = output,
             };
-            
+
+
             var entities = new Entities(context);
             entities.CreateEntity(@"TB_MATE_SALE_PRICE");
 

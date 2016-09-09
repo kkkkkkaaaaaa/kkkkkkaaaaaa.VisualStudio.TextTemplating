@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
+namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics
 {
     /// <summary>
     /// プロセスにアクセスします。ｃ

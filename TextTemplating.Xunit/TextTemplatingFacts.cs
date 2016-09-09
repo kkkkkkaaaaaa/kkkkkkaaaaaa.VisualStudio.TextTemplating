@@ -1,11 +1,16 @@
 ﻿using System.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit
 {
+    /// <summary>
+    /// データソースへのアクセスを提供するオブジェクトの Factory Method を提供します。
+    /// </summary>
     public class TextTemplatingFacts
     {
+        /// <summary>
+        /// Singleton インスタンス。
+        /// </summary>
         protected TextTemplatingProviderFactory Factory
         {
             [DebuggerStepThrough()]

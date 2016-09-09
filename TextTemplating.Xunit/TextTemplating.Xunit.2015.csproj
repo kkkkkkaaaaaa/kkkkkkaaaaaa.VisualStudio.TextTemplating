@@ -37,6 +37,7 @@
     <Compile Include="DomainModels\EventAsObservableFacts.cs" />
     <Compile Include="DomainModels\NotifyPropertyChangedFacts.cs" />
     <Compile Include="DomainModels\ProviderFactoryFacts.cs" />
+    <Compile Include="DomainModels\TableDataGatewaysFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.2015.cs" />
     <Compile Include="TextTemplatingFacts.cs" />
   </ItemGroup>

@@ -14,13 +14,13 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// ドメインモデルの基底クラスを表します。
     /// </summary>
     /// <typeparam name="TContext"></typeparam>
-    public class TextTemplatingDomainModel<TContext> where TContext : TextTemplatingContext
+    public abstract class TextTemplatingDomainModel<TContext> where TContext : TextTemplatingContext
     {
-        [DebuggerStepThrough()]
         /// <summary>
-        /// 
+        /// コンストラクター。ｓ
         /// </summary>
         /// <param name="context"></param>
+        [DebuggerStepThrough()]
         public  TextTemplatingDomainModel(TContext context)
         {
             this._context = context;
@@ -39,6 +39,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// </summary>
         public string OutputPath
         {
+            [DebuggerStepThrough()]
             get { return this._context.OutputPath; }
         }
 

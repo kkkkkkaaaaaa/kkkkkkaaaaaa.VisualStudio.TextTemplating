@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
 using Xunit;
 
@@ -14,12 +15,9 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             {
                 var ns = @"ComponentModel";
                 var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
-
-                ns = string.IsNullOrWhiteSpace(ns) ? ns : $".{ns}";
-
                 var context = new EntitiesContext()
                 {
-                    Namespace = ns,
+                    Namespace = new Namespace(NAMESPACE, ns),
                     Imports = new[] {@"System.ComponentModel", @"DataTransferObjects" },
                     TypeName = @"TB_MATE_SALE_PRICE",
                     TypeNameSuffix = @"ViewModel",
@@ -33,6 +31,9 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 
                 TextTemplatingProcess.StartExplorer(context.OutputPath);
             }
+
+            /// <summary></summary>
+            private const string NAMESPACE = @"Estelle.Asme";
         }
     }
 }

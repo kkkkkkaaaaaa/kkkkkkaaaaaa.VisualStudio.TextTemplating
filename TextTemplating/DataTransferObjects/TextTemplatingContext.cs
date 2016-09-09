@@ -8,7 +8,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
     {
         public virtual string OutputPath { get; set; }
 
-        public virtual string Namespace { get; set; }
+        public virtual Namespace Namespace { get; set; }
 
         public virtual string[] Imports { get; set; }
 
@@ -17,6 +17,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
         public virtual string TypeName { get; set; }
 
         public virtual string TypeNameSuffix { get; set; }
+
+        public virtual string Inherits { get; set; }
 
         public virtual MemberAttributes MemberAttributes { get; set; }
 
