@@ -9,8 +9,8 @@
 // ------------------------------------------------------------------------------
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 {
-    using System.Linq;
     using System;
+    using System.Linq;
     
     /// <summary>
     /// Class to produce the template output
@@ -28,63 +28,63 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         {
             this.Write("namespace ");
             
-            #line 2 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n");
             
-            #line 4 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 5 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
  foreach(var import in this.Context.Imports) { 
             
             #line default
             #line hidden
             this.Write("\tusing ");
             
-            #line 5 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 6 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(import));
             
             #line default
             #line hidden
             this.Write(";\r\n");
             
-            #line 6 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("    /// <summary>\r\n    /// ");
+            this.Write("\r\n    /// <summary>\r\n    /// ");
             
-            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default
             #line hidden
             this.Write(" への TableDataGateway です。\r\n    /// </summary>\r\n\tinternal static class ");
             
-            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 12 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 12 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Inherits));
             
             #line default
             #line hidden
-            this.Write("\r\n\t{\r\n\r\n\t\tpublic string TableName\r\n\t\t{\r\n\t\t\tget { return @\"");
+            this.Write("\r\n\t{\r\n\t\tpublic static string TableName\r\n\t\t{\r\n\t\t\tget { return @\"");
             
-            #line 15 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default
             #line hidden
             this.Write("\"; }\r\n\t\t}\r\n\r\n\t\tpublic static KandaDbDataReader Select(");
             
-            #line 18 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 19 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Entity.TypeName));
             
             #line default
@@ -92,45 +92,92 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(" criteria, DbConnection connection, DbTransaction transaction)\r\n\t\t{\r\n\t\t\tvar reade" +
                     "r = ");
             
-            #line 20 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 21 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Inherits));
             
             #line default
             #line hidden
             this.Write(".CreateDataReader(connection, transaction);\r\n\t\r\n\t\t\tKandaDbDataMapper.MapToParamet" +
-                    "ers(reader.Parameters, criteria);\r\n\r\n\t\t\treader.CommandText = string.Format(@\"SEL" +
-                    "ECT\r\n\t*\r\nFROM\r\n\t");
+                    "ers(reader.Parameters, criteria);\r\n\r\n\t\t\treader.CommandText = string.Format(@\"\r\n");
+            this.Write("SELECT\r\n");
             
-            #line 27 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 2 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
+
+var i = 0;
+foreach (var column in  this.Context.Columns) {
+	if (i == 0) {
+            
+            #line default
+            #line hidden
+            this.Write("\t ");
+            
+            #line 6 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
+	} else { 
+            
+            #line default
+            #line hidden
+            this.Write("\t , ");
+            
+            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
+	}
+	i++;
+} 
+            
+            #line default
+            #line hidden
+            this.Write("FROM\r\n\t");
+            
+            #line 13 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default
             #line hidden
-            this.Write("\r\nWHERE 1 = 1\r\n\tAND ");
+            this.Write("\r\nWHERE 1 = 1\r\n");
             
-            #line 29 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Columns.First().ColumnName));
-            
-            #line default
-            #line hidden
-            this.Write(" = {0}\r\nORDER BY\r\n\t");
-            
-            #line 31 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Columns.First().ColumnName));
+            #line 15 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
+ foreach (var column in  this.Context.Columns) { 
             
             #line default
             #line hidden
-            this.Write(" ASC\", criteria.");
+            this.Write("\t-- AND ");
             
-            #line 31 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Columns.First().ColumnName));
+            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
-            this.Write(");\r\n\r\n\t\t\treader.ExecuteReader();\r\n\r\n\t\t\treturn reader;\r\n\t\t}\r\n\r\n\t\tpublic static int" +
-                    " Insert(");
+            this.Write(" = @");
             
-            #line 38 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 17 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\SelectStatementTemplate.t4"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\");\r\n\t\t\treader.ExecuteReader();\r\n\r\n\t\t\treturn reader;\r\n\t\t}\r\n\r\n\t\tpublic static int " +
+                    "Insert(");
+            
+            #line 32 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Entity.TypeName));
             
             #line default
@@ -138,7 +185,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(" criteria, DbConnection connection, DbTransaction transaction)\r\n\t\t{\r\n\t\t\tvar comma" +
                     "nd = ");
             
-            #line 40 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 34 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Inherits));
             
             #line default
@@ -147,14 +194,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
                     "command.Parameters, criteria);\r\n\t\t\t\r\n\t\t\tcommand.CommandText = string.Format(@\"IN" +
                     "SERT INTO ");
             
-            #line 44 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 38 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default
             #line hidden
             this.Write(" (\r\n) values (\r\n, criteria.");
             
-            #line 46 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 40 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Columns.First().ColumnName));
             
             #line default
@@ -162,7 +209,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(");\r\n\t\t\t\r\n\t\t\tvar affected = command.ExecuteNonQuery();\r\n\r\n\t\t\treturn affected;\r\n\t\t}" +
                     "\r\n\r\n\t\tpublic int Update(");
             
-            #line 53 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 47 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Entity.TypeName));
             
             #line default
@@ -170,7 +217,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(" criteria, DbConnection connection, DbTransaction transaction)\r\n\t\t{\r\n\t\t\tvar comma" +
                     "nd = ");
             
-            #line 55 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 49 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Inherits));
             
             #line default
@@ -179,7 +226,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
                     "command.Parameters, criteria);\r\n\t\t\t\r\n\t\t\tcommand.CommandText = string.Format(@\"UP" +
                     "DATE SET \r\nWHERE 1 = 1\r\n, criteria.");
             
-            #line 61 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 55 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Columns.First().ColumnName));
             
             #line default
@@ -187,7 +234,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(");\r\n\t\t\t\r\n\t\t\tvar affected = command.ExecuteNonQuery();\r\n\r\n\t\t\treturn affected;\r\n\t\t}" +
                     "\r\n\r\n\t\t#region Internal members...\r\n\r\n\t\tinternal int Delete(");
             
-            #line 70 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 64 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Entity.TypeName));
             
             #line default
@@ -195,7 +242,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(" criteria, DbConnection connection, DbTransaction transaction)\r\n\t\t{\r\n\t\t\tvar comma" +
                     "nd = ");
             
-            #line 72 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 66 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Inherits));
             
             #line default
@@ -204,7 +251,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
                     "command.Parameters, criteria);\r\n\t\t\t\r\n\t\t\tcommand.CommandText = string.Format(@\"DE" +
                     "LETE\r\nWHERE 1 = 1\"\r\n, criteria.");
             
-            #line 78 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 72 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Columns.First().ColumnName));
             
             #line default
@@ -212,14 +259,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(");\r\n\t\t\t\r\n\t\t\tvar affected = command.ExecuteNonQuery();\r\n\r\n\t\t\treturn affected;\r\n\t\t}" +
                     "\r\n\r\n\t\tinternal static int Truncate()\r\n\t\t{\r\n\t\t\treturn ");
             
-            #line 87 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 81 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Inherits));
             
             #line default
             #line hidden
             this.Write(".Truncate(");
             
-            #line 87 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
+            #line 81 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default

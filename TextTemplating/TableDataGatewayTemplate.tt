@@ -1,16 +1,17 @@
-﻿<#@ import namespace="System.Linq" #>
+﻿<#@ import namespace="System" #>
+<#@ import namespace="System.Linq" #>
 namespace <#= this.Context.Namespace #>
 {
 <# foreach(var import in this.Context.Imports) { #>
 	using <#= import #>;
 <# } #>
+
     /// <summary>
     /// <#= this.Context.TableName #> への TableDataGateway です。
     /// </summary>
 	internal static class <#= this.Context.TypeName #> : <#= this.Context.Inherits #>
 	{
-
-		public string TableName
+		public static string TableName
 		{
 			get { return @"<#= this.Context.TableName #>"; }
 		}
@@ -21,15 +22,8 @@ namespace <#= this.Context.Namespace #>
 	
 			KandaDbDataMapper.MapToParameters(reader.Parameters, criteria);
 
-			reader.CommandText = string.Format(@"SELECT
-	*
-FROM
-	<#= this.Context.TableName #>
-WHERE 1 = 1
-	AND <#= this.Context.Columns.First().ColumnName #> = {0}
-ORDER BY
-	<#= this.Context.Columns.First().ColumnName #> ASC", criteria.<#= this.Context.Columns.First().ColumnName #>);
-
+			reader.CommandText = string.Format(@"
+<#@ include file="Includes\SelectStatementTemplate.t4" #>");
 			reader.ExecuteReader();
 
 			return reader;

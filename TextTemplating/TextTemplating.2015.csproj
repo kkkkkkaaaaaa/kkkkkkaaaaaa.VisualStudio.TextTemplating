@@ -88,12 +88,12 @@
       <DependentUpon>SqlSelectTableTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="SqlSelectTableTemplate.partial.cs" />
-    <Compile Include="TableDataGatewayTemplate.cs">
+    <Compile Include="TableDataGatewayTemplate.partial.cs" />
+    <Compile Include="TableDataGatewayTemplate1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TableDataGatewayTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="TableDataGatewayTemplate.partial.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -149,6 +149,9 @@
     <None Include="Includes\EntityPropertyTemplate.t4">
       <LastGenOutput>EntityPropertyTemplate1.cs</LastGenOutput>
     </None>
+    <None Include="Includes\SelectStatementTemplate.t4">
+      <LastGenOutput>SelectStatementTemplate1.cs</LastGenOutput>
+    </None>
     <Content Include="NotifyPropertyChangedTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>NotifyPropertyChangedTemplate.cs</LastGenOutput>
@@ -163,7 +166,7 @@
     </Content>
     <Content Include="TableDataGatewayTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>TableDataGatewayTemplate.cs</LastGenOutput>
+      <LastGenOutput>TableDataGatewayTemplate1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

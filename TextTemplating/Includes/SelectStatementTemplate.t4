@@ -1,0 +1,17 @@
+﻿SELECT
+<#
+var i = 0;
+foreach (var column in  this.Context.Columns) {
+	if (i == 0) {#>
+	 <#= column.ColumnName #>
+<#	} else { #>
+	 , <#= column.ColumnName #>
+<#	}
+	i++;
+} #>
+FROM
+	<#= this.Context.TableName #>
+WHERE 1 = 1
+<# foreach (var column in  this.Context.Columns) { #>
+	-- AND <#= column.ColumnName #> = @<#= column.ColumnName #>
+<# } #>
