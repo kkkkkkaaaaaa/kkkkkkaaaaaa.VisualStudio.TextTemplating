@@ -1,0 +1,24 @@
+﻿
+INSERT INTO <#= this.Context.TableName #> (
+<#
+var j = 0;
+foreach (var column in  this.Context.Columns) {
+	if (j == 0) { #>
+	 <#= column.ColumnName #>
+<#	} else { #>
+	 , <#= column.ColumnName #>
+<#	}
+	j++;
+} #>
+) VALUES (
+<#
+var k = 0;
+foreach (var column in  this.Context.Columns) {
+	if (k == 0) { #>
+	 @<#= column.ColumnName #>
+<#	} else { #>
+	 , @<#= column.ColumnName #>
+<#	}
+	k++;
+} #>
+)

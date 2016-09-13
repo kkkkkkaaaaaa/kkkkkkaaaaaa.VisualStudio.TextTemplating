@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Includes\GatewayDeleteStatementTemplate.t4" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -149,8 +150,14 @@
     <None Include="Includes\EntityPropertyTemplate.t4">
       <LastGenOutput>EntityPropertyTemplate1.cs</LastGenOutput>
     </None>
-    <None Include="Includes\SelectStatementTemplate.t4">
+    <None Include="Includes\GatewaySelectStatementTemplate.t4">
       <LastGenOutput>SelectStatementTemplate1.cs</LastGenOutput>
+    </None>
+    <None Include="Includes\GatewayUpdateStatementTemplate.t4">
+      <LastGenOutput>GatewayUpdateStatementTemplate1.cs</LastGenOutput>
+    </None>
+    <None Include="Includes\GatewayInsertStatementTemplate.t4">
+      <LastGenOutput>GatewayInsertStatementTemplate11.cs</LastGenOutput>
     </None>
     <Content Include="NotifyPropertyChangedTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

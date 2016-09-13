@@ -1,0 +1,17 @@
+﻿
+UPDATE
+	<#= this.Context.TableName #>
+SET
+<#
+var l = 0;
+foreach (var column in  this.Context.Columns) {
+	if (0 < l) { #>
+	<#= column.ColumnName #> = @<#= column.ColumnName #>
+<#	}
+	l++;
+} #>
+
+WHERE 1 <> 1 -- 実装時に 1 = 1 にする
+<# foreach (var column in  this.Context.Columns) { #>
+	-- AND <#= column.ColumnName #> = @<#= column.ColumnName #>
+<# } #>

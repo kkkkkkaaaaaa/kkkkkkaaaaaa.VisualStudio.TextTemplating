@@ -1,0 +1,8 @@
+﻿
+DELETE <#= this.Context.TableName #>
+FROM
+	<#= this.Context.TableName #>
+WHERE 1 <> 1 -- 実装時に 1 = 1
+<# foreach (var column in  this.Context.Columns) { #>
+	-- AND <#= column.ColumnName #> = @<#= column.ColumnName #>
+<# } #>
