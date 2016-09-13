@@ -1,7 +1,4 @@
-﻿using System.CodeDom;
-using System.ComponentModel;
-
-namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
+﻿namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 {
     /// <summary>
     /// 名前空間を表す Value Object。
@@ -37,7 +34,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
         {
             var ns = (string.IsNullOrWhiteSpace(this.Parent)
                 ? this.Name
-                : $@"{this.Parent}.{this.Name}");
+                : string.Format(@"{0}.{1}", this.Parent, this.Name));
 
             return ns;
         }

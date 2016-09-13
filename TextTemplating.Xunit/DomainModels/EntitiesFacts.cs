@@ -22,7 +22,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 Imports = new[] { @"System", },
                 TypeAttributes = TypeAttributes.Public | TypeAttributes.Class, 
                 IsPartial = true,
-                TypeNameSuffix = "Entity",
+                TypeNameSuffix = "_entity",
                 Inherits = @"EntityBase",
                 Implements = new [] { @"IEntity" },
                 MemberAttributes = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
@@ -34,9 +34,6 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 
             TextTemplatingProcess.StartExplorer(output);
         }
-
-        /// <summary></summary>
-        private const string NAMESPACE = @"Estelle.Asme.Redmine";
 
         [Fact()]
         public void CreateEntityFact()
@@ -52,16 +49,24 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 IsPartial = true,
                 TypeNameSuffix = "Entity",
                 Inherits = @"EntityBase",
-                Implements = new [] { @"IEntity" },
+                Implements = new string [0],
                 MemberAttributes = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
                 OutputPath = output,
             };
-
-
+            
             var entities = new Entities(context);
-            entities.CreateEntity(@"TB_MATE_SALE_PRICE");
+            //entities.CreateEntity(@"TB_MATE_SALE_PRICE");
+            entities.CreateEntity(@"issues");
 
             TextTemplatingProcess.StartExplorer(output);
         }
+
+
+        #region Private members...
+
+        /// <summary></summary>
+        private const string NAMESPACE = @"Estelle.Asme.Redmine";
+
+        #endregion
     }
 }

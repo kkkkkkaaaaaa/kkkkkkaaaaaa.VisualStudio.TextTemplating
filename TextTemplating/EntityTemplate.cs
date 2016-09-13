@@ -32,7 +32,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write("\n{\n");
+            this.Write("\n{");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
  foreach(var import in this.Context.Imports) { 
@@ -63,32 +63,55 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\n\t/// </summary>\n\tpublic class ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0}{1}", this.Context.TypeName, this.Context.TypeNameSuffix)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
             
             #line default
             #line hidden
-            this.Write("\n\t{\n");
+            this.Write("\n\t{");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
-		foreach(var column in this.Context.Columns) { 
+	foreach(var column in this.Context.Columns) { 
             
             #line default
             #line hidden
-            this.Write("\n\t\t/// <summary>\n\t\t/// ");
+            this.Write("\n");
+            this.Write("\t\t/// <summary>\n\t\t/// ");
             
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0} を取得または設定します。", column.ColumnName)));
             
             #line default
             #line hidden
-            this.Write("\n\t\t/// </summary>\n\t\tpublic virtual ");
+            this.Write("\n\t\t/// </summary>\n\t\t[KandaDataMapping(@\"");
             
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0} {1}", column.DataType.FullName, column.ColumnName)));
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\n");
+            this.Write("\", Ignore = true)]\n\t\t[KandaDbParameterMapping(@\"");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write("\", Ignore = true)]\n\t\tpublic virtual ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.DataType.FullName));
+            
+            #line default
+            #line hidden
+            this.Write(" ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write(" { get; set; }");
+            this.Write("\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
 		} 

@@ -2,6 +2,9 @@
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 {
+    /// <summary>
+    /// EntityTemplate の部分クラスを表します。
+    /// </summary>
 	public partial class EntityTemplate
 	{
         /// <summary>

@@ -146,6 +146,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EventAsObservableTemplate.cs</LastGenOutput>
     </Content>
+    <None Include="Includes\EntityPropertyTemplate.t4">
+      <LastGenOutput>EntityPropertyTemplate1.cs</LastGenOutput>
+    </None>
     <Content Include="NotifyPropertyChangedTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>NotifyPropertyChangedTemplate.cs</LastGenOutput>

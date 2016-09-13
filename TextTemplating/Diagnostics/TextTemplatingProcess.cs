@@ -17,7 +17,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics
             var info = new ProcessStartInfo
             {
                 FileName = @"explorer.exe",
-                Arguments = $@"/e, ""{path}""",
+                Arguments = string.Format(@"/e, ""{0}""", path),
             };
 
             var process = Process.Start(info);

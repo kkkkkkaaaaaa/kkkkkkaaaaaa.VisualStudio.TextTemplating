@@ -43,7 +43,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\tusing ");
             
             #line 5 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture($@"{ import }"));
+            this.Write(this.ToStringHelper.ToStringWithCulture(import));
             
             #line default
             #line hidden

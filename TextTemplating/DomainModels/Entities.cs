@@ -55,16 +55,31 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         {
             if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
 
-            this.Context.TypeName = table;
+            this.Context.TypeName = string.Format(@"{0}{1}", table, this.Context.TypeNameSuffix);
             this.Context.Columns = this.GetColumnsSchema(table);
             
             var template = new EntityTemplate(this.Context);
             var text = template.TransformText();
 
-            var path = Path.Combine(this.Context.OutputPath, $@"{this.Context.TypeName}.cs");
+            var path = Path.Combine(this.Context.OutputPath, string.Format(@"{0}.cs", this.Context.TypeName));
             this.Flush(path, text, new UTF8Encoding(true, true));
 
             return this;
+        }
+
+        public void CreateTablesMarkdownTable()
+        {
+
+        }
+
+        public void CreateTableMrkdownTables()
+        {
+
+        }
+
+        public void CreateTableMrkdownTable()
+        {
+
         }
     }
 }

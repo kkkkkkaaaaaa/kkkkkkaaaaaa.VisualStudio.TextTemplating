@@ -13,7 +13,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
         {
             var ns = @"Data";
             var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
-            ns = string.IsNullOrWhiteSpace(ns) ? "" : $".{ns}";
+            ns = string.IsNullOrWhiteSpace(ns) ? "" : string.Format(@".{0}", ns);
             var context = new ProviderFactoryContext
             {
                 Namespace = new Namespace(NAMESPACE, ns),

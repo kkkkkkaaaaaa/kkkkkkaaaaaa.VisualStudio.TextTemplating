@@ -2,7 +2,7 @@
 namespace <#= this.Context.Namespace #>
 {
 <# foreach(var import in this.Context.Imports) { #>
-	using <#= $@"{ import }" #>;
+	using <#= import #>;
 <# } #>
     /// <summary>
     /// <#= this.Context.TableName #> への TableDataGateway です。

@@ -33,14 +33,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             foreach (var type in this.Context.Types)
             {
                 this.Context.SenderType = type;
-                this.Context.TypeName = $@"{type.Name}Extensions";
+                this.Context.TypeName = string.Format(@"{0}Extensions", type.Name);
                 this.Context.Events = this.getEvents(type);
                 this.Context.SenderName = @"sender";
                 
                 var template = new EventAsObservableTemplate(this.Context);
                 var text = template.TransformText();
 
-                var path = Path.Combine(this.Context.OutputPath, $@"{this.Context.TypeName}.cs");
+                var path = Path.Combine(this.Context.OutputPath, string.Format(@"{0}.cs", this.Context.TypeName));
                 this.Flush(path, text, new UTF8Encoding(true, true));
             }
 

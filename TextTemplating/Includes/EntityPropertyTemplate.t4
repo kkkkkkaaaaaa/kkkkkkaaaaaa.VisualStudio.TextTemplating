@@ -1,0 +1,6 @@
+﻿		/// <summary>
+		/// <#= string.Format(@"{0} を取得または設定します。", column.ColumnName) #>
+		/// </summary>
+		[KandaDataMapping(@"<#= column.ColumnName #>", Ignore = true)]
+		[KandaDbParameterMapping(@"<#= column.ColumnName #>", Ignore = true)]
+		public virtual <#= column.DataType.FullName #> <#= column.ColumnName #> { get; set; }
