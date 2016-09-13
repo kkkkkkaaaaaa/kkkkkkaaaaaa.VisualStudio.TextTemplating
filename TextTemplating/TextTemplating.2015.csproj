@@ -96,7 +96,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config" />
     <None Include="Includes\GatewayDeleteStatementTemplate.t4" />
     <None Include="packages.config" />
   </ItemGroup>
