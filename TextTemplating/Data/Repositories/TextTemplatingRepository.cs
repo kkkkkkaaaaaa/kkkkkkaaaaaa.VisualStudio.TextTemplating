@@ -5,12 +5,12 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
     /// <summary>
     /// このアプリケーションの Repository の基底クラスを表します。
     /// </summary>
-    public abstract class T4Repository
+    public abstract class TextTemplatingRepository
     {
         /// <summary>
-        /// コンストラクター。・
+        /// コンストラクター。
         /// </summary>
-        protected T4Repository()
+        protected TextTemplatingRepository()
         {
             this.DoNothing();
         }

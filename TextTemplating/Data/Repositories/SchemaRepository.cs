@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using kkkkkkaaaaaa.Data.Common;
@@ -11,12 +10,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
     /// <summary>
     /// 
     /// </summary>
-    public class SchemaRepository : T4Repository
+    public class SchemaRepository : TextTemplatingRepository
     {
-        /// <summary>
-        /// Singleton インスタンスを取得します。。
-        /// </summary>
-
         /// <summary>
         /// 現在のカタログのテーブル定義を取得して返します。
         /// </summary>
@@ -59,9 +54,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         }
 
         #region Private members...
-
-        /// <summary>Instance のバッキングフィールド。</summary>
-        private static readonly Lazy<SchemaRepository> _instance = new Lazy<SchemaRepository>(() => new SchemaRepository());
 
         #endregion
     }

@@ -54,7 +54,7 @@
     <Compile Include="Aggregates\TextTemplatingContext.cs" />
     <Compile Include="Aggregates\T4SqlStoredProcedureContext.cs" />
     <Compile Include="Data\Repositories\SchemaRepository.cs" />
-    <Compile Include="Data\Repositories\T4Repository.cs" />
+    <Compile Include="Data\Repositories\TextTemplatingRepository.cs" />
     <Compile Include="Data\TextTemplatingProviderFactory.cs" />
     <Compile Include="Data\TableDataGateways\TextTemplatingGateway.cs" />
     <Compile Include="DomainModels\Entities.cs" />
