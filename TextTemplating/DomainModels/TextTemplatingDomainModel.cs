@@ -35,6 +35,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             get {return this._context; }
         }
 
+        public SchemaService Schema
+        {
+            get { return this._schema; }
+        }
+
         /// <summary>
         /// 出力先ディレクトリーのパスを取得します。
         /// </summary>
@@ -88,6 +93,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
+        [Obsolete(@"SchemaService.GetColumnShcemaAsync()")]
         protected IEnumerable<ColumnsSchemaEntity> GetColumnsSchema(string tableName)
         {
             var connection = default(DbConnection);
@@ -155,6 +161,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 
         /// <summary>コンテキスト。</summary>
         private readonly TContext _context;
+
+        private readonly SchemaService _schema = new SchemaService();
 
         #endregion
     }

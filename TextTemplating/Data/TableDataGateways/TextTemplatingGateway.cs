@@ -1,32 +1,20 @@
 ﻿using System.Data;
 using System.Data.Common;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
 {
     /// <summary>
     /// Table Data Gateway の Layer Super Type です。
     /// </summary>
-    public class TextTemplatingGateway
+    public /* static */ class TextTemplatingGateway
     {
-        /// <summary>
-        /// 列のスキーマ取得のため空のテーブルを取得して返します。
-        /// </summary>
-        /// <param name="connection"></param>
-        /// <param name="tableName"></param>
-        /// <returns></returns>
-        public static DbDataReader GetColumnsSchema(string tableName, DbConnection connection)
-        {
-            var reader = Factory.CreateReader(connection);
-
-            reader.CommandText = string.Format(@"SELECT * FROM {0} WHERE 1 <> 1", tableName);
-
-            reader.ExecuteReader(CommandBehavior.SchemaOnly);
-
-            return reader;
-        }
-
         #region Protected members...
 
+        /// <summary>
+        /// データアクセスオブジェクトの Factory Method を提供します。
+        /// </summary>
         protected static TextTemplatingProviderFactory Factory
         {
             get { return TextTemplatingProviderFactory.Instance; }
@@ -35,7 +23,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
         /// <summary>
         /// 何もしません。
         /// </summary>
-        protected static void DoNOthing()
+        [DebuggerStepThrough()]
+        protected static void DoNothing()
         {
             // 何もしない
         }
@@ -47,9 +36,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        private TextTemplatingGateway()
+        protected TextTemplatingGateway()
         {
-            DoNOthing();
+            TextTemplatingGateway.DoNothing();
         }
 
         #endregion

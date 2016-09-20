@@ -5,7 +5,7 @@
 	/// <summary>
 	/// <#= string.Format(@"{0} のエンティティを表します。", this.Context.TypeName) #>
 	/// </summary>
-	public class <#= this.Context.TypeName #>
+	public<#= this.Context.IsPartial ? @" partial" : @"" #> class <#= this.Context.TypeName #>
 	{<#	foreach(var column in this.Context.Columns) { #>
 <#@			include file="Includes\EntityPropertyTemplate.t4" #>
 <#		} #>

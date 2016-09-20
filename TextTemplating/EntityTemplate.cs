@@ -60,7 +60,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write("\n\t/// </summary>\n\tpublic class ");
+            this.Write("\n\t/// </summary>\n\tpublic");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.IsPartial ? @" partial" : @""));
+            
+            #line default
+            #line hidden
+            this.Write(" class ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));

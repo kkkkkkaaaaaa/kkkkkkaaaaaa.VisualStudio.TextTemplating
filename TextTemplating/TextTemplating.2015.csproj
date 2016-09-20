@@ -36,7 +36,9 @@
     <Compile Include="Aggregates\Namespace.cs" />
     <Compile Include="Aggregates\NotifyPropertyChangedContext.cs" />
     <Compile Include="Aggregates\TableDataGatewaysContext.cs" />
+    <Compile Include="Data\TableDataGateways\SchemaGateway.cs" />
     <Compile Include="DomainModels\NotifyPropertyChanged.cs" />
+    <Compile Include="DomainModels\SchemaService.cs" />
     <Compile Include="DomainModels\TableDataGateways.cs" />
     <Compile Include="EntityTemplate.cs">
       <DependentUpon>EntityTemplate.tt</DependentUpon>

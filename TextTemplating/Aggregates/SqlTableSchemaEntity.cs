@@ -1,6 +1,6 @@
 ﻿using kkkkkkaaaaaa.Data.Common;
 
-namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
+namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 {
     public class SqlTableSchemaEntity
     {

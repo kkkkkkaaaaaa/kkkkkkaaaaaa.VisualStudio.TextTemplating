@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Threading.Tasks;
 using kkkkkkaaaaaa.Data.Common;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
 {
@@ -22,13 +23,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
             var schema = connection.GetTablesSchema();
             var reader = new DataTableReader(schema);
 
+            // TODO: KandaDbDataMapper.MapToEnumerableAsync<T>()
             var tables = KandaDbDataMapper.MapToEnumerable<SqlTableSchemaEntity>(reader);
 
             return tables;
         }
 
         /// <summary>
-        /// 
+        /// 列のスキーマを取得して返します。
         /// </summary>
         /// <param name="tableName"></param>
         /// <param name="connection"></param>
@@ -39,13 +41,65 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
 
             try
             {
-                reader = TextTemplatingGateway.GetColumnsSchema(tableName, connection);
+                reader = SchemaGateway.SelectEmptyTable(tableName, connection);
 
                 var schema = reader.GetSchemaTable();
 
+                // TODO: KandaDbDataMapper.MapToEnumerableAsync<T>()
                 var columns = KandaDbDataMapper.MapToEnumerable<ColumnsSchemaEntity>(schema);
 
                 return columns;
+            }
+            finally
+            {
+                if (reader != null) { reader.Close(); }
+            }
+        }
+
+        /// <summary>
+        /// GetColumnsSchema() の非同期バージョンです。
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <param name="connection"></param>
+        /// <returns></returns>
+        public async Task<IEnumerable<ColumnsSchemaEntity>> GetColumnsSchemaAsync(string tableName, DbConnection connection)
+        {
+            var reader = default(DbDataReader);
+
+            try
+            {
+                reader = await SchemaGateway.SelectEmptyTableAsync(tableName, connection);
+
+                var schema = reader.GetSchemaTable();
+
+                // TODO: KandaDbDataMapper.MapToEnumerableAsync<T>()
+                var columns = KandaDbDataMapper.MapToEnumerable<ColumnsSchemaEntity>(schema);
+
+                return columns;
+            }
+            finally
+            {
+                if (reader != null) { reader.Close(); }
+            }
+        }
+
+        /// <summary>
+        /// GetColumnsSchema() の非同期バージョンです。
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <param name="connection"></param>
+        /// <returns></returns>
+        public async Task<DataTable> GetColumnsSchemaTableAsync(string tableName, DbConnection connection)
+        {
+            var reader = default(DbDataReader);
+
+            try
+            {
+                reader = await SchemaGateway.SelectEmptyTableAsync(tableName, connection);
+
+                var schema = reader.GetSchemaTable();
+
+                return schema;
             }
             finally
             {

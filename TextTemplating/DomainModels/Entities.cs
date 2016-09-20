@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
@@ -52,12 +53,12 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// </summary>
         /// <param name="table"></param>
         /// <returns></returns>
-        public Entities CreateEntity(string table)
+        public async Task<Entities> CreateEntity(string table)
         {
             if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
 
             this.Context.TypeName = string.Format(@"{0}{1}", table, this.Context.TypeNameSuffix);
-            this.Context.Columns = this.GetColumnsSchema(table);
+            this.Context.Columns = await this.Schema.GetColumnsSchemaAsync(table);
             
             var template = new EntityTemplate(this.Context);
             var text = template.TransformText();

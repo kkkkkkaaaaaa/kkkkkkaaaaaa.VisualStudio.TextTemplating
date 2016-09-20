@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
+namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 {
     public class ColumnsSchemaEntity
     {

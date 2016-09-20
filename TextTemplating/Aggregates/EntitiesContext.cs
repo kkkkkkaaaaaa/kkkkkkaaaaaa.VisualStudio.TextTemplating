@@ -19,7 +19,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
         public string[] Implements { get; set; }
 
         /// <summary>
-        /// 
+        /// 列のメタデータを取得または設定します。
         /// </summary>
         public IEnumerable<ColumnsSchemaEntity> Columns { get; set; }
     }
