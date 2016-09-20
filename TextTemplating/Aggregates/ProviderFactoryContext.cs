@@ -1,5 +1,8 @@
-﻿namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
+﻿namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 {
+    /// <summary>
+    /// DbProviderFactory のテンプレートを生成するコンテキストを表します。
+    /// </summary>
     public class ProviderFactoryContext : TextTemplatingContext
     {
         /// <summary>

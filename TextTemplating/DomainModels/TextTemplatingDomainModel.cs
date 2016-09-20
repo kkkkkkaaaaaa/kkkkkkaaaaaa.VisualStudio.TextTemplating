@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
@@ -87,7 +88,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
-        protected IEnumerable<SqlColumnsSchemaEntity> GetColumnsSchema(string tableName)
+        protected IEnumerable<ColumnsSchemaEntity> GetColumnsSchema(string tableName)
         {
             var connection = default(DbConnection);
 

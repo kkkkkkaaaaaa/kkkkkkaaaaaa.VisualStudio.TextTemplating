@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Text;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels

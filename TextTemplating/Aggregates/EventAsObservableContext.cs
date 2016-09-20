@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Controls;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 {

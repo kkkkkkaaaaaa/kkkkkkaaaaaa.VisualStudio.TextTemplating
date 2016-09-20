@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 {
@@ -10,6 +11,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 
         public string ProcedureNamePrefix { get; set; }
 
-        public IEnumerable<SqlColumnsSchemaEntity> Columns { get; set; }
+        public IEnumerable<ColumnsSchemaEntity> Columns { get; set; }
     }
 }

@@ -1,0 +1,1902 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>kkkkkkaaaaaa</name>
+    </assembly>
+    <members>
+        <member name="T:kkkkkkaaaaaa.Data.Common.KandaDataMappingAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDataMappingAttribute.#ctor(System.String)">
+            <summary>
+            コンストラクター。
+            </summary>
+            <param name="mappingName"></param>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDataMappingAttribute.MappingName">
+            <summary>
+            マッピングするメンバーの名前を取得します。
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDataMappingAttribute.Ignore">
+            <summary>
+            メンバーにマッピングするかどうかを表わす値です。
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDataMappingAttribute.Description">
+            <summary>
+            このマッピングの説明です。
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDataMappingAttribute.DefaultValue">
+            <summary>
+            規定値の値です。
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbConnection.GetMetaDataCollectionsSchema(System.Data.Common.DbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbConnection.GetDataTypesSchema(System.Data.Common.DbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbConnection.GetRestrictionsSchema(System.Data.Common.DbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbConnection.GetReservedWordsSchema(System.Data.Common.DbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbConnection.GetTablesSchema(System.Data.Common.DbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbConnection.GetColumnsSchema(System.Data.Common.DbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbConnection.GetIndexesSchema(System.Data.Common.DbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbConnection.GetProceduresSchema(System.Data.Common.DbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbConnection.GetProcedureParametersSchema(System.Data.Common.DbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+            <returns></returns>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Data.Common.KandaDbDataMapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Data.Common.KandaDbDataReader">
+            <summary>
+            データソースから行の前方向ストリームを読み取ります。
+            </summary>
+            <summary>
+            データソースから行の前方向ストリームを読み取ります。
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.#ctor(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <summary>
+            コンストラクタ―。
+            </summary>
+            <param name="connection"></param>
+            <param name="transaction"></param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.ExecuteReader(System.Data.CommandBehavior)">
+            <summary>
+            DbCommand.Connection に対して DbCommand.CommandText を実行し、CommandBehavior の値の 1 つを使用して DbDataReader を実行します。
+            </summary>
+            <param name="behavior"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.ReadAsync(System.Threading.CancellationToken)">
+            <summary>
+            これは Read() の非同期バージョンです。
+            プロバイダーは、適切な実装でオーバーライドする必要があります。
+            オプションで cancellationToken を無視できます。
+            既定の実装は、Read() 同期メソッドを呼び出し、完了したタスクを返します。
+            呼び出し元のスレッドはブロックされます。
+            既定の実装は、既に取り消された cancellationToken を渡した場合、取り消されたタスクを返します。
+            Read() によってスローされる例外は、返されたタスクの Exception プロパティを介して通信されます。
+            返されたタスクが完了するまで DbDataReader オブジェクトの他のメソッドとプロパティを呼び出さないでください。
+            </summary>
+            <param name="token">取り消し命令。</param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.IsDBNullAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            列に格納されている値が存在しない値または欠損値かどうかを示す値を取得する <see cref="M:System.Data.Common.DbDataReader.IsDBNull(System.Int32)"/> の非同期バージョン。
+            必要に応じて、操作を取り消す必要があるという通知を送信します。
+            </summary>
+            <param name="ordinal">取得する、0 から始まる列。</param>
+            <param name="token">
+            操作を取り消すことを示す通知を反映する取り消し命令。
+            これは取り消しを保証しません。
+            CancellationToken.None の設定は、このメソッドを <see cref="M:System.Data.Common.DbDataReader.IsDBNullAsync(System.Int32)"/> と同じにします。
+            返されたタスクを取り消し済みとしてマークする必要があります。</param>
+            <returns>
+            指定した列の値が DBNull と等価である場合は true。それ以外の場合は false。
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            データの取得中、接続は破棄されるか、または閉じられます。
+            <see cref="T:System.Data.Common.DbDataReader"/> は、データの取得時に閉じます。
+            読み取ることのできるデータはありません (たとえば、最初の <see cref="M:System.Data.Common.DbDataReader.Read"/> は呼び出されなかったか、false を返しました)。
+            以前に読み取られた列をシーケンシャル モードで読み取ろうとしています。
+            非同期操作が進行中でした。シーケンシャル モードで実行中、これはすべての Get* メソッドに適用されます。
+            ストリームの読み取り中に呼び出すことができるためです。
+            </exception>
+            <exception cref="T:System.IndexOutOfRangeException">存在しない列を読み取ろうとしています。</exception>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetFieldValueAsync``1(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            指定された列の値を型として非同期的に取得します。
+            </summary>
+            <typeparam name="T">返される値の型。 </typeparam>
+            <param name="ordinal">返される値の型。</param>
+            <param name="token">
+            操作を取り消すことを示す通知を反映する取り消し命令。
+            これは取り消しを保証しません。
+            CancellationToken.None の設定は、このメソッドを GetFieldValueAsync(int) と同じにします。
+            返されたタスクを取り消し済みとしてマークする必要があります。
+            </param>
+            <returns>返される値の型。</returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.ExecuteReaderAsync(System.Data.CommandBehavior,System.Threading.CancellationToken)">
+            <summary>
+            ExecuteDbReaderAsync を呼び出します。
+            </summary>
+            <param name="behavior"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.#ctor(System.Data.Common.DbCommand)">
+            <summary>
+            コンストラクタ―。
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.Parameters">
+            <summary>
+            DbParameter オブジェクトのコレクションを返します。
+            </summary>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.CommandText">
+            <summary>
+            データソースに対して実行するテキストコマンドを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.CommandType">
+            <summary>
+            DbCommand.CommandText の解釈方法を指示または指定します。
+            </summary>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.Item(System.Int32)">
+            <summary>
+            指定した列の値を Object のインスタンスとして取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.Item(System.String)">
+            <summary>
+            指定した列の値を Object のインスタンスとして取得します。
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.HasRows">
+            <summary>
+            DbDataReader に 1 行以上の行が格納されているか銅貨を示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.RecordsAffected">
+            <summary>
+            SQL ステートメントの実行によって変更、挿入、または削除された行の数を取得します。
+            </summary>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.FieldCount">
+            <summary>
+            現在の行の列数を取得します。
+            </summary>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.Depth">
+            <summary>
+            現在の行の入れ子の深さを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.IsClosed">
+            <summary>
+            DbDataReader が閉じているかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetEnumerator">
+            <summary>
+            データリーダーの行の反復に使用できる IEnumarator を返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetSchemaTable">
+            <summary>
+            DbDataReader の列メタデータを記述する DataTable を返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.Read">
+            <summary>
+            リーダーを結果セットの次のレコードに進めます。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.NextResult">
+            <summary>
+            バッチステートメントの結果を読み取るときに、リーダーを次の結果に進めます。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.Close">
+            <summary>
+            DbDataReader オブジェクトを閉じます。
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetOrdinal(System.String)">
+            <summary>
+            列の名前を指定して、列の序数を取得します。
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetName(System.Int32)">
+            <summary>
+            0 から始まる列の序数を指定して、列の名前を取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.IsDBNull(System.Int32)">
+            <summary>
+            列に格納されている値が存在しない値または欠損値かどうかを表す値を取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetFieldType(System.Int32)">
+            <summary>
+            指定した列のデータ型を取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetDataTypeName(System.Int32)">
+            <summary>
+            指定した列のデータ型の名前を取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetString(System.Int32)">
+            <summary>
+            指定した列の値を String のインスタンスとして取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetInt32(System.Int32)">
+            <summary>
+            指定した列の値を Int32 のインスタンスとして取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetInt64(System.Int32)">
+            <summary>
+            指定した列の値を 64 ビット符号付き整数として取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetDecimal(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetBoolean(System.Int32)">
+            <summary>
+            指定した列の値をブール値として取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetDateTime(System.Int32)">
+            <summary>
+            指定した列の値を DateTime オブジェクトとして取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetByte(System.Int32)">
+            <summary>
+            指定した列の値をバイトとして取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            指定した列の dataOffset で指定された位置から開始されるバイトストリームを、バッファーの bufferOffset で指定された開始位置に読み込みます。
+            </summary>
+            <returns>
+            実際に読み取られたバイト数を返します。
+            </returns>
+            <param name="ordinal">インデックス番号が 0 から始まる列序数。</param>
+            <param name="dataOffset">読み取り操作を開始する行内のインデックス。</param>
+            <param name="buffer">データのコピー先のバッファー。</param>
+            <param name="bufferOffset">データのコピー先となるバッファーのインデックス。</param>
+            <param name="length">読み取り対象の最大文字数。</param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetChar(System.Int32)">
+            <summary>
+            指定した列の値を単一の文字として取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            指定した列の dataOffset で指定された位置から開始される文字ストリームを、バッファーの bufferOffset で指定された開始位置に読み込みます。
+            </summary>
+            <returns>
+            実際に読み込まれた文字数を返します。
+            </returns>
+            <param name="ordinal">インデックス番号が 0 から始まる列序数。</param>
+            <param name="dataOffset">読み取り操作を開始する行内のインデックス。</param>
+            <param name="buffer">データのコピー先のバッファー。</param>
+            <param name="bufferOffset">データのコピー先となるバッファーのインデックス。</param>
+            <param name="length">読み取り対象の最大文字数。</param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetGuid(System.Int32)">
+            <summary>
+             指定した列の値をグローバル一意識別子（GUID）として取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetInt16(System.Int32)">
+            <summary>
+            指定した列の値を 16 ビット符号付き整数として取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetValue(System.Int32)">
+            <summary>
+            指定した列の値を System.Object のインスタンスとして取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetValues(System.Object[])">
+            <summary>
+            オブジェクトの配列に現在行の列値を設定します。
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetDouble(System.Int32)">
+            <summary>
+            指定した列の値を倍精度浮動小数点数として取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.GetFloat(System.Int32)">
+            <summary>
+            指定した列の値を単精度浮動小数点数として取得します。
+            </summary>
+            <param name="ordinal"></param>
+            <returns></returns>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.InnerCommand">
+            <summary>
+            データソースに対して実行する SQL ステートメントまたはストアドプロシージャを取得します。
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.Dispose(System.Boolean)">
+            <summary>
+            DbDataReader によって使用されているマネージリソースを解放し、オプションでアンマネージリソースも解放します。
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbDataReader.DoNothing">
+            <summary>
+            何もしません。
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbDataReader._command">
+            <summary>データソースに対して実行する SQL ステートメントまたはストアドプロシージャを表わします。</summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbDataReader._reader">
+            <summary>データソースから行の前方向ストリームを読み取ります。</summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute">
+            <summary></summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute.#ctor(System.String)">
+            <summary>
+            コンストラクター。
+            </summary>
+            <param name="mappintName"></param>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute.MappingName">
+            <summary></summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute.DbType">
+            <summary></summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute.Size">
+            <summary></summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute.Direction">
+            <summary></summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute.DefaultValue">
+            <summary></summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute.Ignore">
+            <summary></summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute.Description">
+            <summary></summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbParameterMappingAttribute._mappingName">
+            <summary>MappingName のバッキングフィールド。</summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory">
+            <summary>
+            プロバイダーのデータソースクラスの実装のインスタンスを作成するためのメソッドのセットを表わします。
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <summary>
+            DbCommand クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <param name="connection">データベースへの接続。</param>
+            <param name="transaction">トランザクション。</param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateReader(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <summary>
+            DbDataReader クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <param name="connection"></param>
+            <param name="transaction"></param>
+            <returns></returns>
+        </member>
+        <member name="P:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CanCreateDataSourceEnumerator">
+            <summary>
+            DbProviderFactory が DbDataSourfceEnumarator クラスをサポートするかどうかを示します。
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateDataSourceEnumerator">
+            <summary>
+            DbDataSourceEnumarator クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateConnectionStringBuilder">
+            <summary>
+            DbCommandBuilder クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateConnection">
+            <summary>
+            DbConnection クラスをを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateCommand">
+            <summary>
+            DbCommand クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateParameter">
+            <summary>
+            DbParameter クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateCommandBuilder">
+            <summary>
+            DbCommandBuilder クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateDataAdapter">
+            <summary>
+            DbDataAdapter クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreatePermission(System.Security.Permissions.PermissionState)">
+            <summary>
+            プロバイダーのバージョンの CodeAccessPermission クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateReader(System.Data.Common.DbCommand)">
+            <summary>
+            DbDataReader クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateParameter(System.String,System.Data.DbType,System.Int32,System.Data.ParameterDirection,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="dbType"></param>
+            <param name="size"></param>
+            <param name="direction"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.CreateParameter(System.String,System.Object)">
+            <summary>
+            DbParameter クラスを実装しているプロバイダーのクラスの新しいインスタンスを返します。
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.#ctor(System.Data.Common.DbProviderFactory)">
+            <summary>
+            コンストラクタ―。
+            </summary>
+            <param name="factory">DbProviderFactory。</param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory.DoNothing">
+            <summary>
+            何もしません。
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.Common.KandaDbProviderFactory._factory">
+            <summary>プロバイダーのデータソースクラスの実装のインスタンスを作成するためのメソッドのセットを表わします。</summary>f
+        </member>
+        <member name="T:kkkkkkaaaaaa.Data.KandaDataRecordExtensions">
+            <summary>
+            
+            </summary>
+            <summary>
+            
+            DataReader から各行内の列値にアクセスできるようにします。リレーショナル データベースにアクセスする .NET Framework データ プロバイダーによって実装されます。
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetName(System.Data.IDataRecord,System.String)">
+            <summary>
+            検索するフィールドの名前を取得します。
+            </summary>
+            
+            <returns>
+            フィールドの名前。返される値がない場合は空の文字列 ("")。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetDataTypeName(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドのデータ型情報を取得します。
+            </summary>
+            
+            <returns>
+            指定したフィールドのデータ型情報。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetFieldType(System.Data.IDataRecord,System.String)">
+            <summary>
+            <see cref="M:System.Data.IDataRecord.GetValue(System.Int32)"/> から返される <see cref="T:System.Object"/> の型に対応する <see cref="T:System.Type"/> 情報を取得します。
+            </summary>
+            
+            <returns>
+            <see cref="M:System.Data.IDataRecord.GetValue(System.Int32)"/> から返される <see cref="T:System.Object"/> の型に対応する <see cref="T:System.Type"/> 情報。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetValue(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの値を返します。
+            </summary>
+            
+            <returns>
+            フィールドの値が返されたときにその値を格納する <see cref="T:System.Object"/>。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetBoolean(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定した列の値をブール値として取得します。
+            </summary>
+            
+            <returns>
+            列の値。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">インデックス番号が 0 から始まる列序数。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetByte(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定した列の 8 ビット符号なし整数値を取得します。
+            </summary>
+            
+            <returns>
+            指定した列の 8 ビット符号なし整数値。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">インデックス番号が 0 から始まる列序数。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetBytes(System.Data.IDataRecord,System.String,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            指定したバッファー オフセットを開始位置として、指定した列オフセットからバッファーに、バイトのストリームを配列として読み込みます。
+            </summary>
+            
+            <returns>
+            実際に読み取られたバイト数を返します。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">インデックス番号が 0 から始まる列序数。</param><param name="fieldOffset">読み取り操作を開始するフィールド内のインデックス。</param><param name="buffer">読み取ったバイトのストリームを格納するバッファー。</param><param name="bufferoffset">読み取り操作を開始する <paramref name="buffer"/> のインデックス。</param><param name="length">読み取るバイト数。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetChar(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定した列の文字値を取得します。
+            </summary>
+            
+            <returns>
+            指定した列の文字値。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">インデックス番号が 0 から始まる列序数。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetChars(System.Data.IDataRecord,System.String,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            指定したバッファー オフセットを開始位置として、指定した列オフセットからバッファーに、文字のストリームを配列として読み込みます。
+            </summary>
+            
+            <returns>
+            実際に読み込まれた文字数を返します。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">インデックス番号が 0 から始まる列序数。</param><param name="fieldoffset">読み取り操作を開始する行内のインデックス。</param><param name="buffer">読み取ったバイトのストリームを格納するバッファー。</param><param name="bufferoffset">読み取り操作を開始する <paramref name="buffer"/> のインデックス。</param><param name="length">読み取るバイト数。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetGuid(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの GUID 値を返します。
+            </summary>
+            
+            <returns>
+            指定したフィールドの GUID 値。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetInt16(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの 16 ビット符号付き整数値を取得します。
+            </summary>
+            
+            <returns>
+            指定したフィールドの 16 ビット符号付き整数値。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetInt32(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの 32 ビット符号付き整数値を取得します。
+            </summary>
+            
+            <returns>
+            指定したフィールドの 32 ビット符号付き整数値。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetInt64(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの 64 ビット符号付き整数値を取得します。
+            </summary>
+            
+            <returns>
+            指定したフィールドの 64 ビット符号付き整数値。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetFloat(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの単精度浮動小数点数を取得します。
+            </summary>
+            
+            <returns>
+            指定したフィールドの単精度浮動小数点数。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetDouble(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの倍精度浮動小数点数を取得します。
+            </summary>
+            
+            <returns>
+            指定したフィールドの倍精度浮動小数点数。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetString(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの文字列値を取得します。
+            </summary>
+            
+            <returns>
+            指定したフィールドの文字列値。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetDecimal(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの固定位置数値を取得します。
+            </summary>
+            
+            <returns>
+            指定したフィールドの固定位置数値。
+            </returns>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param><exception cref="T:System.IndexOutOfRangeException">渡されたインデックスが 0 から <see cref="P:System.Data.IDataRecord.FieldCount"/> の範囲にありません。</exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetDateTime(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドの日時のデータ値を取得または設定します。
+            </summary>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param>
+            <returns>指定したフィールドの日時のデータ値。</returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.GetData(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定した列序数の <see cref="T:System.Data.IDataReader"/> を返します。
+            </summary>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param>
+            <returns>指定した列の序数の IDataReader。</returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataRecordExtensions.IsDBNull(System.Data.IDataRecord,System.String)">
+            <summary>
+            指定したフィールドが null に設定されているかどうかを示す値を返します。
+            </summary>
+            <param name="record">IDataRecord。</param>
+            <param name="name">検索するフィールドのインデックス。</param>
+            <returns></returns>
+            <returns>
+            指定したフィールドが null に設定されている場合は true。それ以外の場合は false。
+            </returns>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Data.KandaDataTableExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaDataTableExtensions.AsDynamic(System.Data.DataTable)">
+            <summary>
+            DataTableの各RowをExpandoObjectに変換します。
+            </summary>
+            <param name="table"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Data.KandaParameterMappingAttribute.#ctor(System.String)">
+            <summary>
+            コンストラクター。
+            </summary>
+            <param name="mappingName"></param>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Data.KandaParameterMappingAttribute._mappingName">
+            <summary></summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.KandaDataMapper">
+            <summary>
+            汎用的な DataMapperを表します。
+            </summary>
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.KandaDataMapper.GetValue(System.Reflection.MemberInfo,System.Object,System.Object)">
+            <summary>
+            指定したメンバーの値を取得して返します。
+            </summary>
+            <param name="member">メンバー。</param>
+            <param name="obj">値を取得するオブジェクト。</param>
+            <param name="nullValue">null だった場合。</param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.KandaDataMapper.MapToObject(System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.KandaDataMapper.MapToObject``1(System.Object)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.KandaDataMapper.GetMembers(System.Object)">
+            <summary>
+            指定したオブジェクトのプロパティとフィールドを取得します。
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.KandaDataMapper.SetValue(System.Reflection.MemberInfo,System.Object,System.Object,System.Object)">
+            <summary>
+            指定したオブジェクトのメンバーに値を設定します。
+            </summary>
+            <param name="member"></param>
+            <param name="obj"></param>
+            <param name="value"></param>
+            <param name="nullValue"></param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.KandaDataMapper.SetValue(System.Reflection.MemberInfo,System.Object,System.Object)">
+            <summary>
+            指定したオブジェクトのメンバーに値を設定します。
+            </summary>
+            <param name="member">値を設定するメンバー情報。</param>
+            <param name="obj">値を設定するオブジェクト。</param>
+            <param name="value">オブジェクトのメンバーに設定する値。</param>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Reactive.ComponentModel.NotifyPropertyChangedExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Reactive.ComponentModel.NotifyPropertyChangedExtensions.PropertyChangedAsObservable(System.ComponentModel.INotifyPropertyChanged)">
+            <summary>
+            
+            </summary>
+            <param name="vm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Reactive.Windows.ButtonExtensions.ClickAsObservable(System.Windows.Controls.Primitives.ButtonBase)">
+            <summary>
+            Click イベント Observable。
+            </summary>
+            <param name="button"></param>
+            <returns></returns>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.Advapi32">
+            <summary></summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Advapi32.IsTextUnicode(System.IntPtr,System.Int32,System.Int32@)">
+            <summary>
+            WINADVAPI BOOL WINAPI IsTextUnicode(__in_bcount(iSize) CONST VOID* lpv, __in int iSize, __inout_opt LPINT lpiResult);
+            </summary>
+            <param name="lpv"></param>
+            <param name="iSize"></param>
+            <param name="lpiResult"></param>
+            <returns>
+            バッファ内のデータが指定したテストにパスすると、0 以外の値が返ります。
+            バッファ内のデータが指定したテストにパスしないと、0 が返ります。
+            どちらの場合も、lpi パラメータが指す int に、判定に使った個々のテスト結果が格納されます。
+            </returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Advapi32.EnumDynamicTimeZoneInformation(System.UInt32,kkkkkkaaaaaa.Runtime.InteropServices._TIME_DYNAMIC_ZONE_INFORMATION@)">
+            <summary>
+            WINBASEAPI _Success_(return == ERROR_SUCCESS) DWORD WINAPI EnumDynamicTimeZoneInformation(_In_ CONST DWORD dwIndex, _Out_ PDYNAMIC_TIME_ZONE_INFORMATION lpTimeZoneInformation);
+            </summary>
+            <param name="dwIndex"></param>
+            <param name="lpTimeZoneInformation"></param>
+            <returns></returns>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.Advapi32.DLL_NAME">
+            <summary></summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.TIME_ZONE_ID_INVALID">
+            <summary>
+            #define TIME_ZONE_ID_INVALID ((DWORD)0xFFFFFFFF)
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.GetSystemInfo(kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO@)">
+            <summary>
+            WINBASEAPI VOID WINAPI GetSystemInfo(__out LPSYSTEM_INFO lpSystemInfo);
+            </summary>
+            <param name="lpSystemInfo"></param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.GetNativeSystemInfo(kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO@)">
+            <summary>
+            #if _WIN32_WINNT >= 0x0501
+            WINBASEAPI VOID WINAPI GetNativeSystemInfo(__out LPSYSTEM_INFO lpSystemInfo);
+            #endif
+            </summary>
+            <param name="lpSystemInfo"></param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.IsWow64Process(System.IntPtr,System.Boolean@)">
+            <summary>
+            #if _WIN32_WINNT >= 0x0501
+            WINBASEAPI BOOL WINAPI IsWow64Process(__in  HANDLE hProcess, __out PBOOL Wow64Process);
+            #endif // (_WIN32_WINNT >= 0x0501)
+            </summary>
+            <param name="hProcess"></param>
+            <param name="Wow64Process"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.LoadLibrary(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="lpLibFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.LoadLibraryEx(System.String,System.IntPtr,System.UInt32)">
+            <summary>
+            WINBASEAPI __out_opt HMODULE WINAPI LoadLibraryExW(__in LPCWSTR lpLibFileName, __reserved HANDLE hFile, __in DWORD dwFlags);
+            </summary>
+            <param name="lpLibFileName"></param>
+            <param name="hFile"></param>
+            <param name="dwFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.GetModuleHandle(System.String)">
+            <summary>
+            WINBASEAPI __out_opt HMODULE WINAPI GetModuleHandleW(__in_opt LPCWSTR lpModuleName);
+            </summary>
+            <param name="lpModuleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.GetModuleFileName(System.IntPtr,System.Text.StringBuilder,System.UInt32)">
+            <summary>
+            WINBASEAPI DWORD WINAPI GetModuleFileNameW(__in_opt HMODULE hModule, __out_ecount_part(nSize, return + 1) LPWSTR lpFilename, __in DWORD nSize);
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.FreeLibrary(System.IntPtr)">
+            <summary>
+            WINBASEAPI BOOL WINAPI FreeLibrary (__in HMODULE hLibModule);
+            </summary>
+            <param name="hLibModule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.ExitThread(System.UInt32)">
+            <summary>
+            WINBASEAPI DECLSPEC_NORETURN VOID WINAPI ExitThread(__in DWORD dwExitCode);
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.GetExitCodeThread(System.IntPtr,System.UInt32@)">
+            <summary>
+            WINBASEAPI __success(return != 0) BOOL WINAPI GetExitCodeThread(__in  HANDLE hThread, __out LPDWORD lpExitCode);
+            </summary>
+            <param name="hThread"></param>
+            <param name="lpExitCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.TerminateThread(System.IntPtr,System.UInt32)">
+            <summary>
+            WINBASEAPI BOOL WINAPI TerminateThread(__in HANDLE hThread, __in DWORD dwExitCode);
+            </summary>
+            <param name="hThread"></param>
+            <param name="dwExitCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.FreeLibraryAndExitThread(System.IntPtr,System.UInt32)">
+            <summary>
+            WINBASEAPI DECLSPEC_NORETURN VOID WINAPI FreeLibraryAndExitThread (__in HMODULE hLibModule, __in DWORD dwExitCode);
+            </summary>
+            <param name="hLibModule"></param>
+            <param name="dwExitCode"></param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.GetProcAddress(System.IntPtr,System.String)">
+            <summary>
+            WINBASEAPI FARPROC WINAPI GetProcAddress (__in HMODULE hModule, __in LPCSTR lpProcName);
+            </summary>
+            <param name="hModule"></param>
+            <param name="lpProcName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.SetLastError(System.UInt32)">
+            <summary>
+            WINBASEAPI VOID WINAPI SetLastError(__in DWORD dwErrCode);
+            </summary>
+            <param name="dwErrCode"></param>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.GetLastError">
+            <summary>
+            #ifdef _M_CEE_PURE
+            #define GetLastError System::Runtime::InteropServices::Marshal::GetLastWin32Error
+            #else
+            WINBASEAPI __checkReturn DWORD WINAPI GetLastError(VOID);
+            #endif
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.FormatMessage(System.UInt32,System.IntPtr,System.UInt32,System.UInt32,System.IntPtr@,System.UInt32,System.String[])">
+            <summary>
+            WINBASEAPI DWORD WINAPI FormatMessageW(__in DWORD dwFlags, __in_opt LPCVOID lpSource, __in DWORD dwMessageId, __in DWORD dwLanguageId, __out LPWSTR lpBuffer, __in DWORD nSize, __in_opt va_list *Arguments);
+            </summary>
+            <param name="dwFlags"></param>
+            <param name="lpSource"></param>
+            <param name="dwMessageId"></param>
+            <param name="dwLanguageId"></param>
+            <param name="lpBuffer"></param>
+            <param name="nSize"></param>
+            <param name="Arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.SystemTimeToTzSpecificLocalTime(kkkkkkaaaaaa.Runtime.InteropServices._TIME_ZONE_INFORMATION,kkkkkkaaaaaa.Runtime.InteropServices._SYSTEMTIME,kkkkkkaaaaaa.Runtime.InteropServices._SYSTEMTIME@)">
+            <summary>
+            WINBASEAPI _Success_(return != FALSE) BOOL WINAPI SystemTimeToTzSpecificLocalTime(_In_opt_ CONST TIME_ZONE_INFORMATION * lpTimeZoneInformation, _In_ CONST SYSTEMTIME * lpUniversalTime, _Out_ LPSYSTEMTIME lpLocalTime);
+            </summary>
+            <param name="lpTimeZoneInformation"></param>
+            <param name="lpUniversalTime"></param>
+            <param name="lpLocalTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.SetDynamicTimeZoneInformation(kkkkkkaaaaaa.Runtime.InteropServices._TIME_DYNAMIC_ZONE_INFORMATION)">
+            <summary>
+            WINBASEAPI BOOL WINAPI SetDynamicTimeZoneInformation(_In_ CONST DYNAMIC_TIME_ZONE_INFORMATION * lpTimeZoneInformation);
+            </summary>
+            <param name="lpTimeZoneInformation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.GetDynamicTimeZoneInformation(kkkkkkaaaaaa.Runtime.InteropServices._TIME_DYNAMIC_ZONE_INFORMATION@)">
+            <summary>
+            WINBASEAPI _Success_(return != TIME_ZONE_ID_INVALID) DWORD WINAPI GetDynamicTimeZoneInformation(_Out_ PDYNAMIC_TIME_ZONE_INFORMATION pTimeZoneInformation);
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.GetTimeZoneInformationForYear(System.UInt16,kkkkkkaaaaaa.Runtime.InteropServices._TIME_DYNAMIC_ZONE_INFORMATION,kkkkkkaaaaaa.Runtime.InteropServices._TIME_ZONE_INFORMATION@)">
+            <summary>
+            _Success_(return != FALSE) BOOL WINAPI GetTimeZoneInformationForYear(_In_ USHORT wYear, _In_opt_ PDYNAMIC_TIME_ZONE_INFORMATION pdtzi, _Out_ LPTIME_ZONE_INFORMATION ptzi);
+            </summary>
+            <param name="wYear"></param>
+            <param name="pdtzi"></param>
+            <param name="ptzi"></param>
+            <returns></returns>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.Kernel32.DLL_NAME">
+            <summary>アンマネージメソッドを格納する DLL の名前。</summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.GetNativeSystemInfo">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KnownFolders.FOLDERID_NetworkFolder">
+            <summary>
+            legacy CSIDL value: CSIDL_NETWORK
+            display name: "Network"
+            legacy display name: "My Network Places"
+            default path:457 
+            {D20BEEC4-5CA8-4905-AE3B-BF251EA09B53}
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KnownFolders.FOLDERID_SearchTemplates">
+            <summary>
+            {7E636BFE-DFA9-4D5E-B456-D7B39851D8A9}
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.KnownFolders.DEFINE_KNOWN_FOLDER(System.UInt32,System.UInt16,System.UInt16,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            #ifdef INITGUID&lt;br /&gt;
+            #define DEFINE_KNOWN_FOLDER(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) \&lt;br /&gt;
+                    EXTERN_C const GUID DECLSPEC_SELECTANY name \&lt;br /&gt;
+                            = { l, w1, w2, { b1, b2,  b3,  b4,  b5,  b6,  b7,  b8 } }&lt;br /&gt;
+            #else&lt;br /&gt;
+            #define DEFINE_KNOWN_FOLDER(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) \&lt;br /&gt;
+                    EXTERN_C const GUID name&lt;br /&gt;
+            #endif // INITGUID
+            </summary>
+            <returns>FOLDERID_name</returns>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG">
+            <summary>
+            typedef enum
+            {
+                KF_FLAG_DEFAULT         = 0x00000000,
+                
+                #if (NTDDI_VERSION >= NTDDI_WIN7)
+                // When running inside an AppContainer, or when poviding an AppContainer token, specifying this flag will prevent redirection to AppContainer 
+                // folders and instead return the path that would be returned when not running inside an AppContainer
+                KF_FLAG_NO_APPCONTAINER_REDIRECTION = 0x00010000,
+                #endif //NTDDI_WIN7
+                
+                // Make sure that the folder already exists or create it and apply security specified in folder definition
+                // If folder can not be created then function will return failure and no folder path (IDList) will be returned
+                // If folder is located on the network the function may take long time to execute
+                KF_FLAG_CREATE          = 0x00008000,
+                
+                // If this flag is specified then the folder path is returned and no verification is performed
+                // Use this flag is you want to get folder's path (IDList) and do not need to verify folder's existence
+                //
+                // If this flag is NOT specified then Known Folder API will try to verify that the folder exists
+                //     If folder does not exist or can not be accessed then function will return failure and no folder path (IDList) will be returned
+                //     If folder is located on the network the function may take long time to execute
+                KF_FLAG_DONT_VERIFY     = 0x00004000,
+                
+                // Set folder path as is and do not try to substitute parts of the path with environments variables.
+                // If flag is not specified then Known Folder will try to replace parts of the path with some
+                // known environment variables (%USERPROFILE%, %APPDATA% etc.)
+                KF_FLAG_DONT_UNEXPAND   = 0x00002000,
+                
+                // Get file system based IDList if available. If the flag is not specified the Known Folder API
+                // will try to return aliased IDList by default. Example for FOLDERID_Documents -
+                // Aliased - [desktop]\[user]\[Documents] - exact location is determined by shell namespace layout and might change
+                // Non aliased - [desktop]\[computer]\[disk_c]\[users]\[user]\[Documents] - location is determined by folder location in the file system
+                KF_FLAG_NO_ALIAS        = 0x00001000,
+                
+                // Initialize the folder with desktop.ini settings
+                // If folder can not be initialized then function will return failure and no folder path will be returned
+                // If folder is located on the network the function may take long time to execute
+                KF_FLAG_INIT            = 0x00000800,
+                
+                // Get the default path, will also verify folder existence unless KF_FLAG_DONT_VERIFY is also specified
+                KF_FLAG_DEFAULT_PATH    = 0x00000400,
+                
+                // Get the not-parent-relative default path. Only valid with KF_FLAG_DEFAULT_PATH
+                KF_FLAG_NOT_PARENT_RELATIVE = 0x00000200,
+                
+                // Build simple IDList
+                KF_FLAG_SIMPLE_IDLIST   = 0x00000100,
+                
+                // only return the aliased IDLists, don't fallback to file system path
+                KF_FLAG_ALIAS_ONLY      = 0x80000000,
+            } KNOWN_FOLDER_FLAG;
+            http://msdn.microsoft.com/ja-jp/library/windows/desktop/dd378447.aspx
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_DEFAULT">
+            <summary>
+            Default value
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_NO_APPCONTAINER_REDIRECTION">
+            <summary>
+            #if (NTDDI_VERSION >= NTDDI_WIN7)
+            When running inside an AppContainer, or when poviding an AppContainer token, specifying this flag will prevent redirection to AppContainer 
+            folders and instead return the path that would be returned when not running inside an AppContainer
+            #endif //NTDDI_WIN7
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_CREATE">
+            <summary>
+            Make sure that the folder already exists or create it and apply security specified in folder definition
+            If folder can not be created then function will return failure and no folder path (IDList) will be returned
+            If folder is located on the network the function may take long time to execute
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_DONT_VERIFY">
+             <summary>
+             If this flag is specified then the folder path is returned and no verification is performed
+             Use this flag is you want to get folder's path (IDList) and do not need to verify folder's existence
+            
+             If this flag is NOT specified then Known Folder API will try to verify that the folder exists
+                 If folder does not exist or can not be accessed then function will return failure and no folder path (IDList) will be returned
+                 If folder is located on the network the function may take long time to execute
+             </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_DONT_UNEXPAND">
+            <summary>
+            Set folder path as is and do not try to substitute parts of the path with environments variables.
+            If flag is not specified then Known Folder will try to replace parts of the path with some
+            known environment variables (%USERPROFILE%, %APPDATA% etc.)
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_INIT">
+            <summary>
+            Initialize the folder with desktop.ini settings
+            If folder can not be initialized then function will return failure and no folder path will be returned
+            If folder is located on the network the function may take long time to execute
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_DEFAULT_PATH">
+            <summary>
+            Get the default path, will also verify folder existence unless KF_FLAG_DONT_VERIFY is also specified
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_NOT_PARENT_RELATIVE">
+            <summary>
+            Get the not-parent-relative default path. Only valid with KF_FLAG_DEFAULT_PATH
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_SIMPLE_IDLIST">
+            <summary>
+            Build simple IDList
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG.KF_FLAG_ALIAS_ONLY">
+            <summary>
+            only return the aliased IDLists, don't fallback to file system path
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.MinWinDef.MAX_PATH">
+            <summary>
+            #define MAX_PATH    260
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.MinWinDef.FALSE">
+            <summary>
+            #define FALSE   0
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.MinWinDef.TRUE">
+            <summary>
+            #define TRUE    1
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.MONITOR_DPI_TYPE">
+            <summary>
+            typedef enum MONITOR_DPI_TYPE {
+                MDT_EFFECTIVE_DPI = 0,
+                MDT_ANGULAR_DPI = 1,
+                MDT_RAW_DPI = 2,
+                MDT_DEFAULT = MDT_EFFECTIVE_DPI
+            } MONITOR_DPI_TYPE;
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dn280511.aspx
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.MONITOR_DPI_TYPE.MDT_EFFECTIVE_DPI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.MONITOR_DPI_TYPE.MDT_ANGULAR_DPI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.MONITOR_DPI_TYPE.MDT_RAW_DPI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.MONITOR_DPI_TYPE.MDT_DEFAULT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.ShCore">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.ShCore.GetDpiForMonitor(System.IntPtr,kkkkkkaaaaaa.Runtime.InteropServices.MONITOR_DPI_TYPE,System.UInt32@,System.UInt32@)">
+            <summary>
+            STDAPI GetDpiForMonitor(_In_ HMONITOR hmonitor, _In_ MONITOR_DPI_TYPE dpiType, _Out_ UINT *dpiX, _Out_ UINT *dpiY);
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.ShCore.DLL_NAME">
+            <summary>アンマネージメソッドを格納する DLL の名前。</summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Shell32.SHGetKnownFolderPath(System.Guid,kkkkkkaaaaaa.Runtime.InteropServices.KNOWN_FOLDER_FLAG,System.IntPtr,System.IntPtr@)">
+            <summary>
+            STDAPI SHGetKnownFolderPath(_In_ REFKNOWNFOLDERID rfid, _In_ DWORD /* KNOWN_FOLDER_FLAG */ dwFlags, _In_opt_ HANDLE hToken, _Outptr_ PWSTR *ppszPath); // free *ppszPath with CoTaskMemFree
+            </summary>
+            <param name="rfid"></param>
+            <param name="dwFlags"></param>
+            <param name="hToken"></param>
+            <param name="ppszPath"></param>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.Shell32.DLL_NAME">
+            <summary>
+            アンマネージメソッドを格納する DLL の名前。
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.Shell32.DEFINE_KNOWN_FOLDER(System.UInt32,System.UInt16,System.UInt16,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            #ifdef INITGUID&lt;br /&gt;
+            #define DEFINE_KNOWN_FOLDER(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) \&lt;br /&gt;
+                    EXTERN_C const GUID DECLSPEC_SELECTANY name \&lt;br /&gt;
+                            = { l, w1, w2, { b1, b2,  b3,  b4,  b5,  b6,  b7,  b8 } }&lt;br /&gt;
+            #else&lt;br /&gt;
+            #define DEFINE_KNOWN_FOLDER(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) \&lt;br /&gt;
+                    EXTERN_C const GUID name&lt;br /&gt;
+            #endif // INITGUID
+            </summary>
+            <returns>FOLDERID_name</returns>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.tagGESTURECONFIG">
+            <summary>
+            /*
+             * Gesture configuration structure
+             *   - Used in SetGestureConfig and GetGestureConfig
+             *   - Note that any setting not included in either GESTURECONFIG.dwWant or
+             *     GESTURECONFIG.dwBlock will use the parent window's preferences or
+             *     system defaults.
+             */
+            typedef struct tagGESTURECONFIG {
+                DWORD dwID;                     // gesture ID
+                DWORD dwWant;                   // settings related to gesture ID that are to be turned on
+                DWORD dwBlock;                  // settings related to gesture ID that are to be turned off
+            } GESTURECONFIG, *PGESTURECONFIG;
+            
+            https://msdn.microsoft.com/ja-jp/library/windows/desktop/dd353231%28v=vs.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.tagGESTUREINFO">
+            <summary>
+            /*
+             * Gesture information structure
+             *   - Pass the HGESTUREINFO received in the WM_GESTURE message lParam into the
+             *     GetGestureInfo function to retrieve this information.
+             *   - If cbExtraArgs is non-zero, pass the HGESTUREINFO received in the WM_GESTURE
+             *     message lParam into the GetGestureExtraArgs function to retrieve extended
+             *     argument information.
+             */
+            typedef struct tagGESTUREINFO {
+                UINT cbSize;                    // size, in bytes, of this structure (including variable length Args field)
+                DWORD dwFlags;                  // see GF_* flags
+                DWORD dwID;                     // gesture ID, see GID_* defines
+                HWND hwndTarget;                // handle to window targeted by this gesture
+                POINTS ptsLocation;             // current location of this gesture
+                DWORD dwInstanceID;             // internally used
+                DWORD dwSequenceID;             // internally used
+                ULONGLONG ullArguments;         // arguments for gestures whose arguments fit in 8 BYTES
+                UINT cbExtraArgs;               // size, in bytes, of extra arguments, if any, that accompany this gesture
+            } GESTUREINFO, *PGESTUREINFO;
+            typedef GESTUREINFO const * PCGESTUREINFO;
+            
+            https://msdn.microsoft.com/ja-jp/library/windows/desktop/dd353232%28v=vs.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.tagPOINT">
+            <summary>
+            typedef struct tagPOINT
+            {
+                LONG  x;
+                LONG  y;
+            } POINT, *PPOINT, NEAR *NPPOINT, FAR *LPPOINT;
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.tagPOINTS">
+            <summary>
+            typedef struct tagPOINTS {
+                SHORT x;
+                SHORT y;
+            } POINTS, *PPOINTS, *LPPOINTS;
+            
+            https://msdn.microsoft.com/en-us/library/windows/desktop/dd162808%28v=vs.85%29.aspx
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.tagRECT">
+            <summary>
+            typedef struct tagRECT
+            {
+                LONG    left;
+                LONG    top;
+                LONG    right;
+                LONG    bottom;
+            } RECT, *PRECT, NEAR *NPRECT, FAR *LPRECT;
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.tagWINDOWPLACEMENT">
+            <summary>
+            typedef struct tagWINDOWPLACEMENT {
+                UINT  length;
+                UINT  flags;
+                UINT  showCmd;
+                POINT ptMinPosition;
+                POINT ptMaxPosition;
+                RECT  rcNormalPosition;
+            } WINDOWPLACEMENT, *LPWINDOWPLACEMENT;
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.User32">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.User32.GetWindowPlacement(System.IntPtr,kkkkkkaaaaaa.Runtime.InteropServices.tagWINDOWPLACEMENT@)">
+            <summary>
+            WINUSERAPI BOOL WINAPI GetWindowPlacement(_In_ HWND hWnd, _Inout_ WINDOWPLACEMENT *lpwndpl);
+            </summary>
+            <param name="hWnd"></param>
+            <param name="lpwndpl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.User32.SetWindowPlacement(System.IntPtr,kkkkkkaaaaaa.Runtime.InteropServices.tagWINDOWPLACEMENT)">
+            <summary>
+            WINUSERAPI BOOL WINAPI SetWindowPlacement(_In_ HWND hWnd, _In_ CONST WINDOWPLACEMENT *lpwndpl);
+            </summary>
+            <param name="hWnd"></param>
+            <param name="lpwndpl"></param>
+            <returns></returns>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.User32.DLL_NAME">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinBase.INVALID_FILE_ATTRIBUTES">
+            <summary>
+            #define INVALID_FILE_ATTRIBUTES ((DWORD)-1)
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.WinBase.GetFileAttributes(System.String)">
+            <summary>
+            WINBASEAPI DWORD WINAPI GetFileAttributesW(__in LPCWSTR lpFileName);
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinBase.DLL_NAME">
+            <summary>DLL 名。</summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.WinDef">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinDef.MAX_PATH">
+            <summary>
+            #define MAX_PATH    260
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinDef.FALSE">
+            <summary>
+            #define FALSE   0
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinDef.TRUE">
+            <summary>
+            #define TRUE    1
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinError.ERROR_SUCCESS">
+            <summary>
+            // The operation completed successfully.
+            #define ERROR_SUCCESS                    0L
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinError.ERROR_PROC_NOT_FOUND">
+            <summary>
+            // The specified procedure could not be found.;
+            #define ERROR_PROC_NOT_FOUND             127L
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinError.S_OK">
+            <summary>
+            #define S_OK                                   ((HRESULT)0L)
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinError.S_FALSE">
+            <summary>
+            #define S_FALSE                                ((HRESULT)1L)
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinError.E_INVALIDARG">
+            <summary>
+            // One or more arguments are invalid
+            #define E_INVALIDARG                     _HRESULT_TYPEDEF_(0x80070057L)
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.WinError._HRESULT_TYPEDEF_(System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="hresult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.WinInet.InternetGetConnectedState(System.Int32,System.Int32)">
+            <summary>
+            INTERNETAPI_(BOOL) InternetGetConnectedState(
+                __out  LPDWORD  lpdwFlags,
+                __reserved DWORD    dwReserved);
+            </summary>
+            <param name="lpdwFlags"></param>
+            <param name="dwReserved"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.WinInet.InternetGetConnectedStateEx(System.Int32,System.Text.StringBuilder,System.Int32,System.Int32)">
+            <summary>
+            INTERNETAPI_(BOOL)
+            InternetGetConnectedStateExW(
+                __out_opt LPDWORD lpdwFlags,
+                __out_ecount_opt(dwBufLen) LPWSTR lpszConnectionName,
+                __in DWORD dwBufLen,
+                __reserved DWORD dwReserved
+                );
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.WinNT.MAKELANGID(System.UInt32,System.UInt32)">
+            <summary>
+            #define MAKELANGID(p, s)    ((((WORD)(s)) &lt;&lt; 10) | (WORD)(p))
+            </summary>
+            <param name="p"></param>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.WinNT.PRIMARYLANGID(System.UInt32)">
+            <summary>
+            PRIMARYLANGID(lgid)     ((WORD)(lgid) &amp; 0x3ff)
+            </summary>
+            <param name="lgid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.WinNT.SUBLANGID(System.UInt32)">
+            <summary>
+            SUBLANGID(lgid)     ((WORD)(lgid) >> 10)
+            </summary>
+            <param name="lgid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices.WinUser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GF_BEGIN">
+            <summary>
+            #define GF_BEGIN                        0x00000001
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GF_INERTIA">
+            <summary>
+            #define GF_INERTIA                      0x00000002
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GF_END">
+            <summary>
+            #define GF_END                          0x00000004
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GID_BEGIN">
+            <summary>
+            #define GID_BEGIN                       1
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GID_END">
+            <summary>
+            #define GID_END                         2
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GID_ZOOM">
+            <summary>
+            #define GID_ZOOM                        3
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GID_PAN">
+            <summary>
+            #define GID_PAN                         4
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GID_ROTATE">
+            <summary>
+            #define GID_ROTATE                      5
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GID_TWOFINGERTAP">
+            <summary>
+            #define GID_TWOFINGERTAP                6
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GID_PRESSANDTAP">
+            <summary>
+            #define GID_PRESSANDTAP                 7
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GID_ROLLOVER">
+            <summary>
+            #define GID_ROLLOVER                    GID_PRESSANDTAP
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GC_PRESSANDTAP">
+            <summary>
+            #define GC_PRESSANDTAP                              0x00000001
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GC_ROLLOVER">
+            <summary>
+            #define GC_ROLLOVER                                 GC_PRESSANDTAP
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GESTURECONFIGMAXCOUNT">
+            <summary>
+            #define GESTURECONFIGMAXCOUNT           256
+            
+            // Maximum number of gestures that can be included
+            // in a single call to SetGestureConfig / GetGestureConfig</summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.SetGestureConfig(System.IntPtr,System.UInt32,System.UInt32,kkkkkkaaaaaa.Runtime.InteropServices.tagGESTURECONFIG,System.UInt32)">
+            <summary>
+            WINUSERAPI
+            BOOL
+            WINAPI
+            SetGestureConfig(
+                _In_ HWND hwnd,                                     // window for which configuration is specified
+                _In_ DWORD dwReserved,                              // reserved, must be 0
+                _In_ UINT cIDs,                                     // count of GESTURECONFIG structures
+                _In_reads_(cIDs) PGESTURECONFIG pGestureConfig,    // array of GESTURECONFIG structures, dwIDs will be processed in the
+                                                                    // order specified and repeated occurances will overwrite previous ones
+                _In_ UINT cbSize);                                  // sizeof(GESTURECONFIG)
+            </summary>
+            <param name="hwnd">window for which configuration is specified</param>
+            <param name="dwReserved">reserved, must be 0</param>
+            <param name="cIDs">count of GESTURECONFIG structures</param>
+            <param name="pGestureConfig">
+            array of GESTURECONFIG structures, dwIDs will be processed in the
+             order specified and repeated occurances will overwrite previous ones
+            </param>
+            <param name="cbSize">sizeof(GESTURECONFIG)</param>
+            <returns></returns>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GCF_INCLUDE_ANCESTORS">
+            <summary>
+            #define GCF_INCLUDE_ANCESTORS           0x00000001
+            // If specified, GetGestureConfig returns consolidated configuration
+            // for the specified window and it's parent window chain
+            </summary>
+        </member>
+        <member name="M:kkkkkkaaaaaa.Runtime.InteropServices.WinUser.GetGestureConfig(System.IntPtr,System.UInt32,System.UInt32,System.UIntPtr,kkkkkkaaaaaa.Runtime.InteropServices.tagGESTURECONFIG,System.UInt32)">
+            <summary>
+            WINUSERAPI
+            BOOL
+            WINAPI
+            GetGestureConfig(
+                _In_ HWND hwnd,                                     // window for which configuration is required
+                _In_ DWORD dwReserved,                              // reserved, must be 0
+                _In_ DWORD dwFlags,                                 // see GCF_* flags
+                _In_ PUINT pcIDs,                                   // *pcIDs contains the size, in number of GESTURECONFIG structures,
+                                                                    // of the buffer pointed to by pGestureConfig
+                _Inout_updates_(*pcIDs) PGESTURECONFIG pGestureConfig,
+                                                                    // pointer to buffer to receive the returned array of GESTURECONFIG structures
+                _In_ UINT cbSize);                                  // sizeof(GESTURECONFIG)
+            
+            https://msdn.microsoft.com/ja-jp/library/windows/desktop/dd353234%28v=vs.85%29.aspx
+            </summary>
+            <param name="hwnd">window for which configuration is required</param>
+            <param name="dwReserved">reserved, must be 0</param>
+            <param name="dwFlags">see GCF_* flags</param>
+            <param name="pcIDs">
+            *pcIDs contains the size, in number of GESTURECONFIG structures, 
+            of the buffer pointed to by pGestureConfig
+            </param>
+            <param name="pGestureConfig">pointer to buffer to receive the returned array of GESTURECONFIG structures</param>
+            <param name="cbSize">sizeof(GESTURECONFIG)</param>
+            <returns></returns>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices._FILETIME">
+            <summary>
+            typedef struct _FILETIME {
+                DWORD dwLowDateTime;
+                DWORD dwHighDateTime;
+            } FILETIME, *PFILETIME, *LPFILETIME;
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEMTIME">
+            <summary>
+            typedef struct _SYSTEMTIME {
+                WORD wYear;
+                WORD wMonth;
+                WORD wDayOfWeek;
+                WORD wDay;
+                WORD wHour;
+                WORD wMinute;
+                WORD wSecond;
+                WORD wMilliseconds;
+            } SYSTEMTIME, *PSYSTEMTIME, *LPSYSTEMTIME;
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO">
+            <summary>
+            typedef struct _SYSTEM_INFO {
+                union {
+                    DWORD dwOemId;          // Obsolete field...do not use
+                    struct {
+                        WORD wProcessorArchitecture;
+                        WORD wReserved;
+                    } DUMMYSTRUCTNAME;
+                } DUMMYUNIONNAME;
+                DWORD dwPageSize;
+                LPVOID lpMinimumApplicationAddress;
+                LPVOID lpMaximumApplicationAddress;
+                DWORD_PTR dwActiveProcessorMask;
+                DWORD dwNumberOfProcessors;
+                DWORD dwProcessorType;
+                DWORD dwAllocationGranularity;
+                WORD wProcessorLevel;
+                WORD wProcessorRevision;
+            } SYSTEM_INFO, *LPSYSTEM_INFO;
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.DUMMYUNIONNAME">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.dwPageSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.lpMinimumApplicationAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.lpMaximumApplicationAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.dwActiveProcessorMask">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.dwNumberOfProcessors">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.dwProcessorType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.dsAllocationGranularity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.wProcessorLevel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO.wProcessorRevision">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO._DUMMYUNIONNAME">
+            <summary>
+            union {
+                DWORD dwOemId;          // Obsolete field...do not use
+                struct {
+                    WORD wProcessorArchitecture;
+                    WORD wReserved;
+                } DUMMYSTRUCTNAME;
+            } DUMMYUNIONNAME;
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO._DUMMYUNIONNAME.dwOemId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO._DUMMYUNIONNAME.DUMMYSTRUCTNAME">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO._DUMMYUNIONNAME._DUMMYSTRUCTNAME">
+            <summary>
+            struct {
+                WORD wProcessorArchitecture;
+                WORD wReserved;
+            } DUMMYSTRUCTNAME;
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO._DUMMYUNIONNAME._DUMMYSTRUCTNAME.wProcessorArchitecture">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_INFO._DUMMYUNIONNAME._DUMMYSTRUCTNAME.wReserved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices._SYSTEM_LOGICAL_PROCESSOR_INFORMATION">
+            <summary>
+            typedef struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+                ULONG_PTR   ProcessorMask;
+                LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
+                union {
+                    struct {
+                        BYTE  Flags;
+                    } ProcessorCore;
+                    struct {
+                        DWORD NodeNumber;
+                    } NumaNode;
+                    CACHE_DESCRIPTOR Cache;
+                    ULONGLONG  Reserved[2];
+                };
+            } SYSTEM_LOGICAL_PROCESSOR_INFORMATION, *PSYSTEM_LOGICAL_PROCESSOR_INFORMATION;
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices._TIME_DYNAMIC_ZONE_INFORMATION">
+            <summary>
+            typedef struct _TIME_DYNAMIC_ZONE_INFORMATION {
+                LONG Bias;
+                WCHAR StandardName[ 32 ];
+                SYSTEMTIME StandardDate;
+                LONG StandardBias;
+                WCHAR DaylightName[ 32 ];
+                SYSTEMTIME DaylightDate;
+                LONG DaylightBias;
+                WCHAR TimeZoneKeyName[ 128 ];
+                BOOLEAN DynamicDaylightTimeDisabled;
+            } DYNAMIC_TIME_ZONE_INFORMATION, *PDYNAMIC_TIME_ZONE_INFORMATION;
+            
+            「」
+            http://msdn.microsoft.com/en-us/library/s9ts558h.aspx
+            </summary>
+        </member>
+        <member name="T:kkkkkkaaaaaa.Runtime.InteropServices._TIME_ZONE_INFORMATION">
+            <summary>
+            typedef struct _TIME_ZONE_INFORMATION {
+                LONG Bias;
+                WCHAR StandardName[ 32 ];
+                SYSTEMTIME StandardDate;
+                LONG StandardBias;
+                WCHAR DaylightName[ 32 ];
+                SYSTEMTIME DaylightDate;
+                LONG DaylightBias;
+            } TIME_ZONE_INFORMATION, *PTIME_ZONE_INFORMATION, *LPTIME_ZONE_INFORMATION;
+            </summary>
+        </member>
+    </members>
+</doc>

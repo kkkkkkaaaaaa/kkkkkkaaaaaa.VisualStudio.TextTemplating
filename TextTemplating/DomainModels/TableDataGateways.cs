@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 

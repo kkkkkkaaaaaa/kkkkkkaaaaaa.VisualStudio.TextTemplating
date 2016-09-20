@@ -1,6 +1,7 @@
 ﻿using System.CodeDom;
 using System.IO;
 using System.Reflection;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
@@ -8,8 +9,10 @@ using Xunit;
 
 namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 {
+    /// <summary></summary>
     public class EntitiesFacts
     {
+        /// <summary></summary>
         [Fact()]
         public void CreateEntitiesFact()
         {
@@ -34,7 +37,8 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 
             TextTemplatingProcess.StartExplorer(output);
         }
-
+        
+        /// <summary></summary>
         [Fact()]
         public void CreateEntityFact()
         {

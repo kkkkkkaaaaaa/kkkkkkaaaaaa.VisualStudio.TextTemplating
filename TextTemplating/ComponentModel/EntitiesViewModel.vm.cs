@@ -1,6 +1,7 @@
 ﻿using System.CodeDom;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel

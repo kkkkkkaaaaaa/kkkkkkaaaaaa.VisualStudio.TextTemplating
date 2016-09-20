@@ -1,4 +1,5 @@
-﻿using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
+﻿using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 {

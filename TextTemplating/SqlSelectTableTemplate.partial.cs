@@ -21,7 +21,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             get { return this._context; }
         }
 
-        protected string GetParameter(SqlColumnsSchemaEntity columns, int index)
+        protected string GetParameter(ColumnsSchemaEntity columns, int index)
         {
             var parameter = string.Format(@"@{0}", columns.ColumnName.ToLower());
 

@@ -38,17 +38,17 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         /// <param name="tableName"></param>
         /// <param name="connection"></param>
         /// <returns></returns>
-        public IEnumerable<SqlColumnsSchemaEntity> GetColumnsSchema(string tableName, DbConnection connection)
+        public IEnumerable<ColumnsSchemaEntity> GetColumnsSchema(string tableName, DbConnection connection)
         {
             var reader = default(DbDataReader);
 
             try
             {
-                reader = T4TableDataGateway.GetColumnsSchema(tableName, connection);
+                reader = TextTemplatingGateway.GetColumnsSchema(tableName, connection);
 
                 var schema = reader.GetSchemaTable();
 
-                var columns = KandaDbDataMapper.MapToEnumerable<SqlColumnsSchemaEntity>(schema);
+                var columns = KandaDbDataMapper.MapToEnumerable<ColumnsSchemaEntity>(schema);
 
                 return columns;
             }

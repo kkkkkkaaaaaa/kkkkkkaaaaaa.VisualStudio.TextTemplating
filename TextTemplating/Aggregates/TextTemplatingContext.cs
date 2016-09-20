@@ -1,8 +1,9 @@
 ﻿using System.CodeDom;
 using System.Diagnostics;
 using System.Reflection;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
-namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
+namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 {
     public class TextTemplatingContext
     {

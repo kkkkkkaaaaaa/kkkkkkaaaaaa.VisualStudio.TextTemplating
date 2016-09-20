@@ -33,9 +33,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\EntitiesViewModel.vm.cs" />
-    <Compile Include="DataTransferObjects\Namespace.cs" />
-    <Compile Include="DataTransferObjects\NotifyPropertyChangedContext.cs" />
-    <Compile Include="DataTransferObjects\TableDataGatewaysContext.cs" />
+    <Compile Include="Aggregates\Namespace.cs" />
+    <Compile Include="Aggregates\NotifyPropertyChangedContext.cs" />
+    <Compile Include="Aggregates\TableDataGatewaysContext.cs" />
     <Compile Include="DomainModels\NotifyPropertyChanged.cs" />
     <Compile Include="DomainModels\TableDataGateways.cs" />
     <Compile Include="EntityTemplate.cs">
@@ -45,18 +45,18 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.2015.cs" />
     <Compile Include="ComponentModel\EntitiesViewModel.cs" />
-    <Compile Include="DataTransferObjects\EventAsObservableContext.cs" />
-    <Compile Include="DataTransferObjects\EntitiesContext.cs" />
-    <Compile Include="DataTransferObjects\ProviderFactoryContext.cs" />
-    <Compile Include="DataTransferObjects\SqlColumnSchemaEntity.cs" />
-    <Compile Include="DataTransferObjects\SqlTableContext.cs" />
-    <Compile Include="DataTransferObjects\SqlTableSchemaEntity.cs" />
-    <Compile Include="DataTransferObjects\TextTemplatingContext.cs" />
-    <Compile Include="DataTransferObjects\T4SqlStoredProcedureContext.cs" />
+    <Compile Include="Aggregates\EventAsObservableContext.cs" />
+    <Compile Include="Aggregates\EntitiesContext.cs" />
+    <Compile Include="Aggregates\ProviderFactoryContext.cs" />
+    <Compile Include="Aggregates\ColumnSchemaEntity.cs" />
+    <Compile Include="Aggregates\SqlTableContext.cs" />
+    <Compile Include="Aggregates\SqlTableSchemaEntity.cs" />
+    <Compile Include="Aggregates\TextTemplatingContext.cs" />
+    <Compile Include="Aggregates\T4SqlStoredProcedureContext.cs" />
     <Compile Include="Data\Repositories\SchemaRepository.cs" />
     <Compile Include="Data\Repositories\T4Repository.cs" />
     <Compile Include="Data\TextTemplatingProviderFactory.cs" />
-    <Compile Include="Data\TableDataGateways\T4TableDataGateway.cs" />
+    <Compile Include="Data\TableDataGateways\TextTemplatingGateway.cs" />
     <Compile Include="DomainModels\Entities.cs" />
     <Compile Include="DomainModels\EventAsObservable.cs" />
     <Compile Include="DomainModels\ProviderFactory.cs" />

@@ -4,12 +4,12 @@ using System.Data.Common;
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
 {
     /// <summary>
-    /// 
+    /// Table Data Gateway の Layer Super Type です。
     /// </summary>
-    public class T4TableDataGateway
+    public class TextTemplatingGateway
     {
         /// <summary>
-        /// 
+        /// 列のスキーマ取得のため空のテーブルを取得して返します。
         /// </summary>
         /// <param name="connection"></param>
         /// <param name="tableName"></param>
@@ -47,7 +47,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.TableDataGateways
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        private T4TableDataGateway()
+        private TextTemplatingGateway()
         {
             DoNOthing();
         }

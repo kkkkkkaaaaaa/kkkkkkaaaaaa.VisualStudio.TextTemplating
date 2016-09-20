@@ -2,7 +2,7 @@
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
 {
-    public class SqlColumnsSchemaEntity
+    public class ColumnsSchemaEntity
     {
         public string ColumnName { get; set; }
 
