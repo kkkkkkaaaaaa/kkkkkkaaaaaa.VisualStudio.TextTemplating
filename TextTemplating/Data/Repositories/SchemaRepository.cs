@@ -28,7 +28,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
 
             return tables;
         }
-
+        
         /// <summary>
         /// 列のスキーマを取得して返します。
         /// </summary>

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.CodeDom;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
@@ -64,6 +67,37 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
             entities.CreateEntities();
 
             TextTemplatingProcess.StartExplorer(this.OutputPath);
+        }
+
+
+
+        /// <summary>
+        /// テキスト変換を実行します。
+        /// </summary>
+        public async void TransformTextAsync()
+        {
+            const string NAMESPACE = @"Estelle.Asme.Redmine";
+
+            var ns = @"DataTransferObjects";
+            var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
+
+            var context = new EntitiesContext
+            {
+                Namespace = new Namespace(NAMESPACE, ns),
+                Imports = new[] { @"System", },
+                TypeAttributes = TypeAttributes.Public | TypeAttributes.Class,
+                IsPartial = true,
+                TypeNameSuffix = "_entity",
+                Inherits = @"EntityBase",
+                Implements = new[] { @"IEntity" },
+                MemberAttribute = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
+                OutputPath = output,
+            };
+
+            var entities = new Entities(context);
+            await entities.CreateEntitiesAsync();
+
+            TextTemplatingProcess.StartExplorer(output);
         }
 
         #region Private members...

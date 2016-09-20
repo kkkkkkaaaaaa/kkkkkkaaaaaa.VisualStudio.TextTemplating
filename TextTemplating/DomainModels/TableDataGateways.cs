@@ -72,7 +72,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             {
                 TypeName = $@"{ table }Entity",
             };
-            this.Context.Columns = this.GetColumnsSchema(table);
+            this.Context.Columns = this.Schema.GetColumnsSchema(table);
 
             var tempalte = new TableDataGatewayTemplate(this.Context, entity);
             var text = tempalte.TransformText();

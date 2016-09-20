@@ -52,14 +52,16 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
         /// <summary>
         /// 
         /// </summary>
-        public override MemberAttributes MemberAttributes
+        public override MemberAttributes MemberAttribute
         {
-            get { return base.MemberAttributes; }
+            get { return base.MemberAttribute; }
             set
             {
-                if (value == base.MemberAttributes) return;
-                base.MemberAttributes = value;
-                this.OnPropertyChanged();
+                if (value != base.MemberAttribute)
+                {
+                    base.MemberAttribute = value;
+                    this.OnPropertyChanged();
+                }
             }
         }
 

@@ -30,7 +30,12 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
         public virtual string Inherits { get; set; }
 
         /// <summary></summary>
-        public virtual MemberAttributes MemberAttributes { get; set; }
+        public virtual MemberAttributes MemberAttribute { get; set; }
+
+        /// <summary>
+        /// ファイルの接尾辞を取得または設定します。
+        /// </summary>
+        public virtual string FileNameSuffix { get; set; }
 
         #region Protected members...
 

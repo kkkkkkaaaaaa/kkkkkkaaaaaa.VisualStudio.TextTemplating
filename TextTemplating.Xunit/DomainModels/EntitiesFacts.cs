@@ -28,7 +28,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 TypeNameSuffix = "_entity",
                 Inherits = @"EntityBase",
                 Implements = new [] { @"IEntity" },
-                MemberAttributes = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
+                MemberAttribute = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
                 OutputPath =  output,
             };
 
@@ -54,7 +54,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 TypeNameSuffix = "Entity",
                 Inherits = @"EntityBase",
                 Implements = new string [0],
-                MemberAttributes = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
+                MemberAttribute = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
                 OutputPath = output,
             };
             

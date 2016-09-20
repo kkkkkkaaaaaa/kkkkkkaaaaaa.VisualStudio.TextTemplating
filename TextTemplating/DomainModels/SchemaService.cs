@@ -5,14 +5,37 @@ using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 {
     public class SchemaService
     {
         /// <summary>
-        /// 列のスキーマを取得して返します。
+        /// 現在のデータベースのテーブルのスキーマを取得して返します。
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<SqlTableSchemaEntity> GetTablesSchema()
+        {
+            var connection = default(DbConnection);
+
+            try
+            {
+                connection = this._factory.CreateConnection();
+                connection.Open();
+
+                var schema = new SchemaRepository();
+                var tables = schema.GetTablesSchema(connection);
+
+                return tables;
+            }
+            finally
+            {
+                if (connection != null) { connection.Close(); }
+            }
+        }
+
+        /// <summary>
+        /// GetColumnsSchemaAsync() の非同期バージョンです。
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
@@ -27,6 +50,32 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 
                 var schema = new SchemaRepository();
                 var columns = await schema.GetColumnsSchemaAsync(tableName, connection);
+
+                return columns;
+            }
+            finally
+            {
+                if (connection != null) { connection.Close(); }
+            }
+        }
+
+
+        /// <summary>
+        /// 列のスキーマを取得して返します。
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public IEnumerable<ColumnsSchemaEntity> GetColumnsSchema(string tableName)
+        {
+            var connection = default(DbConnection);
+
+            try
+            {
+                connection = this._factory.CreateConnection();
+                connection.Open();
+
+                var schema = new SchemaRepository();
+                var columns = schema.GetColumnsSchema(tableName, connection);
 
                 return columns;
             }
@@ -61,6 +110,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             }
         }
 
+        #region Private members...
+
+        /// <summary></summary>
         private DbProviderFactory _factory = TextTemplatingProviderFactory.Instance;
+
+        #endregion
     }
 }

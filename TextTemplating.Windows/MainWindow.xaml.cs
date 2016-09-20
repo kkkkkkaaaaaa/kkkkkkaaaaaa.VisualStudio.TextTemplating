@@ -25,12 +25,16 @@ namespace TextTemplating.Windows
             this._vm.TypeAttributes = TypeAttributes.Public;
             this._vm.TypeNameSuffix = "Entity";
             this._vm.Inherits = @"";
-            this._vm.MemberAttributes = MemberAttributes.Assembly;
+            this._vm.MemberAttribute = MemberAttributes.Assembly;
 
 
             // [Transform] クリック
+            /*
             var click = this.ButtonTransform.ClickAsObservable()
                  .Subscribe(_ => this._vm.TransformText());
+            */
+            var click = this.ButtonTransform.ClickAsObservable()
+                .Subscribe(_ => this._vm.TransformTextAsync());
 
             // データバインド
             this.Entities.DataContext = this._vm;

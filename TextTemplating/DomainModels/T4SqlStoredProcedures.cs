@@ -22,7 +22,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// <returns></returns>
         public T4SqlStoredProcedures CreateSelectProcedures()
         {
-            var tables = this.GetTablesSchema();
+            var tables = this.Schema.GetTablesSchema();
 
             var dir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), @"Stred Procedures");
             Directory.CreateDirectory(dir);
@@ -30,7 +30,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             foreach (var table in tables)
             {
                 this.Context.TableName = table.TableName;
-                this.Context.Columns = this.GetColumnsSchema(this.Context.TableName);
+                this.Context.Columns = this.Schema.GetColumnsSchema(this.Context.TableName);
 
                 var template = new SqlSelectTableTemplate(this.Context);
                 var text = template.TransformText();

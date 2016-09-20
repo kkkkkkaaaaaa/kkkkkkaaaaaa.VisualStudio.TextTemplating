@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
@@ -35,6 +36,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             get {return this._context; }
         }
 
+        /// <summary>
+        /// スキーマサービス。
+        /// </summary>
         public SchemaService Schema
         {
             get { return this._schema; }
@@ -64,10 +68,12 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             get { return TextTemplatingProviderFactory.Instance; }
         }
 
+        /*
         /// <summary>
         /// 現在のデータベースのテーブルのスキーマを取得して返します。
         /// </summary>
         /// <returns></returns>
+        [Obsolete(@"SchemaService.GetTablesSchemaAsync()")]
         protected IEnumerable<SqlTableSchemaEntity> GetTablesSchema()
         {
             var connection = default(DbConnection);
@@ -113,6 +119,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
                 if (connection != null) { connection.Close(); }
             }
         }
+        */
 
         /// <summary>
         /// 指定した文字列をファイルに書き込みます。
@@ -136,14 +143,39 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             }
         }
 
-        /// <summary>
-        /// 指定した文字列をファイルに書き込みます。
-        /// </summary>
-        /// <param name="path"></param>
-        /// <param name="text"></param>
+        /// <summary></summary>
         protected void Flush(string path, string text)
         {
             this.Flush(path, text, this.Encoding);
+        }
+
+
+        /// <summary>
+        /// Flush() の非同期バージョンです。
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="text"></param>
+        /// <param name="encoding"></param>
+        protected async Task FlushAsync(string path, string text, Encoding encoding)
+        {
+            var stream = default(TextWriter);
+
+            try
+            {
+                stream = new StreamWriter(path, false, encoding);
+                await stream.WriteAsync(text);
+                await stream.FlushAsync();
+            }
+            finally
+            {
+                stream?.Close();
+            }
+        }
+
+        /// <summary></summary>
+        protected async Task FlushAsync(string path, string text)
+        {
+            await this.FlushAsync(path, text, this.Encoding);
         }
 
         /// <summary>

@@ -18,6 +18,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
         /// </summary>
         public string[] Implements { get; set; }
 
+
         /// <summary>
         /// 列のメタデータを取得または設定します。
         /// </summary>
