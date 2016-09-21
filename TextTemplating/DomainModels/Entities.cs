@@ -1,6 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System.CodeDom;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
@@ -48,14 +52,42 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             return this;
         }
 
-        public async Task<Entities> CreateEntitiesAsync()
+        public async Task<IEnumerable<EntitiesContext>> CreateEntitiesAsync()
         {
             var tables = this.Schema.GetTablesSchema();
 
+            var entities = new Collection<EntitiesContext>();
             await tables.ToAsyncEnumerable()
-                .ForEachAsync(async table => await this.CreateEntityAsync(table.TableName));
+                .ForEachAsync(async table =>
+                {
+                    var entity = await this.CreateEntityAsync(table.TableName);
+                    entities.Add(entity); 
+                });
 
-            return this;
+            return entities;
+        }
+
+        public async Task<IEnumerable<EntitiesContext>> GetEntitiesAsync()
+        {
+            var entities = new Collection<EntitiesContext>();
+
+            var tables = this.Schema.GetTablesSchema();
+            await tables.ToAsyncEnumerable()
+                .ForEachAsync(async table =>
+                {
+                    var entity = await this.GetEntityAsync(table.TableName);
+                });
+
+            return entities;
+        }
+
+        public async Task<EntitiesContext> GetEntityAsync(string table)
+        {
+            var entity = KandaDataMapper.MapToObject<EntitiesContext>(this.Context);
+            entity.TableName = table;
+            entity.TypeName = entity.TypeName.GetTypeName(entity.TableName);
+
+            return entity;
         }
 
 
@@ -68,7 +100,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         {
             if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
 
-            this.Context.TypeName = string.Format(@"{0}{1}", table, this.Context.TypeNameSuffix);
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(table);
             this.Context.Columns = this.Schema.GetColumnsSchema(table);
 
             var template = new EntityTemplate(this.Context);
@@ -85,35 +117,35 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// </summary>
         /// <param name="table"></param>
         /// <returns></returns>
-        public async Task<Entities> CreateEntityAsync(string table)
+        public async Task<EntitiesContext> CreateEntityAsync(string table)
         {
-            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
+            // 共通のコンテキストをコピー
+            var context = KandaDataMapper.MapToObject<EntitiesContext>(this.Context);
+            
+            // 各 Entity 毎の生成条件
+            context.TableName = table; // テーブル名
+            context.Columns = await this.Schema.GetColumnsSchemaAsync(table); // 列のスキーマ
+            //context.Attributes += (0 < context.TypeAttributes & TypeAttributes.Public) ? @"public" : @"internal";
+            //context.Attributes += (0 < context.TypeAttributes & (TypeAttributes.Abstract | TypeAttributes.Sealed)) ? @" static" : @"";
+            //context.Attributes += (0 < context.TypeAttributes & (TypeAttributes.Abstract)) ? @" abstract" : @"";
+            //context.Attributes += (0 < context.TypeAttributes & (TypeAttributes.Sealed)) ? @" seald" : @"";
+            //(context.MemberAttribute & MemberAttributes.Public) ? " public" : "";
+            //(context.MemberAttribute & MemberAttributes.Family) ? " protectd" : "";
+            context.TypeName = context.TypeName.GetTypeName(context.TableName); // クラス名
 
-            this.Context.TypeName = string.Format(@"{0}{1}", table, this.Context.TypeNameSuffix);
-            this.Context.Columns = await this.Schema.GetColumnsSchemaAsync(table);
-
-            var template = new EntityTemplate(this.Context);
+            // テンプレート変換
+            var template = new EntityTemplate(context);
             var text = template.TransformText();
 
-            var path = Path.Combine(this.Context.OutputPath, string.Format(@"{0}.cs", this.Context.TypeName));
+            // 出力場所
+            if (!Directory.Exists(this.OutputPath)) { Directory.CreateDirectory(this.OutputPath); }
+
+            // ファイル生成
+            var path = Path.Combine(this.OutputPath, string.Format(@"{0}{1}.cs", context.TypeName, context.FileNameSuffix));
             this.Flush(path, text, new UTF8Encoding(true, true));
 
-            return this;
-        }
-
-        public void CreateTablesMarkdownTable()
-        {
-
-        }
-
-        public void CreateTableMrkdownTables()
-        {
-
-        }
-
-        public void CreateTableMrkdownTable()
-        {
-
+            // 生成時のコンテキストを返す
+            return context;
         }
     }
 }

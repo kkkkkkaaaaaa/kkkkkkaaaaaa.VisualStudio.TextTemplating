@@ -63,7 +63,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\n\t/// </sumary>\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"	public {0}{1} : {2}", this.Context.TypeName, this.Context.TypeNameSuffix, this.Context.Inherits)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"	public {0} : {1}", this.Context.TypeName, this.Context.Inherits)));
             
             #line default
             #line hidden
@@ -88,7 +88,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\n\t{\n\t\t/// <summary>\n\t\t/// コンストラクター。\n\t\t/// </summary>\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"		public {0}{1}()", this.Context.TypeName, this.Context.TypeNameSuffix)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"		public {0}()", this.Context.TypeName)));
             
             #line default
             #line hidden

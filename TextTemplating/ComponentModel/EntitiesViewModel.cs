@@ -61,7 +61,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
         /// </summary>
         public void TransformText()
         {
-            this.OutputPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), this.Namespace.Name);
+            this.OutputPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), this.Namespace.Child);
 
             var entities = new Entities(this);
             entities.CreateEntities();
@@ -87,7 +87,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
                 Imports = new[] { @"System", },
                 TypeAttributes = TypeAttributes.Public | TypeAttributes.Class,
                 IsPartial = true,
-                TypeNameSuffix = "_entity",
+                TypeName = new TypeName(@"", @"", @"_entity"),
                 Inherits = @"EntityBase",
                 Implements = new[] { @"IEntity" },
                 MemberAttribute = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public

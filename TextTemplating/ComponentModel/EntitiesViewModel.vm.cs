@@ -33,17 +33,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.ComponentModel
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public override string TypeNameSuffix
+        public override TypeName TypeName
         {
-            get { return base.TypeNameSuffix; }
+            get { return base.TypeName; }
             set
             {
-                if (value != base.TypeNameSuffix)
+                // if (value != base.TypeName)
                 {
-                    base.TypeNameSuffix = value;
+                    base.TypeName = value;
                     this.OnPropertyChanged();
                 }
             }

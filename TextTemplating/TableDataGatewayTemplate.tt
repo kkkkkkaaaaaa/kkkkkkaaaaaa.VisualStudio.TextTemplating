@@ -7,48 +7,48 @@
     /// <summary>
     /// <#= this.Context.TableName #> への TableDataGateway です。
     /// </summary>
-	internal static class <#= this.Context.TypeName #> : <#= this.Context.Inherits #>
+	internal /* static */ class <#= this.Context.TypeName #> : <#= this.Context.Inherits #>
 	{
 		public static string TableName
 		{
 			get { return @"<#= this.Context.TableName #>"; }
 		}
 
-		public static KandaDbDataReader Select(<#= this.Entity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		public static KandaDbDataReader Select(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
 		{
 			var reader = <#= this.Context.Inherits #>.CreateDataReader(connection, transaction);
 	
 			KandaDbDataMapper.MapToParameters(reader.Parameters, criteria);
 			
 			reader.CommandType = ComamndType.Text;
-			reader.CommandText = string.Format(@"<#@ include file="Includes\GatewaySelectStatementTemplate.t4" #>");
+			reader.CommandText = string.Format(@"<#@ include file="t4\GatewaySelectStatementTemplate.t4" #>");
 			reader.ExecuteReader();
 
 			return reader;
 		}
 
-		public static int Insert(<#= this.Entity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		public static int Insert(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
 		{
 			var command = <#= this.Context.Inherits #>.CreateCommand(connection, transaction);
 
 			KandaDbDataMapper.MapToParameters(command.Parameters, criteria);
 			
 			command.CommandType = ComamndType.Text;
-			reader.CommandText = string.Format(@"<#@ include file="Includes\GatewayInsertStatementTemplate.t4" #>");
+			reader.CommandText = string.Format(@"<#@ include file="t4\GatewayInsertStatementTemplate.t4" #>");
 			
 			var affected = command.ExecuteNonQuery();
 
 			return affected;
 		}
 
-		public int Update(<#= this.Entity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		public int Update(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
 		{
 			var command = <#= this.Context.Inherits #>.CreateCommand(connection, transaction);
 
 			KandaDbDataMapper.MapToParameters(command.Parameters, criteria);
 			
 			command.CommandType = ComamndType.Text;
-			command.CommandText = string.Format(@"<#@ include file="Includes\GatewayUpdateStatementTemplate.t4" #>");
+			command.CommandText = string.Format(@"<#@ include file="t4\GatewayUpdateStatementTemplate.t4" #>");
 			
 			var affected = command.ExecuteNonQuery();
 
@@ -57,14 +57,14 @@
 
 		#region Internal members...
 
-		internal int Delete(<#= this.Entity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		internal int Delete(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
 		{
 			var command = <#= this.Context.Inherits #>.CreateCommand(connection, transaction);
 
 			KandaDbDataMapper.MapToParameters(command.Parameters, criteria);
 			
 			command.CommandType = ComamndType.Text;
-			command.CommandText = string.Format(@"<#@ include file="Includes\GatewayDeleteStatementTemplate.t4" #>");
+			command.CommandText = string.Format(@"<#@ include file="t4\GatewayDeleteStatementTemplate.t4" #>");
 			
 			var affected = command.ExecuteNonQuery();
 

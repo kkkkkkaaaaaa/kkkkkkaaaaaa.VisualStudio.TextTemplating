@@ -25,7 +25,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 Imports = new[] { @"System", },
                 TypeAttributes = TypeAttributes.Public | TypeAttributes.Class, 
                 IsPartial = true,
-                TypeNameSuffix = "_entity",
+                TypeName = new TypeName(@"", @"", @"_entity"),
                 Inherits = @"EntityBase",
                 Implements = new [] { @"IEntity" },
                 MemberAttribute = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
@@ -51,7 +51,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 Imports = new[] { @"System", },
                 TypeAttributes = TypeAttributes.Public | TypeAttributes.Class,
                 IsPartial = true,
-                TypeNameSuffix = "Entity",
+                TypeName = new TypeName(@"", @"", @"Entity"),
                 Inherits = @"EntityBase",
                 Implements = new string [0],
                 MemberAttribute = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public

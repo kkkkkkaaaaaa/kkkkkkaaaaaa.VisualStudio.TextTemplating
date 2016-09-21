@@ -8,12 +8,12 @@
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        /// <param name="root"></param>
-        /// <param name="ns"></param>
-        public Namespace(string root, string ns)
+        /// <param name="parent"></param>
+        /// <param name="child"></param>
+        public Namespace(string parent, string child)
         {
-            this.Parent = root;
-            this.Name = ns;
+            this.Parent = parent;
+            this.Child = child;
         }
 
         /// <summary>
@@ -24,7 +24,7 @@
         /// <summary>
         /// 名前空間名を取得します。
         /// </summary>
-        public string Name { get; }
+        public string Child { get; }
 
         /// <summary>
         /// このオブジェクトの文字列表現を返します。
@@ -33,8 +33,8 @@
         public override string ToString()
         {
             var ns = (string.IsNullOrWhiteSpace(this.Parent)
-                ? this.Name
-                : string.Format(@"{0}.{1}", this.Parent, this.Name));
+                ? this.Child
+                : string.Format(@"{0}.{1}", this.Parent, this.Child));
 
             return ns;
         }
@@ -44,7 +44,7 @@
             if (object.ReferenceEquals(ns1, ns2)) { return true; }
             if ((object)ns1 == null || (object)ns2 == null) { return false;  }
 
-            var equals = (ns1.Parent == ns2.Parent) && (ns1.Name == ns2.Name);
+            var equals = (ns1.Parent == ns2.Parent) && (ns1.Child == ns2.Child);
 
             return equals;
         }

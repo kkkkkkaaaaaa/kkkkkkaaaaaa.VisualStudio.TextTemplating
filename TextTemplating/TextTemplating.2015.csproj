@@ -32,6 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Aggregates\FileName.cs" />
+    <Compile Include="Aggregates\TypeName.cs" />
     <Compile Include="ComponentModel\EntitiesViewModel.vm.cs" />
     <Compile Include="Aggregates\Namespace.cs" />
     <Compile Include="Aggregates\NotifyPropertyChangedContext.cs" />
@@ -52,7 +54,7 @@
     <Compile Include="Aggregates\ProviderFactoryContext.cs" />
     <Compile Include="Aggregates\ColumnSchemaEntity.cs" />
     <Compile Include="Aggregates\SqlTableContext.cs" />
-    <Compile Include="Aggregates\SqlTableSchemaEntity.cs" />
+    <Compile Include="Aggregates\TableSchemaEntity.cs" />
     <Compile Include="Aggregates\TextTemplatingContext.cs" />
     <Compile Include="Aggregates\T4SqlStoredProcedureContext.cs" />
     <Compile Include="Data\Repositories\SchemaRepository.cs" />
@@ -99,7 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Includes\GatewayDeleteStatementTemplate.t4" />
+    <None Include="t4\GatewayDeleteStatementTemplate.t4" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -153,16 +155,16 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EventAsObservableTemplate.cs</LastGenOutput>
     </Content>
-    <None Include="Includes\EntityPropertyTemplate.t4">
+    <None Include="t4\EntityPropertyTemplate.t4">
       <LastGenOutput>EntityPropertyTemplate1.cs</LastGenOutput>
     </None>
-    <None Include="Includes\GatewaySelectStatementTemplate.t4">
+    <None Include="t4\GatewaySelectStatementTemplate.t4">
       <LastGenOutput>SelectStatementTemplate1.cs</LastGenOutput>
     </None>
-    <None Include="Includes\GatewayUpdateStatementTemplate.t4">
+    <None Include="t4\GatewayUpdateStatementTemplate.t4">
       <LastGenOutput>GatewayUpdateStatementTemplate1.cs</LastGenOutput>
     </None>
-    <None Include="Includes\GatewayInsertStatementTemplate.t4">
+    <None Include="t4\GatewayInsertStatementTemplate.t4">
       <LastGenOutput>GatewayInsertStatementTemplate11.cs</LastGenOutput>
     </None>
     <Content Include="NotifyPropertyChangedTemplate.tt">
@@ -183,6 +185,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Aggregates\Entities\" />
+    <Folder Include="Aggregates\ValueObjects\" />
     <Folder Include="Windows\Input\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

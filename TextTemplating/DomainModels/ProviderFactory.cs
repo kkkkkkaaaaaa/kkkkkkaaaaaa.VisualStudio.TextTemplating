@@ -28,7 +28,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             var template = new ProviderFactoryTemplate(this.Context);
             var text = template.TransformText();
 
-            var path = Path.Combine(this.OutputPath, this.Context.TypeName);
+            var path = Path.Combine(this.OutputPath, this.Context.TypeName.ToString());
             this.Flush(path, text, this.Encoding);
         }
     }

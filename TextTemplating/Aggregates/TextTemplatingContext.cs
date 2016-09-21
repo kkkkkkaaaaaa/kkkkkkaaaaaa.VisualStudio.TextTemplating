@@ -15,22 +15,32 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
         public virtual Namespace Namespace { get; set; }
 
         /// <summary></summary>
+        public virtual TypeName TypeName { get; set; }
+        
+        /*
+        /// <summary></summary>
+        public virtual string TypeNamePrefix { get; set; }
+
+        /// <summary></summary>
+        public virtual string TypeNameSuffix { get; set; }
+        */
+
+        /// <summary></summary>
         public virtual string[] Imports { get; set; }
 
         /// <summary></summary>
         public virtual TypeAttributes TypeAttributes { get; set; }
 
         /// <summary></summary>
-        public virtual string TypeName { get; set; }
-
-        /// <summary></summary>
-        public virtual string TypeNameSuffix { get; set; }
-
-        /// <summary></summary>
         public virtual string Inherits { get; set; }
 
         /// <summary></summary>
         public virtual MemberAttributes MemberAttribute { get; set; }
+
+        /// <summary>
+        /// ファイルの接尾辞を取得または設定します。
+        /// </summary>
+        public virtual FileName FileName { get; set; }
 
         /// <summary>
         /// ファイルの接尾辞を取得または設定します。

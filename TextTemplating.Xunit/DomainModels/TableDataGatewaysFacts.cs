@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
@@ -9,24 +10,41 @@ using Xunit;
 
 namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 {
+    /// <summary></summary>
     public class TableDataGatewaysFacts
     {
+        /// <summary></summary>
         [Fact()]
-        public void CreateGatewaysFact()
+        public async Task CreateGatewaysFact()
         {
-            var ns = @"TableDataGateways";
-            var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
+            var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+            var ns = default(Namespace);
+
+            // Table Data Gateway
+            ns = new Namespace(NAMESPACE, @"TableDataGateways");
             var context = new TableDataGatewaysContext
             {
-                Namespace = new Namespace(NAMESPACE, ns),
+                Namespace = new Namespace(NAMESPACE, ns.Child),
                 Imports = new[] { "System.Data.Common", "kkkkkkaaaaaa.Data.Common" },
-                TypeNameSuffix = @"Gateway",
+                TypeName = new TypeName(@"", @"", @"Gateway"),
                 Inherits = "GatewayBase",
-                OutputPath = output,
+                OutputPath = Path.Combine(output, ns.Child),
             };
 
+            // Entities
+            ns = new Namespace(NAMESPACE, @"Aggregates");
+            context.Entities = await new Entities(new EntitiesContext
+            {
+                Namespace = ns,
+                Imports = new [] { @"System", },
+                TypeName = new TypeName(@"", @"", @"Entity"),
+                Inherits = @"",
+                OutputPath = Path.Combine(output, ns.Child),
+
+            }).CreateEntitiesAsync();
+
             var gateways = new TableDataGateways(context);
-            gateways.CreateGateways();
+            await gateways.CreateGatewaysAsync();
 
             TextTemplatingProcess.StartExplorer(context.OutputPath);
         }
@@ -41,7 +59,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             {
                 Namespace = new Namespace(NAMESPACE, ns),
                 Imports = new[] {"System.Data.Common", "kkkkkkaaaaaa.Data.Common"},
-                TypeNameSuffix = @"Gateway",
+                TypeName = new TypeName(@"", @"", @"Gateway"),
                 Inherits = "GatewayBase",
                 OutputPath = output,
             };

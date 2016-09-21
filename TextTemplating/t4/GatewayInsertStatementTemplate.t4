@@ -2,7 +2,7 @@
 INSERT INTO <#= this.Context.TableName #> (
 <#
 var j = 0;
-foreach (var column in  this.Context.Columns) {
+foreach (var column in this.Context.CurrentEntity.Columns) {
 	if (j == 0) { #>
 	 <#= column.ColumnName #>
 <#	} else { #>
@@ -13,7 +13,7 @@ foreach (var column in  this.Context.Columns) {
 ) VALUES (
 <#
 var k = 0;
-foreach (var column in  this.Context.Columns) {
+foreach (var column in this.Context.CurrentEntity.Columns) {
 	if (k == 0) { #>
 	 @<#= column.ColumnName #>
 <#	} else { #>

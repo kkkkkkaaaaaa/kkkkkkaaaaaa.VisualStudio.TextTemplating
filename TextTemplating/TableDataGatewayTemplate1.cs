@@ -60,7 +60,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write(" への TableDataGateway です。\r\n    /// </summary>\r\n\tinternal static class ");
+            this.Write(" への TableDataGateway です。\r\n    /// </summary>\r\n\tinternal /* static */ class ");
             
             #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
@@ -84,7 +84,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\"; }\r\n\t\t}\r\n\r\n\t\tpublic static KandaDbDataReader Select(");
             
             #line 17 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.Entity.TypeName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
@@ -101,38 +101,38 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
                     ";\r\n\t\t\treader.CommandText = string.Format(@\"");
             this.Write("SELECT\r\n");
             
-            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
 
 var i = 0;
-foreach (var column in  this.Context.Columns) {
+foreach (var column in  this.Context.CurrentEntity.Columns) {
 	if (i == 0) {
             
             #line default
             #line hidden
             this.Write("\t ");
             
-            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
+            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
 	} else { 
             
             #line default
             #line hidden
             this.Write("\t , ");
             
-            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
+            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
+            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
 	}
 	i++;
 } 
@@ -141,35 +141,35 @@ foreach (var column in  this.Context.Columns) {
             #line hidden
             this.Write("FROM\r\n\t");
             
-            #line 14 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
+            #line 14 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default
             #line hidden
             this.Write("\r\nWHERE 1 = 1\r\n");
             
-            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
- foreach (var column in  this.Context.Columns) { 
+            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
+ foreach (var column in  this.Context.CurrentEntity.Columns) { 
             
             #line default
             #line hidden
             this.Write("\t-- AND ");
             
-            #line 17 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
+            #line 17 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write(" = @");
             
-            #line 17 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
+            #line 17 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 18 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewaySelectStatementTemplate.t4"
+            #line 18 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
  } 
             
             #line default
@@ -178,7 +178,7 @@ foreach (var column in  this.Context.Columns) {
                     "Insert(");
             
             #line 30 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.Entity.TypeName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
@@ -195,45 +195,45 @@ foreach (var column in  this.Context.Columns) {
                     "\n\t\t\treader.CommandText = string.Format(@\"");
             this.Write("INSERT INTO ");
             
-            #line 2 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 2 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default
             #line hidden
             this.Write(" (\r\n");
             
-            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
 
 var j = 0;
-foreach (var column in  this.Context.Columns) {
+foreach (var column in this.Context.CurrentEntity.Columns) {
 	if (j == 0) { 
             
             #line default
             #line hidden
             this.Write("\t ");
             
-            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
 	} else { 
             
             #line default
             #line hidden
             this.Write("\t , ");
             
-            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
 	}
 	j++;
 } 
@@ -242,50 +242,50 @@ foreach (var column in  this.Context.Columns) {
             #line hidden
             this.Write(") VALUES (\r\n");
             
-            #line 14 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 14 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
 
 var k = 0;
-foreach (var column in  this.Context.Columns) {
+foreach (var column in this.Context.CurrentEntity.Columns) {
 	if (k == 0) { 
             
             #line default
             #line hidden
             this.Write("\t @");
             
-            #line 18 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 18 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 19 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 19 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
 	} else { 
             
             #line default
             #line hidden
             this.Write("\t , @");
             
-            #line 20 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 20 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 21 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayInsertStatementTemplate.t4"
+            #line 21 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
 	}
 	k++;
 } 
             
             #line default
             #line hidden
-            this.Write(")");
+            this.Write(")\r\n");
             this.Write("\");\r\n\t\t\t\r\n\t\t\tvar affected = command.ExecuteNonQuery();\r\n\r\n\t\t\treturn affected;\r\n\t\t" +
                     "}\r\n\r\n\t\tpublic int Update(");
             
             #line 44 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.Entity.TypeName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
@@ -302,38 +302,38 @@ foreach (var column in  this.Context.Columns) {
                     "\n\t\t\tcommand.CommandText = string.Format(@\"");
             this.Write("UPDATE\r\n\t");
             
-            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayUpdateStatementTemplate.t4"
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default
             #line hidden
             this.Write("\r\nSET\r\n");
             
-            #line 5 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayUpdateStatementTemplate.t4"
+            #line 5 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
 
 var l = 0;
-foreach (var column in  this.Context.Columns) {
+foreach (var column in  this.Context.CurrentEntity.Columns) {
 	if (0 < l) { 
             
             #line default
             #line hidden
             this.Write("\t");
             
-            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayUpdateStatementTemplate.t4"
+            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write(" = @");
             
-            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayUpdateStatementTemplate.t4"
+            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayUpdateStatementTemplate.t4"
+            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
 	}
 	l++;
 } 
@@ -342,28 +342,28 @@ foreach (var column in  this.Context.Columns) {
             #line hidden
             this.Write("\r\nWHERE 1 <> 1 -- 実装時に 1 = 1 にする\r\n");
             
-            #line 15 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayUpdateStatementTemplate.t4"
- foreach (var column in  this.Context.Columns) { 
+            #line 15 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
+ foreach (var column in  this.Context.CurrentEntity.Columns) { 
             
             #line default
             #line hidden
             this.Write("\t-- AND ");
             
-            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayUpdateStatementTemplate.t4"
+            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write(" = @");
             
-            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayUpdateStatementTemplate.t4"
+            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 17 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayUpdateStatementTemplate.t4"
+            #line 17 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
  } 
             
             #line default
@@ -372,7 +372,7 @@ foreach (var column in  this.Context.Columns) {
                     "}\r\n\r\n\t\t#region Internal members...\r\n\r\n\t\tinternal int Delete(");
             
             #line 60 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.Entity.TypeName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
@@ -389,42 +389,42 @@ foreach (var column in  this.Context.Columns) {
                     "\n\t\t\tcommand.CommandText = string.Format(@\"");
             this.Write("DELETE ");
             
-            #line 2 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayDeleteStatementTemplate.t4"
+            #line 2 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayDeleteStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default
             #line hidden
             this.Write("\r\nFROM\r\n\t");
             
-            #line 4 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayDeleteStatementTemplate.t4"
+            #line 4 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayDeleteStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TableName));
             
             #line default
             #line hidden
-            this.Write("\r\nWHERE 1 = 1\r\n");
+            this.Write("\r\nWHERE 1 <> 1 -- 実装時に 1 = 1\r\n");
             
-            #line 6 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayDeleteStatementTemplate.t4"
- foreach (var column in  this.Context.Columns) { 
+            #line 6 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayDeleteStatementTemplate.t4"
+ foreach (var column in  this.Context.CurrentEntity.Columns) { 
             
             #line default
             #line hidden
             this.Write("\t-- AND ");
             
-            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayDeleteStatementTemplate.t4"
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayDeleteStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write(" = @");
             
-            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayDeleteStatementTemplate.t4"
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayDeleteStatementTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\GatewayDeleteStatementTemplate.t4"
+            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayDeleteStatementTemplate.t4"
  } 
             
             #line default

@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Reflection;
 using System.Windows;
 using kkkkkkaaaaaa.Reactive.Windows;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace TextTemplating.Windows
@@ -23,7 +24,7 @@ namespace TextTemplating.Windows
             this._vm.Namespace = new Namespace(@"kkkkkkaaaaaa.VisualStudio.TextTemplating", @"");
             this._vm.Imports = new []{ @"System", };
             this._vm.TypeAttributes = TypeAttributes.Public;
-            this._vm.TypeNameSuffix = "Entity";
+            this._vm.TypeName = new TypeName(@"", @"", @"Entity");
             this._vm.Inherits = @"";
             this._vm.MemberAttribute = MemberAttributes.Assembly;
 

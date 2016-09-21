@@ -7,12 +7,12 @@ namaspace <#= this.Context.Namespace #>
 	/// <summary>
 <#= string.Format(@"	///		{0} の View Model を表します。", this.Context.TypeName) #>
 	/// </sumary>
-<#= string.Format(@"	public {0}{1} : {2}", this.Context.TypeName, this.Context.TypeNameSuffix, this.Context.Inherits) #><# foreach(var implement in this.Context.Implements) { #><#= string.Format(@", {0}", implement) #><# } #>
+<#= string.Format(@"	public {0} : {1}", this.Context.TypeName, this.Context.Inherits) #><# foreach(var implement in this.Context.Implements) { #><#= string.Format(@", {0}", implement) #><# } #>
 	{
 		/// <summary>
 		/// コンストラクター。
 		/// </summary>
-<#=		string.Format(@"		public {0}{1}()", this.Context.TypeName, this.Context.TypeNameSuffix) #>
+<#=		string.Format(@"		public {0}()", this.Context.TypeName) #>
 		{
 			this.DoNothing();
 		}

@@ -33,7 +33,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             foreach (var type in this.Context.Types)
             {
                 this.Context.SenderType = type;
-                this.Context.TypeName = string.Format(@"{0}Extensions", type.Name);
+                this.Context.TypeName = this.Context.TypeName.GetTypeName(type.Name);
                 this.Context.Events = this.getEvents(type);
                 this.Context.SenderName = @"sender";
                 

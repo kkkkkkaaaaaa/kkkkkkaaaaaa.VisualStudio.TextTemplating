@@ -19,7 +19,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             {
                 Namespace = new Namespace(NAMESPACE, ns),
                 Imports = new[] {@"System", @"System.Data.Common", @"System.Configuration", @"kkkkkkaaaaaa.Data.Common",},
-                TypeName = @"TestProviderFactory",
+                TypeName = new TypeName(@"TestProviderFactory"),
                 ConnectionStringSectionName = @"db",
                 InvariantName = @"USystem.Data.SqlClient",
                 OutputPath = output,

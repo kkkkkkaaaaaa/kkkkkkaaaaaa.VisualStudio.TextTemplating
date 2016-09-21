@@ -84,35 +84,35 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\n");
             this.Write("\t\t/// <summary>\n\t\t/// ");
             
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0} を取得または設定します。", column.ColumnName)));
             
             #line default
             #line hidden
             this.Write("\n\t\t/// </summary>\n\t\t[KandaDataMapping(@\"");
             
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\", Ignore = true)]\n\t\t[KandaDbParameterMapping(@\"");
             
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
             this.Write("\", Ignore = true)]\n\t\tpublic virtual ");
             
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.DataType.FullName));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\Includes\EntityPropertyTemplate.t4"
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default

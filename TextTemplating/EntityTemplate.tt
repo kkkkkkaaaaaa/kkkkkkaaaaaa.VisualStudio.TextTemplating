@@ -7,7 +7,7 @@
 	/// </summary>
 	public<#= this.Context.IsPartial ? @" partial" : @"" #> class <#= this.Context.TypeName #>
 	{<#	foreach(var column in this.Context.Columns) { #>
-<#@			include file="Includes\EntityPropertyTemplate.t4" #>
+<#@			include file="t4\EntityPropertyTemplate.t4" #>
 <#		} #>
 	}
 }

@@ -14,7 +14,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// 現在のデータベースのテーブルのスキーマを取得して返します。
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<SqlTableSchemaEntity> GetTablesSchema()
+        public IEnumerable<TableSchemaEntity> GetTablesSchema()
         {
             var connection = default(DbConnection);
 

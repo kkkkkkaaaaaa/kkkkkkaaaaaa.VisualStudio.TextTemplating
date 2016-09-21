@@ -2,7 +2,7 @@
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 {
-    public class SqlTableSchemaEntity
+    public class TableSchemaEntity
     {
         [KandaDataMapping(@"TABLE_SCHEMA", DefaultValue = @"")]
         public string TableSchema { get; set; }

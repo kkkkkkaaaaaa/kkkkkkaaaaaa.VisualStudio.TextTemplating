@@ -18,13 +18,13 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories
         /// </summary>
         /// <param name="connection"></param>
         /// <returns></returns>
-        public IEnumerable<SqlTableSchemaEntity> GetTablesSchema(DbConnection connection)
+        public IEnumerable<TableSchemaEntity> GetTablesSchema(DbConnection connection)
         {
             var schema = connection.GetTablesSchema();
             var reader = new DataTableReader(schema);
 
             // TODO: KandaDbDataMapper.MapToEnumerableAsync<T>()
-            var tables = KandaDbDataMapper.MapToEnumerable<SqlTableSchemaEntity>(reader);
+            var tables = KandaDbDataMapper.MapToEnumerable<TableSchemaEntity>(reader);
 
             return tables;
         }

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 {
@@ -22,7 +24,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
 
             var connection = this.Factory.CreateConnection();
-            var tables = default(IEnumerable<SqlTableSchemaEntity>);
+            var tables = default(IEnumerable<TableSchemaEntity>);
 
             try
             {
@@ -41,13 +43,48 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
                 this.CreateGateway(table.TableName);
             }
         }
-        
+
+        public async Task<IEnumerable<TableDataGatewaysContext>> CreateGatewaysAsync()
+        {
+            var gateways = new Collection<TableDataGatewaysContext>();
+            await this.Context.Entities
+                .ToAsyncEnumerable()
+                .ForEachAsync(async entity =>
+                {
+                    this.Context.CurrentEntity = entity;
+
+                    var gateway = await this.CreateGatewayAsync(entity);
+                    gateways.Add(gateway);
+                });
+
+            return gateways;
+        }
+
+        public async Task<TableDataGatewaysContext> CreateGatewayAsync(EntitiesContext entity)
+        {
+            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
+
+            var context = KandaDataMapper.MapToObject<TableDataGatewaysContext>(this.Context);
+            context.CurrentEntity = KandaDataMapper.MapToObject<EntitiesContext>(entity);
+            context.TableName = entity.TableName;
+            context.TypeName = context.TypeName.GetTypeName(context.TableName);
+
+            var tempalte = new TableDataGatewayTemplate(this.Context, entity);
+            var text = tempalte.TransformText();
+
+            var file = Path.Combine(this.Context.OutputPath, context.FileName.ToString());
+            await this.FlushAsync(file, text, this.Encoding);
+
+            return context;
+        }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="table"></param>
         public void CreateGateway(string table)
         {
+            /*
             if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
 
             var connection = this.Factory.CreateConnection();
@@ -77,8 +114,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             var tempalte = new TableDataGatewayTemplate(this.Context, entity);
             var text = tempalte.TransformText();
 
-            var file = Path.Combine(this.Context.OutputPath, $@"{ this.Context.TypeName }.cs");
+            var file = Path.Combine(this.Context.OutputPath, string.Format(@"{0}.cs") $@"{ this.Context.FileNameSuffix }.cs");
             this.Flush(file, text, this.Encoding);
+            */
         }
     }
 }

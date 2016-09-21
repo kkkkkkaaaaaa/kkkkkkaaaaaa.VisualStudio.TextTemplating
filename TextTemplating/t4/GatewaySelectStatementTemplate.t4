@@ -2,7 +2,7 @@
 SELECT
 <#
 var i = 0;
-foreach (var column in  this.Context.Columns) {
+foreach (var column in  this.Context.CurrentEntity.Columns) {
 	if (i == 0) {#>
 	 <#= column.ColumnName #>
 <#	} else { #>
@@ -13,6 +13,6 @@ foreach (var column in  this.Context.Columns) {
 FROM
 	<#= this.Context.TableName #>
 WHERE 1 = 1
-<# foreach (var column in  this.Context.Columns) { #>
+<# foreach (var column in  this.Context.CurrentEntity.Columns) { #>
 	-- AND <#= column.ColumnName #> = @<#= column.ColumnName #>
 <# } #>

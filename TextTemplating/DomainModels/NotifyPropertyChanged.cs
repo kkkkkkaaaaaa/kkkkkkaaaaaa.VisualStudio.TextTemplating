@@ -60,13 +60,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             {
                 connection.Open();
                 var schema = new SchemaRepository();
+                this.Context.TableName = table;
+                this.Context.TypeName = new TypeName(this.Context.TableName);
                 this.Context.Columns = schema.GetColumnsSchema(table, connection);
-                this.Context.TypeName = table;
 
                 var template = new NotifyPropertyChangedTemplate(this.Context);
                 var text = template.TransformText();
 
-                var file = Path.Combine(this.Context.OutputPath, this.Context.TypeName);
+                var file = Path.Combine(this.Context.OutputPath, this.Context.TypeName.ToString());
                 this.Flush(file, text, this.Encoding);
             }
             finally

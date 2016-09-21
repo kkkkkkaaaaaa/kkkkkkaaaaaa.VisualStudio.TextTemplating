@@ -20,15 +20,14 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 {
                     Namespace = new Namespace(NAMESPACE, ns),
                     Imports = new[] {@"System.ComponentModel", @"DataTransferObjects" },
-                    TypeName = @"TB_MATE_SALE_PRICE",
-                    TypeNameSuffix = @"ViewModel",
+                    TypeName = new TypeName(@"", @"TB_MATE_SALE_PRICE", @"ViewModel"),
                     Inherits = @"TestViewModel",
                     Implements = new [] { @"INortifyPropertyChanged" },
                     OutputPath = output,
                 };
 
                 var viewmodel = new NotifyPropertyChanged(context);
-                viewmodel.CreateViewModel(context.TypeName);
+                viewmodel.CreateViewModel(context.TypeName.ToString());
 
                 TextTemplatingProcess.StartExplorer(context.OutputPath);
             }
