@@ -1,8 +1,6 @@
-﻿using System.Data;
-using System.IO;
+﻿using System.IO;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 {
