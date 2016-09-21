@@ -108,7 +108,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             }
             finally
             {
-                if (stream != null) stream?.Close();
+                if (stream != null) { stream.Close(); }
             }
         }
 

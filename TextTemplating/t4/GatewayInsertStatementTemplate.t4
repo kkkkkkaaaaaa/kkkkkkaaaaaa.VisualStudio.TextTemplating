@@ -10,6 +10,7 @@ foreach (var column in this.Context.CurrentEntity.Columns) {
 <#	}
 	j++;
 } #>
+
 ) VALUES (
 <#
 var k = 0;

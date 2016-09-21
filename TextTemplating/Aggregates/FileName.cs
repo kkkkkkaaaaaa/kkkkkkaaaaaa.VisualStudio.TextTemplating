@@ -34,12 +34,23 @@
 
 
         /// <summary>
+        /// 接尾辞を利用してファイル名を取得して返します。ｒ
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public FileName GetFileName(string fileName)
+        {
+            return new FileName(fileName, this.Suffix);
+        }
+
+        /// <summary>
         /// このインスタンスの文字列表現を取得して返します。
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
             var suffix = string.IsNullOrWhiteSpace(this.Suffix) ? @"" : string.Format(@".{0}", this.Suffix);
+
             var s = string.Format(@"{0}{1}", this.Name, suffix);
 
             return s;

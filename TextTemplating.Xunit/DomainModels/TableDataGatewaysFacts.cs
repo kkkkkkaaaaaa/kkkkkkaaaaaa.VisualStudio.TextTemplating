@@ -46,7 +46,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             var gateways = new TableDataGateways(context);
             await gateways.CreateGatewaysAsync();
 
-            TextTemplatingProcess.StartExplorer(context.OutputPath);
+            TextTemplatingProcess.StartExplorer(output);
         }
 
 

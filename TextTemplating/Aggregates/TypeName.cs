@@ -46,7 +46,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
         public override string ToString()
         {
             var s = string.Format(@"{0}{1}{2}", this.Prefix, this.Name, this.Suffix);
-            return base.ToString();
+
+            return s;
         }
 
         #region Private members...

@@ -1,6 +1,7 @@
 ﻿
 UPDATE
 	<#= this.Context.TableName #>
+
 SET
 <#
 var l = 0;

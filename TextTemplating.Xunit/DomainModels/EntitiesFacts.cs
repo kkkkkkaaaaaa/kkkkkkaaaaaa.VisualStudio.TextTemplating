@@ -2,7 +2,6 @@
 using System.IO;
 using System.Reflection;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
 using Xunit;

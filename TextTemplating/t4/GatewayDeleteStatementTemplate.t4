@@ -1,7 +1,7 @@
 ﻿
-DELETE <#= this.Context.TableName #>
-FROM
+DELETE FROM
 	<#= this.Context.TableName #>
+    
 WHERE 1 <> 1 -- 実装時に 1 = 1
 <# foreach (var column in  this.Context.CurrentEntity.Columns) { #>
 	-- AND <#= column.ColumnName #> = @<#= column.ColumnName #>

@@ -1,4 +1,4 @@
-﻿namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
+﻿namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 {
     /// <summary>
     /// 名前空間を表す Value Object。

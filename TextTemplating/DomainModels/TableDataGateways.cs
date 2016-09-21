@@ -62,17 +62,18 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 
         public async Task<TableDataGatewaysContext> CreateGatewayAsync(EntitiesContext entity)
         {
-            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
-
             var context = KandaDataMapper.MapToObject<TableDataGatewaysContext>(this.Context);
             context.CurrentEntity = KandaDataMapper.MapToObject<EntitiesContext>(entity);
             context.TableName = entity.TableName;
             context.TypeName = context.TypeName.GetTypeName(context.TableName);
+            context.FileName = context.FileName.GetFileName(context.TableName);
 
-            var tempalte = new TableDataGatewayTemplate(this.Context, entity);
+            var tempalte = new TableDataGatewayTemplate(context);
             var text = tempalte.TransformText();
 
-            var file = Path.Combine(this.Context.OutputPath, context.FileName.ToString());
+
+            if (!Directory.Exists(context.OutputPath)) { Directory.CreateDirectory(context.OutputPath); }
+            var file = Path.Combine(context.OutputPath, string.Format(@"{0}.cs", context.FileName));
             await this.FlushAsync(file, text, this.Encoding);
 
             return context;

@@ -1,19 +1,17 @@
 ﻿using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 {
+    /// <summary></summary>
     public partial class TableDataGatewayTemplate
     {
         /// <summary>
         /// コンストラクター。
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="entity"></param>
-        public TableDataGatewayTemplate(TableDataGatewaysContext context, EntitiesContext entity)
+        public TableDataGatewayTemplate(TableDataGatewaysContext context)
         {
             this._context = context;
-            this._entity = entity;
         }
         
         #region Protected members...
@@ -24,14 +22,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         protected TableDataGatewaysContext Context
         {
             get { return this._context; }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        protected EntitiesContext Entity
-        {
-            get { return this._entity; }
         }
 
         #endregion
