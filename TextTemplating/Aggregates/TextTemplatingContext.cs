@@ -1,35 +1,28 @@
 ﻿using System.CodeDom;
 using System.Diagnostics;
 using System.Reflection;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 {
     /// <summary></summary>
-    public class TextTemplatingContext
+    public class TextTemplatingContext : ITextTemplatingAggregate
     {
-        /// <summary></summary>
-        public virtual string OutputPath { get; set; }
-
         /// <summary></summary>
         public virtual Namespace Namespace { get; set; }
 
         /// <summary></summary>
         public virtual TypeName TypeName { get; set; }
-        
-        /*
-        /// <summary></summary>
-        public virtual string TypeNamePrefix { get; set; }
-
-        /// <summary></summary>
-        public virtual string TypeNameSuffix { get; set; }
-        */
 
         /// <summary></summary>
         public virtual string[] Imports { get; set; }
 
         /// <summary></summary>
         public virtual TypeAttributes TypeAttributes { get; set; }
+
+        /// <summary>
+        /// 型宣言が完全か部分的かを示す値を取得または設定します。
+        /// </summary>
+        public virtual bool IsPartial { get; set; }
 
         /// <summary></summary>
         public virtual string Inherits { get; set; }
@@ -38,14 +31,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
         public virtual MemberAttributes MemberAttribute { get; set; }
 
         /// <summary>
-        /// ファイルの接尾辞を取得または設定します。
+        /// ファイル名を取得または設定します。
         /// </summary>
         public virtual FileName FileName { get; set; }
-
+            
         /// <summary>
-        /// ファイルの接尾辞を取得または設定します。
+        /// ファイルを出力するパスを取得または設定します。
         /// </summary>
-        public virtual string FileNameSuffix { get; set; }
+        public virtual string OutputPath { get; set; }
 
         #region Protected members...
 

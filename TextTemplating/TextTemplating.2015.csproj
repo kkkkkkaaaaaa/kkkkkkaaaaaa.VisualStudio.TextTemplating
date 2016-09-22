@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Aggregates\FileName.cs" />
+    <Compile Include="Aggregates\ITextTemplatingAggregate.cs" />
     <Compile Include="Aggregates\TypeName.cs" />
     <Compile Include="ComponentModel\EntitiesViewModel.vm.cs" />
     <Compile Include="Aggregates\Namespace.cs" />
@@ -40,6 +41,8 @@
     <Compile Include="Aggregates\TableDataGatewaysContext.cs" />
     <Compile Include="Data\TableDataGateways\SchemaGateway.cs" />
     <Compile Include="DomainModels\NotifyPropertyChanged.cs" />
+    <Compile Include="Aggregates\RepositoriesContext.cs" />
+    <Compile Include="DomainModels\Repositories.cs" />
     <Compile Include="DomainModels\SchemaService.cs" />
     <Compile Include="DomainModels\TableDataGateways.cs" />
     <Compile Include="EntityTemplate.cs">
@@ -86,6 +89,12 @@
       <DependentUpon>NotifyPropertyChangedTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="NotifyPropertyChangedTemplate.partial.cs" />
+    <Compile Include="RepositoryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepositoryTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepositoryTemplate.partial.cs" />
     <Compile Include="SqlSelectTableTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,6 +183,10 @@
     <Content Include="ProviderFactoryTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ProviderFactoryTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="RepositoryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RepositoryTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="SqlSelectTableTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

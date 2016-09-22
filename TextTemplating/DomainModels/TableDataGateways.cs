@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
@@ -47,34 +49,44 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         public async Task<IEnumerable<TableDataGatewaysContext>> CreateGatewaysAsync()
         {
             var gateways = new Collection<TableDataGatewaysContext>();
+            
+            //var tables = this.Schema.GetTablesSchema();
+            //await tables
+
+            this.Context.Entities = (this.Context.Entities ?? (await new Entities().GetEntitiesAsync()));
             await this.Context.Entities
                 .ToAsyncEnumerable()
-                .ForEachAsync(async entity =>
+                .ForEachAsync(async table =>
                 {
-                    this.Context.CurrentEntity = entity;
-
-                    var gateway = await this.CreateGatewayAsync(entity);
+                    var gateway = await this.CreateGatewayAsync(table.TableName);
                     gateways.Add(gateway);
                 });
-
             return gateways;
         }
 
-        public async Task<TableDataGatewaysContext> CreateGatewayAsync(EntitiesContext entity)
+        /// <summary>
+        /// Table Data Gateway を生成してファイルを出力します。
+        /// </summary>
+        /// <returns></returns>
+        public async Task<TableDataGatewaysContext> CreateGatewayAsync(string table)
         {
-            var context = KandaDataMapper.MapToObject<TableDataGatewaysContext>(this.Context);
-            context.CurrentEntity = KandaDataMapper.MapToObject<EntitiesContext>(entity);
-            context.TableName = entity.TableName;
-            context.TypeName = context.TypeName.GetTypeName(context.TableName);
-            context.FileName = context.FileName.GetFileName(context.TableName);
+            // 現在のコンテキストを変更
+            this.Context.TableName = table;
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName);
+            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName.ToString());
+            this.Context.CurrentEntity = this.Context.Entities.First(e => e.TableName == table);
 
-            var tempalte = new TableDataGatewayTemplate(context);
+            // 変換を実行
+            var tempalte = new TableDataGatewayTemplate(this.Context);
             var text = tempalte.TransformText();
 
+            // ファイルに書き出し
+            if (!Directory.Exists(this.OutputPath)) { Directory.CreateDirectory(this.OutputPath); }
+            var file = Path.Combine(this.OutputPath, this.Context.FileName.ToString());
+            await this.FlushAsync(file, text);
 
-            if (!Directory.Exists(context.OutputPath)) { Directory.CreateDirectory(context.OutputPath); }
-            var file = Path.Combine(context.OutputPath, string.Format(@"{0}.cs", context.FileName));
-            await this.FlushAsync(file, text, this.Encoding);
+            // コピーして返す
+            var context = KandaDataMapper.MapToObject<TableDataGatewaysContext>(this.Context);
 
             return context;
         }

@@ -19,9 +19,17 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
             this.Suffix = suffix;
             this.Name = name;
         }
-        
-        /// <param name="typeName"></param>
-        public TypeName(string typeName) : this(@"", typeName, @"")
+
+        /// <summary></summary>
+        [DebuggerStepThrough()]
+        public TypeName(string prefix, string suffix) : this(prefix, null, suffix)
+        {
+            this.doNothing();
+        }
+
+        /// <summary></summary>
+        [DebuggerStepThrough()]
+        public TypeName(string typeName) : this(null, typeName, null)
         {
             this.doNothing();
         }

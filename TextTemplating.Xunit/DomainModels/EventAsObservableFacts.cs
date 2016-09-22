@@ -63,7 +63,5 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 
             TextTemplatingProcess.StartExplorer(context.OutputPath);
         }
-
-        private const string NAMESPACE = @"Estelle.Asme";
     }
 }

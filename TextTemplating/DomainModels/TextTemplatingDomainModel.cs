@@ -11,7 +11,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// ドメインモデルの基底クラスを表します。
     /// </summary>
     /// <typeparam name="TContext"></typeparam>
-    public abstract class TextTemplatingDomainModel<TContext> where TContext : TextTemplatingContext
+    public abstract class TextTemplatingDomainModel<TContext> where TContext : ITextTemplatingAggregate
     {
         /// <summary>
         /// Entity 生成条件を取得または設定します。
@@ -108,7 +108,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             }
             finally
             {
-                if (stream != null) { stream.Close(); }
+                if (stream != null) { stream.Dispose(); }
             }
         }
 
@@ -116,6 +116,11 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         protected async Task FlushAsync(string path, string text)
         {
             await this.FlushAsync(path, text, this.Encoding);
+        }
+
+        protected async Task FlushAsync()
+        {
+
         }
 
         /// <summary>

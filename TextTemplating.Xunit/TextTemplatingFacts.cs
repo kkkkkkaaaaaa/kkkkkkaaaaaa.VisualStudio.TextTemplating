@@ -16,5 +16,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit
             [DebuggerStepThrough()]
             get { return TextTemplatingProviderFactory.Instance; }
         }
+
+        protected const string NAMESPACE = @"Estelle.Asme";
     }
 }

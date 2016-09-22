@@ -9,19 +9,14 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
     public class EntitiesContext : TextTemplatingContext
     {
         /// <summary>
-        /// 分離クラスかどうかを表す値を取得または設定します。
+        /// 
         /// </summary>
-        public bool IsPartial { get; set; }
+        public string TableName { get; set; }
 
         /// <summary>
         /// 実装するインターフェイスの配列を取得または設定します。
         /// </summary>
         public string[] Implements { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string TableName { get; set; }
 
         /// <summary>
         /// 列のメタデータを取得または設定します。

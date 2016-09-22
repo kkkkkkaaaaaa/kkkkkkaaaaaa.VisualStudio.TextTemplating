@@ -1,21 +1,19 @@
 ﻿using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit;
 using Xunit;
 
 namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 {
     /// <summary></summary>
-    public class TableDataGatewaysFacts
+    public class TableDataGatewaysFacts : TextTemplatingFacts
     {
         /// <summary></summary>
         [Fact()]
-        public async Task CreateGatewaysFact()
+        public async Task CreateGatewaysAsyncFact()
         {
             var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
             var ns = default(Namespace);
@@ -24,9 +22,10 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             ns = new Namespace(NAMESPACE, @"TableDataGateways");
             var context = new TableDataGatewaysContext
             {
-                Namespace = new Namespace(NAMESPACE, ns.Child),
+                Namespace = ns,
                 Imports = new[] { "System.Data.Common", "kkkkkkaaaaaa.Data.Common" },
                 TypeName = new TypeName(@"", @"", @"Gateway"),
+                FileName = new FileName(@"", @"", @".cs"),
                 Inherits = "GatewayBase",
                 OutputPath = Path.Combine(output, ns.Child),
             };
@@ -38,6 +37,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 Namespace = ns,
                 Imports = new [] { @"System", },
                 TypeName = new TypeName(@"", @"", @"Entity"),
+                FileName = new FileName(@"", @"", @"cs"),
                 Inherits = @"",
                 OutputPath = Path.Combine(output, ns.Child),
 
@@ -71,9 +71,6 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
         }
 
         #region Private members...
-
-        /// <summary></summary>
-        private const string NAMESPACE = @"Estelle.Asme.Redmine";
 
         #endregion
     }
