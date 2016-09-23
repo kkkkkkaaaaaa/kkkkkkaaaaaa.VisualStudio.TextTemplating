@@ -108,7 +108,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             }
             finally
             {
-                if (stream != null) { stream.Dispose(); }
+                if (stream != null) { stream.Close(); }
             }
         }
 
@@ -116,11 +116,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         protected async Task FlushAsync(string path, string text)
         {
             await this.FlushAsync(path, text, this.Encoding);
-        }
-
-        protected async Task FlushAsync()
-        {
-
         }
 
         /// <summary>

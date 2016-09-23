@@ -112,6 +112,9 @@
     <None Include="App.config" />
     <None Include="t4\GatewayDeleteStatementTemplate.t4" />
     <None Include="packages.config" />
+    <None Include="t4\RepositoryFind.t4" />
+    <None Include="t4\RepositoryFindAsync.t4" />
+    <None Include="t4\RepositoryRetrieveTemplate.t4" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

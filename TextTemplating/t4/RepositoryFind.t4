@@ -1,0 +1,23 @@
+﻿		public <#= this.Context.CurrentEntity.TypeName #> Find(int id, DbConnection connection, DbTransaction transaction = null)
+		{
+			var reader = default(DbDataReader);
+
+			try
+			{
+				var criteria = new <#= this.Context.CurrentEntity.TypeName #>
+				{
+					// ID = id,
+				};
+				reader = <#= this.Context.CurrentGateway.TypeName #>.Select(criteria, connection, transaction);
+
+				var result = reader.Read()
+					? KandaDbDataMapper.MapToObject(reader)
+					: new <#= this.Context.CurrentEntity.TypeName #>.NotFound;
+
+				return result;
+			}
+			finally
+			{
+				if (reader == null) { reader.Close(); }
+			}
+		}

@@ -1,0 +1,18 @@
+﻿
+		public static IEnumerable<<#= this.Context.CurrentEntity.TypeName #>> Retrieve(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction = null)
+		{
+			var reader = default(DbDataReader);
+
+			try
+			{
+				reader = <#= this.Context.CurrentGateway.TypeName #>.Select(criteria, connection, transaction);
+				var result = KandaDbDataMapper.MapToEnumerable<IEnumerable<<#= this.Context.CurrentEntity.TypeName #>>>(reader);
+
+				return result;
+			}
+			finally
+			{
+				if (reader ! = null) { reader.Close(); }
+			}
+			
+		}

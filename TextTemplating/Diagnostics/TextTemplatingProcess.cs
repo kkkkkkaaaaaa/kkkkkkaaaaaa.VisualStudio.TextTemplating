@@ -3,14 +3,14 @@
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics
 {
     /// <summary>
-    /// プロセスにアクセスします。ｃ
+    /// プロセスへのアクセスを提供するクラスです。
     /// </summary>
     public static class TextTemplatingProcess
     {
         /// <summary>
-        /// エクスプローラーを開始します。
+        /// エクスプローラーで指定したパスを開きます。
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="path">開くパス。</param>
         /// <returns></returns>
         public static Process StartExplorer(string path)
         {

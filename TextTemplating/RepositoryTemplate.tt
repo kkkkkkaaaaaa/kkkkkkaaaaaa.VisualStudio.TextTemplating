@@ -1,4 +1,38 @@
 ﻿namespace <#= this.Context.Namespace #>
 {
+<# foreach(var import in this.Context.Imports) { #>
+	using <#= import #>;
+<# } #>
 
+	public /* static */ class <#= this.Context.TypeName #> : <#= this.Context.Inherits #>
+	{
+<#@		include file="t4\RepositoryFind.t4" #>
+		
+		public static IEnumerable<<#= this.Context.CurrentEntity.TypeName #>> Get(DbConnection connection, DbTransaction transaction = null)
+		{
+			
+		}
+
+<#@		include file="t4\RepositoryRetrieveTemplate.t4" #>
+
+		public static bool Create(<#= this.Context.CurrentEntity.TypeName #> entity, DbConnection connection, DbTransaction transaction = null)
+		{
+			
+		}
+
+		public static bool Update(<#= this.Context.CurrentEntity.TypeName #> entity, DbConnection connection, DbTransaction transaction = null)
+		{
+			
+		}
+
+		internal static bool Delete(<#= this.Context.CurrentEntity.TypeName #> entity, DbConnection connection, DbTransaction transaction = null)
+		{
+			
+		}
+
+		internal static bool Clear(DbConnection connection, DbTransaction transaction = null)
+		{
+			
+		}
+	}
 }
