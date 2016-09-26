@@ -1,0 +1,13 @@
+﻿		public static IObservable<EventPattern<<#= argsName #>>> <#= info.Name #>AsObservable(this <#= this.Context.DeclaredType.Name #> <#= this.Context.DeclaredType.Name.ToLower() #>)
+		{
+<#		if (handler.IsGenericType) { #>
+			var observable = Observable.FromEventPattern<<#= argsName #>>(
+<#		} else { #>
+			var observable = Observable.FromEventPattern<<#= handler.Name #>, <#= argsName #>>(
+<#		} #>
+				handler => (sender, e) => handler(<#= this.Context.DeclaredType.Name.ToLower() #>, e)
+				, handler => <#= this.Context.DeclaredType.Name.ToLower() #>.<#= info.Name #> += handler
+				, handler => <#= this.Context.DeclaredType.Name.ToLower() #>.<#= info.Name #> -= handler);
+
+			return observable;
+		}

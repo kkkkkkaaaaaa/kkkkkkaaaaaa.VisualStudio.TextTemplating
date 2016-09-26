@@ -1,0 +1,16 @@
+﻿		public static IObservable<EventPattern<<#= argsName #>>> <#= info.Name #>AsObservable(this <#= this.Context.DeclaredType.Name #> <#= this.Context.DeclaredType.Name.ToLower() #>)
+		{
+			return Observable.FromEventPattern<<#= handler.Name #>, <#= argsName #>>(
+				handler => (sender, e) => handler(<#= type.Name.ToLower() #>, e)
+				, 
+
+			);
+		}
+
+Console.WriteLine($@"public static IObservable<EventPattern<{ args ?? .Name }>> { @event.Name }AsObservable(this { type.Name } { type.Name.ToLower() })");
+Console.WriteLine($@"{{");
+Console.WriteLine($@"    return Observable.FromEventPattern<{ handler.Name }, { argsName }> (");
+Console.WriteLine($@"        handler => (sender, e) => handler(aaa, e)");
+Console.WriteLine($@"        , handler => aaa.{ @event.Name } += handler");
+Console.WriteLine($@"        , handler => aaa.{ @event.Name } -= handler);");
+Console.WriteLine($@"}}");

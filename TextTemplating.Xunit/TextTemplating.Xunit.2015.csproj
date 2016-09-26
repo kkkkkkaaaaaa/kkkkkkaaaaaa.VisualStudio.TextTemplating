@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DomainModels\EntitiesFacts.cs" />
-    <Compile Include="DomainModels\EventAsObservableFacts.cs" />
+    <Compile Include="DomainModels\EventAsObservableExtensionsFacts.cs" />
     <Compile Include="DomainModels\NotifyPropertyChangedFacts.cs" />
     <Compile Include="DomainModels\ProviderFactoryFacts.cs" />
     <Compile Include="DomainModels\RepositoriesFacts.cs" />

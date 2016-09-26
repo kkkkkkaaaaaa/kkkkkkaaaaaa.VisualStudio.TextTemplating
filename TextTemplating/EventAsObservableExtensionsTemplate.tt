@@ -1,0 +1,35 @@
+﻿<#@ import namespace="System.Linq" #>
+
+namespace <#= this.Context.Namespace #>
+{
+	using System;
+	using System.Reactive;
+	using System.Reactive.Linq;
+<#	foreach (var import in this.Context.Imports) { #>
+	using <#= import #>;
+<#	} #>
+
+    public static class <#= this.Context.TypeName #>
+    {
+<#		foreach (var info in this.Context.Events) {
+			var handler = info.EventHandlerType;
+			var invoke = handler.GetMethod(@"Invoke");
+			var parameters = invoke.GetParameters();
+
+            var argsName = default(string);
+            if (handler.IsGenericType)
+            {
+                var ga = handler.GetGenericArguments();
+                argsName = ga[0].Name;
+            }
+            else
+            {
+				var args = parameters[1];
+				argsName = (args == null) ? @"" : args.ParameterType.Name;
+            }
+#>
+<#@			include file="t4\EventAsObservableTemplate.t4" #>
+<#		} #>
+    }
+}
+

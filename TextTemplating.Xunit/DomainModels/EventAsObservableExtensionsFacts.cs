@@ -11,11 +11,12 @@ using Xunit;
 
 namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 {
-    public class EventAsObservableFacts : TextTemplatingFacts
+    public class EventAsObservableExtensionsFacts : TextTemplatingFacts
     {
         [Fact()]
-        public void Fact()
+        public void CreateEventAsObservableExtensionsFact()
         {
+            var ns = new Namespace(NAMESPACE, @"Windows.Reactive");
             var imports = new[]
             {
                 "System.Windows",
@@ -46,22 +47,22 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 // typeof(ContentPresenter),
                 // typeof(),
             };
-
-            var ns = @"Windows.Reactive";
-            var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
+            
+            var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
 
             var context = new EventAsObservableContext
             {
-                Namespace = new Namespace(NAMESPACE, ns),
+                Namespace = ns,
                 Imports = imports,
                 Types = types,
-                OutputPath = output,
+                TypeName = new TypeName(@"", @"Extensions"),
+                OutputPath = Path.Combine(output, ns.Child),
             };
 
-            var obersvable = new EventAsObservable(context);
-            obersvable.TransformText();
+            var observable = new EventAsObservableExtensions(context);
+            observable.CreateEventAsObservableExtensions();
 
-            TextTemplatingProcess.StartExplorer(context.OutputPath);
+            TextTemplatingProcess.StartExplorer(output);
         }
     }
 }

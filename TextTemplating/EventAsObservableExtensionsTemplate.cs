@@ -9,15 +9,16 @@
 // ------------------------------------------------------------------------------
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 {
+    using System.Linq;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
+    #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableExtensionsTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public partial class EventAsObservableTemplate : EventAsObservableTemplateBase
+    public partial class EventAsObservableExtensionsTemplate : EventAsObservableExtensionsTemplateBase
     {
 #line hidden
         /// <summary>
@@ -27,132 +28,176 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         {
             this.Write("\r\nnamespace ");
             
-            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this._context.Namespace));
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n\tusing System;\r\n\tusing System.Reactive;\r\n\tusing System.Reactive.Linq;\r\n");
             
-            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-	foreach (var import in this._context.Imports) { 
+            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableExtensionsTemplate.tt"
+	foreach (var import in this.Context.Imports) { 
             
             #line default
             #line hidden
             this.Write("\tusing ");
             
-            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
+            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(import));
             
             #line default
             #line hidden
             this.Write(";\r\n");
             
-            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
+            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableExtensionsTemplate.tt"
 	} 
             
             #line default
             #line hidden
             this.Write("\r\n    public static class ");
             
-            #line 12 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this._context.TypeName));
+            #line 12 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n");
             
-            #line 14 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-		foreach (var info in this._context.Events) { 
+            #line 14 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableExtensionsTemplate.tt"
+		foreach (var info in this.Context.Events) {
+			var handler = info.EventHandlerType;
+			var invoke = handler.GetMethod(@"Invoke");
+			var parameters = invoke.GetParameters();
+
+            var argsName = default(string);
+            if (handler.IsGenericType)
+            {
+                var ga = handler.GetGenericArguments();
+                argsName = ga[0].Name;
+            }
+            else
+            {
+				var args = parameters[1];
+				argsName = (args == null) ? @"" : args.ParameterType.Name;
+            }
+
             
             #line default
             #line hidden
-            this.Write("\t\t/// <summary>\r\n        /// ");
+            this.Write("\t\tpublic static IObservable<EventPattern<");
             
-            #line 16 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(argsName));
+            
+            #line default
+            #line hidden
+            this.Write(">> ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
             
             #line default
             #line hidden
-            this.Write(" イベントを Observable 化して返します。\r\n        /// </summary>\r\n        /// <param name=\"");
+            this.Write("AsObservable(this ");
             
-            #line 18 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this._context.SenderName));
-            
-            #line default
-            #line hidden
-            this.Write("\"></param>\r\n        /// <returns></returns>\r\n        public static IObservable<Ev" +
-                    "entPattern<RoutedEventArgs>> ");
-            
-            #line 20 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Observable(this ");
-            
-            #line 20 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(info.DeclaringType.Name));
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.DeclaredType.Name));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 20 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this._context.SenderName));
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.DeclaredType.Name.ToLower()));
             
             #line default
             #line hidden
-            this.Write(")\r\n        {\r\n            return Observable.FromEventPattern<");
+            this.Write(")\r\n\t\t{\r\n");
             
-            #line 22 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(info.EventHandlerType.Name.Replace(@"`1", @"")));
-            
-            #line default
-            #line hidden
-            this.Write(", RoutedEventArgs>(\r\n                handler => (_, e) => handler?.Invoke(");
-            
-            #line 23 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this._context.SenderName));
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+		if (handler.IsGenericType) { 
             
             #line default
             #line hidden
-            this.Write(", e)\r\n                , handler => ");
+            this.Write("\t\t\tvar observable = Observable.FromEventPattern<");
             
-            #line 24 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this._context.SenderName));
-            
-            #line default
-            #line hidden
-            this.Write(".");
-            
-            #line 24 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
+            #line 4 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(argsName));
             
             #line default
             #line hidden
-            this.Write(" += handler\r\n                , handler => ");
+            this.Write(">(\r\n");
             
-            #line 25 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this._context.SenderName));
-            
-            #line default
-            #line hidden
-            this.Write(".");
-            
-            #line 25 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
+            #line 5 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+		} else { 
             
             #line default
             #line hidden
-            this.Write(" -= handler);\r\n        }\r\n\r\n");
+            this.Write("\t\t\tvar observable = Observable.FromEventPattern<");
             
-            #line 28 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableTemplate.tt"
+            #line 6 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(handler.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 6 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(argsName));
+            
+            #line default
+            #line hidden
+            this.Write(">(\r\n");
+            
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
 		} 
             
             #line default
             #line hidden
-            this.Write("    }\r\n}");
+            this.Write("\t\t\t\thandler => (sender, e) => handler(");
+            
+            #line 8 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.DeclaredType.Name.ToLower()));
+            
+            #line default
+            #line hidden
+            this.Write(", e)\r\n\t\t\t\t, handler => ");
+            
+            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.DeclaredType.Name.ToLower()));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" += handler\r\n\t\t\t\t, handler => ");
+            
+            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.DeclaredType.Name.ToLower()));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EventAsObservableTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(info.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" -= handler);\r\n\r\n\t\t\treturn observable;\r\n\t\t}");
+            this.Write("\r\n");
+            
+            #line 32 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EventAsObservableExtensionsTemplate.tt"
+		} 
+            
+            #line default
+            #line hidden
+            this.Write("    }\r\n}\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -164,7 +209,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public class EventAsObservableTemplateBase
+    public class EventAsObservableExtensionsTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

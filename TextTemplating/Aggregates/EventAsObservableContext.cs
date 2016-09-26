@@ -1,20 +1,44 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Windows.Controls;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 
-namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects
+namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 {
-    public class EventAsObservableContext : TextTemplatingContext
+    public class EventAsObservableContext  : ITextTemplatingAggregate
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public Namespace Namespace { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string[] Imports { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<Type> Types { get; set; }
 
-        public Type SenderType { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Type DeclaredType { get; set; }
 
-        public string SenderName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public TypeName TypeName { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<EventInfo> Events { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OutputPath { get; set; }
     }
 }

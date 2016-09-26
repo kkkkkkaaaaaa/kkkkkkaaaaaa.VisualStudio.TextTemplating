@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 {
     /// <summary>
-    /// Extensions。
+    /// AsObservableExtensions。
     /// </summary>
-    public class EventAsObservable : TextTemplatingDomainModel<EventAsObservableContext>
+    public class EventAsObservableExtensions : TextTemplatingDomainModel<EventAsObservableContext>
     {
         /// <summary>
         /// コンストラクター。
         /// </summary>
         /// <param name="context"></param>
-        public EventAsObservable(EventAsObservableContext context) : base(context)
+        public EventAsObservableExtensions(EventAsObservableContext context) : base(context)
         {
             this.DoNothing();
         }
@@ -25,23 +26,22 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// 
         /// </summary>
         /// <returns></returns>
-        public EventAsObservable TransformText()
+        public EventAsObservableExtensions CreateEventAsObservableExtensions()
         {
             Directory.CreateDirectory(this.Context.OutputPath);
             
             var types = new {};
             foreach (var type in this.Context.Types)
             {
-                this.Context.SenderType = type;
-                this.Context.TypeName = this.Context.TypeName.GetTypeName(type.Name);
+                this.Context.DeclaredType = type;
+                this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.DeclaredType.Name);
                 this.Context.Events = this.getEvents(type);
-                this.Context.SenderName = @"sender";
                 
-                var template = new EventAsObservableTemplate(this.Context);
+                var template = new EventAsObservableExtensionsTemplate(this.Context);
                 var text = template.TransformText();
 
-                var path = Path.Combine(this.Context.OutputPath, string.Format(@"{0}.cs", this.Context.TypeName));
-                this.Flush(path, text, new UTF8Encoding(true, true));
+                var file = Path.Combine(this.Context.OutputPath, string.Format(@"{0}.cs", this.Context.TypeName));
+                this.Flush(file, text, new UTF8Encoding(true, true));
             }
 
             return this;
@@ -55,7 +55,10 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// <returns></returns>
         private IEnumerable<EventInfo> getEvents(Type type)
         {
-            var events = type.GetEvents(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static);
+            var events = type.GetEvents(BindingFlags.Public
+                | BindingFlags.Instance
+                | BindingFlags.Static
+                | BindingFlags.DeclaredOnly);
 
             return events;
         }

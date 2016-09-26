@@ -65,17 +65,17 @@
     <Compile Include="Data\TextTemplatingProviderFactory.cs" />
     <Compile Include="Data\TableDataGateways\TextTemplatingGateway.cs" />
     <Compile Include="DomainModels\Entities.cs" />
-    <Compile Include="DomainModels\EventAsObservable.cs" />
+    <Compile Include="DomainModels\EventAsObservableExtensions.cs" />
     <Compile Include="DomainModels\ProviderFactory.cs" />
     <Compile Include="DomainModels\TextTemplatingDomainModel.cs" />
     <Compile Include="Diagnostics\TextTemplatingProcess.cs" />
     <Compile Include="DomainModels\T4SqlStoredProcedures.cs" />
     <Compile Include="EntityTemplate.partial.cs" />
-    <Compile Include="EventAsObservableTemplate.partial.cs" />
-    <Compile Include="EventAsObservableTemplate.cs">
+    <Compile Include="EventAsObservableExtensionsTemplate.partial.cs" />
+    <Compile Include="EventAsObservableExtensionsTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EventAsObservableTemplate.tt</DependentUpon>
+      <DependentUpon>EventAsObservableExtensionsTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="ProviderFactoryTemplate.partial.cs" />
     <Compile Include="ProviderFactoryTemplate.cs">
@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="t4\EventAsObservableTemplate.t4" />
     <None Include="t4\GatewayDeleteStatementTemplate.t4" />
     <None Include="packages.config" />
     <None Include="t4\RepositoryFind.t4" />
@@ -163,9 +164,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EntityTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="EventAsObservableTemplate.tt">
+    <Content Include="EventAsObservableExtensionsTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>EventAsObservableTemplate.cs</LastGenOutput>
+      <LastGenOutput>EventAsObservableExtensionsTemplate.cs</LastGenOutput>
     </Content>
     <None Include="t4\EntityPropertyTemplate.t4">
       <LastGenOutput>EntityPropertyTemplate1.cs</LastGenOutput>
