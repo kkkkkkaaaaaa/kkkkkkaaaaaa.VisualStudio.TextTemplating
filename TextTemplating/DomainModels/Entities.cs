@@ -34,7 +34,32 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         {
             this.DoNothing();
         }
-        
+
+
+        public IEnumerable<EntitiesContext> GetEntities()
+        {
+            var entities = new Collection<EntitiesContext>();
+            var tables = this.Schema.GetTablesSchema();
+            foreach (var table in tables)
+            {
+                var entity = this.GetEntity(table.TableName);
+                entities.Add(entity);
+            }
+
+            return entities;
+        }
+
+        private EntitiesContext GetEntity(string table)
+        {
+            this.Context.TableName = table;
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(table);
+            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TableName);
+            this.Context.Columns = this.Schema.GetColumnsSchema(table);
+
+            var context = KandaDataMapper.MapToObject<EntitiesContext>(this.Context);
+
+            return context;
+        }
 
         /// <summary>
         /// 
@@ -106,7 +131,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             this.Context.TableName = table;
             this.Context.Columns = await this.Schema.GetColumnsSchemaAsync(table);
             this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName);
-            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TableName);
+            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName);
 
             // テンプレート変換
             var template = new EntityTemplate(this.Context);

@@ -21,5 +21,4 @@ foreach (var column in this.Context.CurrentEntity.Columns) {
 	 , @<#= column.ColumnName #>
 <#	}
 	k++;
-} #>
-)
+} #>)

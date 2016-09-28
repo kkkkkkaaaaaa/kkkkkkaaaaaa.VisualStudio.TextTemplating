@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.CodeDom;
+using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
@@ -51,21 +53,32 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 
 
         [Fact()]
-        public void CreateGatewayFact()
+        public void CreateGatewaysFact()
         {
-            var ns = @"TableDataGateways";
+            var entities = new Entities(new EntitiesContext
+            {
+                Namespace = new Namespace(NAMESPACE, @"Aggregats.Entities"),
+                Imports = new[] {@"System",},
+                TypeAttributes = TypeAttributes.Public,
+                TypeName = new TypeName(@"", @"", @"Entity"),
+                Inherits = @"",
+                MemberAttribute = MemberAttributes.Assembly,
+            }).GetEntities();
+
+            var ns = @"Data.TableDataGateways";
             var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
             var context = new TableDataGatewaysContext
             {
                 Namespace = new Namespace(NAMESPACE, ns),
-                Imports = new[] {"System.Data.Common", "kkkkkkaaaaaa.Data.Common"},
+                Imports = new[] { "System.Data.Common", ".Data", @".Redmine.Aggregates.Entities" },
                 TypeName = new TypeName(@"", @"", @"Gateway"),
-                Inherits = "GatewayBase",
+                Inherits = "RedmineGateway",
+                Entities = entities,
                 OutputPath = output,
             };
 
             var gateways = new TableDataGateways(context);
-            gateways.CreateGateway(@"attachments");
+            gateways.CreateGateways();
 
             TextTemplatingProcess.StartExplorer(context.OutputPath);
         }

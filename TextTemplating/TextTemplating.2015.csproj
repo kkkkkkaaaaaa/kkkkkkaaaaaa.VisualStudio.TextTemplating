@@ -36,7 +36,6 @@
     <Compile Include="Aggregates\FileName.cs" />
     <Compile Include="Aggregates\ITextTemplatingAggregate.cs" />
     <Compile Include="Aggregates\TypeName.cs" />
-    <Compile Include="ComponentModel\EntitiesViewModel.vm.cs" />
     <Compile Include="Aggregates\Namespace.cs" />
     <Compile Include="Aggregates\NotifyPropertyChangedContext.cs" />
     <Compile Include="Aggregates\TableDataGatewaysContext.cs" />
@@ -47,12 +46,11 @@
     <Compile Include="DomainModels\SchemaService.cs" />
     <Compile Include="DomainModels\TableDataGateways.cs" />
     <Compile Include="EntityTemplate.cs">
-      <DependentUpon>EntityTemplate.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.2015.cs" />
-    <Compile Include="ComponentModel\EntitiesViewModel.cs" />
     <Compile Include="Aggregates\EventAsObservableContext.cs" />
     <Compile Include="Aggregates\EntitiesContext.cs" />
     <Compile Include="Aggregates\ProviderFactoryContext.cs" />
@@ -205,6 +203,7 @@
   <ItemGroup>
     <Folder Include="Aggregates\Entities\" />
     <Folder Include="Aggregates\ValueObjects\" />
+    <Folder Include="ComponentModel\" />
     <Folder Include="Windows\Input\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

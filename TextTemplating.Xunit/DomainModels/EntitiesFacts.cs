@@ -15,16 +15,16 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
         [Fact()]
         public void CreateEntitiesFact()
         {
-            var ns = @"DataTransferObjects";
+            var ns = @"Aggregates.Entities";
             var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
 
             var context = new EntitiesContext
             {
                 Namespace = new Namespace(NAMESPACE, ns),
-                Imports = new[] { @"System", },
+                Imports = new[] { @"System", @".Data", },
                 TypeAttributes = TypeAttributes.Public | TypeAttributes.Class, 
                 IsPartial = true,
-                TypeName = new TypeName(@"", @"", @"_entity"),
+                TypeName = new TypeName(@"", @"", @"Entity"),
                 Inherits = @"EntityBase",
                 Implements = new [] { @"IEntity" },
                 MemberAttribute = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
@@ -68,7 +68,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
         #region Private members...
 
         /// <summary></summary>
-        private const string NAMESPACE = @"Estelle.Asme.Redmine";
+        private const string NAMESPACE = @".Redmine";
 
         #endregion
     }

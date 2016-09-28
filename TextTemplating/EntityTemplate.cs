@@ -32,7 +32,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write("\n{");
+            this.Write("\n{\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
  foreach(var import in this.Context.Imports) { 
@@ -42,18 +42,18 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\n\tusing ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0};", import)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(import));
             
             #line default
             #line hidden
-            this.Write("\n");
+            this.Write(";\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("\n\t/// <summary>\n\t/// ");
+            this.Write("\n\n\t/// <summary>\n\t/// ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0} のエンティティを表します。", this.Context.TypeName)));
@@ -89,14 +89,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write("\n\t\t/// </summary>\n\t\t[KandaDataMapping(@\"");
-            
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
-            
-            #line default
-            #line hidden
-            this.Write("\", Ignore = true)]\n\t\t[KandaDbParameterMapping(@\"");
+            this.Write("\n\t\t/// </summary>\n\t\t[EstelleDbParameterMapping(@\"");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));

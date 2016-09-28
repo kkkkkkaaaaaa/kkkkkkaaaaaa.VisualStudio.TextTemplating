@@ -33,7 +33,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             }
 
             /// <summary></summary>
-            private const string NAMESPACE = @"Estelle.Asme";
+            private const string NAMESPACE = @"";
         }
     }
 }

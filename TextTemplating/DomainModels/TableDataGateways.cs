@@ -21,29 +21,19 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             this.DoNothing();
         }
 
-        public void CreateGateways()
+        public IEnumerable<TableDataGatewaysContext> CreateGateways()
         {
-            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
+            var contexts = new Collection<TableDataGatewaysContext>();
 
-            var connection = this.Factory.CreateConnection();
-            var tables = default(IEnumerable<TableSchemaEntity>);
-
-            try
-            {
-                connection.Open();
-
-                var schema = new SchemaRepository();
-                tables = schema.GetTablesSchema(connection);
-            }
-            finally
-            {
-                connection?.Close();
-            }
+            var tables = this.Schema.GetTablesSchema();
 
             foreach (var table in tables)
             {
-                this.CreateGateway(table.TableName);
+                var context = this.CreateGateway(table.TableName);
+                contexts.Add(context);
             }
+
+            return contexts;
         }
 
         public async Task<IEnumerable<TableDataGatewaysContext>> CreateGatewaysAsync()
@@ -95,41 +85,24 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// 
         /// </summary>
         /// <param name="table"></param>
-        public void CreateGateway(string table)
+        public TableDataGatewaysContext CreateGateway(string table)
         {
-            /*
-            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
-
-            var connection = this.Factory.CreateConnection();
-
-            try
-            {
-                connection.Open();
-
-                var schema = new SchemaRepository();
-                this.Context.Columns = schema.GetColumnsSchema(table, connection);
-            }
-            finally
-            {
-                connection?.Close();
-            }
-
             this.Context.TableName = table;
-            this.Context.EntityName = $@"{table}Entity";
-            this.Context.TypeName = $@"{ this.Context.TableName }{ this.Context.TypeNameSuffix }";
+            this.Context.CurrentEntity = this.Context.Entities.FirstOrDefault(e => e.TableName == table);
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName);
+            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName);
 
-            var entity = new EntitiesContext
-            {
-                TypeName = $@"{ table }Entity",
-            };
-            this.Context.Columns = this.Schema.GetColumnsSchema(table);
 
-            var tempalte = new TableDataGatewayTemplate(this.Context, entity);
-            var text = tempalte.TransformText();
+            var context = KandaDataMapper.MapToObject<TableDataGatewaysContext>(this.Context);
 
-            var file = Path.Combine(this.Context.OutputPath, string.Format(@"{0}.cs") $@"{ this.Context.FileNameSuffix }.cs");
-            this.Flush(file, text, this.Encoding);
-            */
+            var template = new TableDataGatewayTemplate(context);
+            var text = template.TransformText();
+
+            if (!Directory.Exists(this.OutputPath)) { Directory.CreateDirectory(this.OutputPath); }
+            var file = Path.Combine(this.OutputPath, string.Format(@"{0}.cs", this.Context.FileName));
+            this.Flush(file, text);
+
+            return context;
         }
     }
 }

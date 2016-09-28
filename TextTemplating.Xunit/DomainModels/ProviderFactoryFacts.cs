@@ -3,11 +3,12 @@ using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit;
 using Xunit;
 
 namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 {
-    public class ProviderFactoryFacts
+    public class ProviderFactoryFacts : TextTemplatingFacts
     {
         [Fact()]
         public void CraeteProviderFactoryFact()
@@ -30,7 +31,5 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 
             TextTemplatingProcess.StartExplorer(context.OutputPath);
         }
-
-        private const string NAMESPACE = @"Estelle.Asme.Redmine";
     }
 }

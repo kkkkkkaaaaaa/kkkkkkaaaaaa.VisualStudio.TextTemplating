@@ -7,7 +7,7 @@
     <ProjectGuid>{D962DF80-629E-4120-B91F-404446D87F49}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TextTemplating.Windows</RootNamespace>
+    <RootNamespace>kkkkkkaaaaaa.VisualStudio.TextTemplating.Windows</RootNamespace>
     <AssemblyName>TextTemplating.Windows</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,6 +41,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ComponentModel\EntitiesViewModel.cs" />
+    <Compile Include="ComponentModel\EntitiesViewModel.vm.cs" />
+    <Compile Include="ComponentModel\MainWindowViewModel.cs" />
+    <Compile Include="ComponentModel\TableDataGatewaysViewModel.cs" />
     <Compile Include="Controls\DomainModelsControl.xaml.cs">
       <DependentUpon>DomainModelsControl.xaml</DependentUpon>
     </Compile>

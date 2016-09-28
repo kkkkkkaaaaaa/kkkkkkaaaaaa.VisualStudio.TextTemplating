@@ -8,6 +8,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit
     /// </summary>
     public class TextTemplatingFacts
     {
+        #region Protected members...
+
         /// <summary>
         /// Singleton インスタンス。
         /// </summary>
@@ -17,6 +19,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit
             get { return TextTemplatingProviderFactory.Instance; }
         }
 
-        protected const string NAMESPACE = @"Estelle.Asme";
+        /// <summary></summary>
+        protected const string NAMESPACE = @".Redmine";
+
+        #endregion
     }
 }
