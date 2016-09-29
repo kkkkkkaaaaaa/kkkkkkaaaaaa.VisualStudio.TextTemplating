@@ -88,8 +88,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write(" criteria, DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\tva" +
-                    "r reader = ");
+            this.Write(" criteria, DbConnection connection, DbTransaction transaction)\r\n\t\t{\r\n\t\t\tvar reade" +
+                    "r = ");
             
             #line 19 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Inherits));
@@ -181,8 +181,8 @@ foreach (var column in  this.Context.CurrentEntity.Columns) {
             
             #line default
             #line hidden
-            this.Write(" criteria, DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\tva" +
-                    "r command = ");
+            this.Write(" criteria, DbConnection connection, DbTransaction transaction)\r\n\t\t{\r\n\t\t\tvar comma" +
+                    "nd = ");
             
             #line 31 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Inherits));

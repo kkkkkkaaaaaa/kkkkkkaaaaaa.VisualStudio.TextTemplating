@@ -14,7 +14,7 @@
 			get { return @"<#= this.Context.TableName #>"; }
 		}
 
-		public static EstelleDbDataReader Select(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction = null)
+		public static EstelleDbDataReader Select(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
 		{
 			var reader = <#= this.Context.Inherits #>.Factory.CreateReader(connection, transaction);
 	
@@ -26,7 +26,7 @@
 			return reader;
 		}
 
-		public static int Insert(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction = null)
+		public static int Insert(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
 		{
 			var command = <#= this.Context.Inherits #>.Factory.CreateCommand(connection, transaction);
 
