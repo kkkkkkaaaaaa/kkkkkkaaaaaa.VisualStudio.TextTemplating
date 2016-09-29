@@ -3,37 +3,32 @@ using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DataTransferObjects;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Diagnostics;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels;
+using kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit;
 using Xunit;
 
 namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
 {
-    public class NotifyPropertyChangedFacts
+    public class NotifyPropertyChangedFacts : TextTemplatingFacts
     {
-        public class NotifyPropertyChangedTemplateFacts
+        [Fact()]
+        public void Fact()
         {
-            [Fact()]
-            public void Fact()
+            var ns = @"ComponentModel";
+            var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
+            var context = new EntitiesContext()
             {
-                var ns = @"ComponentModel";
-                var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
-                var context = new EntitiesContext()
-                {
-                    Namespace = new Namespace(NAMESPACE, ns),
-                    Imports = new[] {@"System.ComponentModel", @"DataTransferObjects" },
-                    TypeName = new TypeName(@"", @"TB_MATE_SALE_PRICE", @"ViewModel"),
-                    Inherits = @"TestViewModel",
-                    Implements = new [] { @"INortifyPropertyChanged" },
-                    OutputPath = output,
-                };
+                Namespace = new Namespace(NAMESPACE, ns),
+                Imports = new[] {@"System.ComponentModel", @"DataTransferObjects"},
+                TypeName = new TypeName(@"", @"TB_MATE_SALE_PRICE", @"ViewModel"),
+                Inherits = @"TestViewModel",
+                Implements = new[] {@"INortifyPropertyChanged"},
+                OutputPath = output,
+            };
 
-                var viewmodel = new NotifyPropertyChanged(context);
-                viewmodel.CreateViewModel(context.TypeName.ToString());
+            var viewmodel = new NotifyPropertyChanged(context);
+            viewmodel.CreateViewModel(context.TypeName.ToString());
 
-                TextTemplatingProcess.StartExplorer(context.OutputPath);
-            }
-
-            /// <summary></summary>
-            private const string NAMESPACE = @"";
+            TextTemplatingProcess.StartExplorer(context.OutputPath);
         }
     }
 }

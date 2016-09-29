@@ -63,26 +63,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Windows.ComponentModel
         /// </summary>
         public async void TransformTextAsync()
         {
-            /*
-            const string NAMESPACE = @".Redmine";
-
-            var ns = @"DataTransferObjects";
-            var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
-
-            var context = new EntitiesContext
-            {
-                Namespace = new Namespace(NAMESPACE, ns),
-                Imports = new[] { @"System", },
-                TypeAttributes = TypeAttributes.Public | TypeAttributes.Class,
-                IsPartial = true,
-                TypeName = new TypeName(@"", @"", @"_entity"),
-                Inherits = @"EntityBase",
-                Implements = new[] { @"IEntity" },
-                MemberAttribute = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
-                OutputPath = output,
-            };
-            */
-
             var entities = new Entities(this);
             await entities.CreateEntitiesAsync();
         }

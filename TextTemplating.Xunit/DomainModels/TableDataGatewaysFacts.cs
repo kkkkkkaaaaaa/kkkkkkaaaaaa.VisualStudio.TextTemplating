@@ -51,7 +51,6 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             TextTemplatingProcess.StartExplorer(output);
         }
 
-
         [Fact()]
         public void CreateGatewaysFact()
         {
