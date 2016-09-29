@@ -28,6 +28,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
         public virtual string Inherits { get; set; }
 
         /// <summary></summary>
+        public virtual string[] Implements { get; set; }
+
+        /// <summary></summary>
         public virtual MemberAttributes MemberAttribute { get; set; }
 
         /// <summary>

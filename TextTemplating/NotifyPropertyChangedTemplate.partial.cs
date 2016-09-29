@@ -71,12 +71,12 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        public NotifyPropertyChangedTemplate(EntitiesContext context)
+        public NotifyPropertyChangedTemplate(NotifyPropertyChangedContext context)
         {
             this._context = context;
         }
 
-        public EntitiesContext Context
+        public NotifyPropertyChangedContext Context
         {
             get { return this._context; }
         }
@@ -84,7 +84,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         #region Private members...
 
         /// <summary></summary>
-        private readonly EntitiesContext _context;
+        private readonly NotifyPropertyChangedContext _context;
 
         #endregion
 

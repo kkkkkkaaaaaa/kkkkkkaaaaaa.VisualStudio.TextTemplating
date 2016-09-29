@@ -2,8 +2,16 @@
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 {
-    public class NotifyPropertyChangedContext : TextTemplatingContext
+    /// <summary></summary>
+    public class NotifyPropertyChangedContext : EntitiesContext
     {
-        public IEnumerable<ColumnsSchemaEntity> Columns { get; set; }
+        /// <summary></summary>
+        public EntitiesContext CurrentEntity { get; set; }
+
+        /// <summary></summary>
+        public IEnumerable<ColumnsSchemaEntity> CurrentColumn { get; set; }
+
+        /// <summary></summary>
+        public IEnumerable<EntitiesContext> Entities { get; set; }
     }
 }

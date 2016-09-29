@@ -30,8 +30,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 
         /// <summary></summary>
         private readonly TableDataGatewaysContext _context;
-        /// <summary></summary>
-        private readonly EntitiesContext _entity;
 
         #endregion
     }

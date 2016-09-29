@@ -1,0 +1,15 @@
+﻿		/// <summary>
+		/// <#= column.ColumnName #> を取得または設定します。
+		/// </summary>
+		public override <#= column.DataType.FullName #> <#= column.ColumnName #>
+		{
+			get { return base.<#= column.ColumnName #>; }
+			set
+			{
+				if (value != base.<#= column.ColumnName #>)
+				{
+					base.<#= column.ColumnName #> = value;
+					this.OnPropertyChanged(@"<#= column.ColumnName #>");
+				}
+			}
+		}

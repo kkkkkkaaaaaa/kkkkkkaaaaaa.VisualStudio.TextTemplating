@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
 
@@ -7,13 +8,13 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
     /// <summary>
     /// 
     /// </summary>
-    public class NotifyPropertyChanged : TextTemplatingDomainModel<EntitiesContext>
+    public class NotifyPropertyChanged : TextTemplatingDomainModel<NotifyPropertyChangedContext>
     {
         /// <summary>
         /// コンストラクター。
         /// </summary>
         /// <param name="context"></param>
-        public NotifyPropertyChanged(EntitiesContext context) : base(context)
+        public NotifyPropertyChanged(NotifyPropertyChangedContext context) : base(context)
         {
             this.DoNothing();
         }
@@ -23,55 +24,32 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// </summary>
         public void CreateViewModels()
         {
-            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
-
-            var connection = this.Factory.CreateConnection();
-
-            try
+            foreach (var entity in this.Context.Entities)
             {
-                connection.Open();
-
-                var schema = new SchemaRepository();
-                var tables = schema.GetTablesSchema(connection);
-
-                foreach (var table in tables)
-                {
-                    this.CreateViewModel(table.TableName);
-                }
-            }
-            finally
-            {
-                connection?.Close();
+                this.CreateViewModel(entity.TableName);
             }
         }
 
         /// <summary>
         /// 指定したテーブルから InotifyPropertyChanged 実装クラスを生成します。
         /// </summary>
-        public void CreateViewModel(string table)
+        public NotifyPropertyChangedContext CreateViewModel(string table)
         {
-            if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
+            this.Context.TableName = table;
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName);
+            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName);
+            this.Context.CurrentEntity = this.Context.Entities.FirstOrDefault(entity => entity.TableName == this.Context.TableName);
 
-            var connection = this.Factory.CreateConnection();
+            var template = new NotifyPropertyChangedTemplate(this.Context);
+            var text = template.TransformText();
 
-            try
-            {
-                connection.Open();
-                var schema = new SchemaRepository();
-                this.Context.TableName = table;
-                this.Context.TypeName = new TypeName(this.Context.TableName);
-                this.Context.Columns = schema.GetColumnsSchema(table, connection);
+            if (!Directory.Exists(this.OutputPath)) { Directory.CreateDirectory(this.OutputPath); }
+            var file = Path.Combine(this.Context.OutputPath, this.Context.FileName.ToString());
+            this.Flush(file, text);
 
-                var template = new NotifyPropertyChangedTemplate(this.Context);
-                var text = template.TransformText();
+            var context = KandaDataMapper.MapToObject<NotifyPropertyChangedContext>(this.Context);
 
-                var file = Path.Combine(this.Context.OutputPath, this.Context.TypeName.ToString());
-                this.Flush(file, text, this.Encoding);
-            }
-            finally
-            {
-                connection?.Close();
-            }
+            return context;
         }
     }
 }

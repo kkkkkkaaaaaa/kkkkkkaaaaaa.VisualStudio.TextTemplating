@@ -50,6 +50,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="NotifyPropertyChangedTemplate1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotifyPropertyChangedTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.2015.cs" />
     <Compile Include="Aggregates\EventAsObservableContext.cs" />
     <Compile Include="Aggregates\EntitiesContext.cs" />
@@ -82,11 +87,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ProviderFactoryTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="NotifyPropertyChangedTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NotifyPropertyChangedTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Include="NotifyPropertyChangedTemplate.partial.cs" />
     <Compile Include="RepositoryTemplate.cs">
       <AutoGen>True</AutoGen>
@@ -115,6 +115,7 @@
     <None Include="t4\RepositoryFind.t4" />
     <None Include="t4\RepositoryFindAsync.t4" />
     <None Include="t4\RepositoryRetrieveTemplate.t4" />
+    <None Include="t4\ViewModelPropertyTemplate.t4" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -181,7 +182,7 @@
     </None>
     <Content Include="NotifyPropertyChangedTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>NotifyPropertyChangedTemplate.cs</LastGenOutput>
+      <LastGenOutput>NotifyPropertyChangedTemplate1.cs</LastGenOutput>
     </Content>
     <Content Include="ProviderFactoryTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

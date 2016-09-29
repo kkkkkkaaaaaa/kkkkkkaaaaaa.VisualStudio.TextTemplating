@@ -1,40 +1,19 @@
-﻿<#@ template language="C#" #>
-namaspace <#= this.Context.Namespace #>
-{
-<#	foreach(var import in this.Context.Imports) { #>
-<#=		string.Format(@"using {0}", import) #>
-<#	} #>
+﻿namespace <#= this.Context.Namespace #>
+{<# foreach(var import in this.Context.Imports) { #>
+	using <#= import #>;<# } #>
+
 	/// <summary>
-<#= string.Format(@"	///		{0} の View Model を表します。", this.Context.TypeName) #>
-	/// </sumary>
-<#= string.Format(@"	public {0} : {1}", this.Context.TypeName, this.Context.Inherits) #><# foreach(var implement in this.Context.Implements) { #><#= string.Format(@", {0}", implement) #><# } #>
+	/// <#= this.Context.TypeName #> の View Model を表します。
+	/// </summary>
+	public class <#= this.Context.TypeName #> : <#= this.Context.CurrentEntity.TypeName #><# foreach(var implement in this.Context.Implements) { #>, <#= implement #><# } #>
 	{
 		/// <summary>
-		/// コンストラクター。
+		/// プロパティ値が変更するときに発生します。
 		/// </summary>
-<#=		string.Format(@"		public {0}()", this.Context.TypeName) #>
-		{
-			this.DoNothing();
-		}
+	    public event PropertyChangedEventHandler PropertyChanged;
 
-<#		foreach (var column in this.Context.Columns) { #>
-		/// <summary>
-<#= string.Format(@"		/// {0} を取得または設定します。", column.ColumnName) #>
-		/// </summary>
-<#= string.Format(@"		public override {0} {1}", column.DataTypeName, column.ColumnName) #>
-		{
-<#= string.Format(@"			get {{ return base.{0}; }}", column.ColumnName) #>
-			set
-			{
-<#= string.Format(@"				if (value != base.{0})", column.ColumnName) #>
-				{
-<#= string.Format(@"					base.{0} = value;", column.ColumnName) #>
-<#= string.Format(@"					this.OnPropertyChanged({0});", column.ColumnName) #>
-				}
-			}
-		}
-<#		} #>
-
+<#		foreach (var column in this.Context.CurrentEntity.Columns) { #>
+<#@			include file="t4\ViewModelPropertyTemplate.t4" #><# } #>
 		#region Protected members...
 
 		/// <summary>

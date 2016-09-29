@@ -25,45 +25,52 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\nnamaspace ");
+            this.Write("namespace ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Namespace));
             
             #line default
             #line hidden
-            this.Write("\n{\n");
+            this.Write("\n{");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-	foreach(var import in this.Context.Imports) { 
+ foreach(var import in this.Context.Imports) { 
             
             #line default
             #line hidden
-            this.Write("\n");
+            this.Write("\n\tusing ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"using {0}", import)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(import));
             
             #line default
             #line hidden
-            this.Write("\n");
+            this.Write(";");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-	} 
+ } 
             
             #line default
             #line hidden
-            this.Write("\n\t/// <summary>\n");
+            this.Write("\n\n\t/// <summary>\n\t/// ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"	///		{0} の View Model を表します。", this.Context.TypeName)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
             
             #line default
             #line hidden
-            this.Write("\n\t/// </sumary>\n");
+            this.Write(" の View Model を表します。\n\t/// </summary>\n\tpublic class ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"	public {0} : {1}", this.Context.TypeName, this.Context.Inherits)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" : ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
@@ -73,9 +80,10 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
+            this.Write(", ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@", {0}", implement)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(implement));
             
             #line default
             #line hidden
@@ -85,71 +93,72 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write("\n\t{\n\t\t/// <summary>\n\t\t/// コンストラクター。\n\t\t/// </summary>\n");
+            this.Write("\n\t{\n\t\t/// <summary>\n\t\t/// プロパティ値が変更するときに発生します。\n\t\t/// </summary>\n\t    public event" +
+                    " PropertyChangedEventHandler PropertyChanged;\n\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"		public {0}()", this.Context.TypeName)));
-            
-            #line default
-            #line hidden
-            this.Write("\n\t\t{\n\t\t\tthis.DoNothing();\n\t\t}\n\n");
-            
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-		foreach (var column in this.Context.Columns) { 
-            
-            #line default
-            #line hidden
-            this.Write("\n\t\t/// <summary>\n");
-            
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"		/// {0} を取得または設定します。", column.ColumnName)));
-            
-            #line default
-            #line hidden
-            this.Write("\n\t\t/// </summary>\n");
-            
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"		public override {0} {1}", column.DataTypeName, column.ColumnName)));
-            
-            #line default
-            #line hidden
-            this.Write("\n\t\t{\n");
-            
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"			get {{ return base.{0}; }}", column.ColumnName)));
-            
-            #line default
-            #line hidden
-            this.Write("\n\t\t\tset\n\t\t\t{\n");
-            
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"				if (value != base.{0})", column.ColumnName)));
-            
-            #line default
-            #line hidden
-            this.Write("\n\t\t\t\t{\n");
-            
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"					base.{0} = value;", column.ColumnName)));
+		foreach (var column in this.Context.CurrentEntity.Columns) { 
             
             #line default
             #line hidden
             this.Write("\n");
+            this.Write("\t\t/// <summary>\n\t\t/// ");
             
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"					this.OnPropertyChanged({0});", column.ColumnName)));
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\ViewModelPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
-            this.Write("\n\t\t\t\t}\n\t\t\t}\n\t\t}\n");
+            this.Write(" を取得または設定します。\n\t\t/// </summary>\n\t\tpublic override ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\ViewModelPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.DataType.FullName));
+            
+            #line default
+            #line hidden
+            this.Write(" ");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\ViewModelPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write("\n\t\t{\n\t\t\tget { return base.");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\ViewModelPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write("; }\n\t\t\tset\n\t\t\t{\n\t\t\t\tif (value != base.");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\ViewModelPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write(")\n\t\t\t\t{\n\t\t\t\t\tbase.");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\ViewModelPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write(" = value;\n\t\t\t\t\tthis.OnPropertyChanged(@\"");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\ViewModelPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write("\");\n\t\t\t\t}\n\t\t\t}\n\t\t}\n");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
-		} 
+ } 
             
             #line default
             #line hidden
             this.Write(@"
-
 		#region Protected members...
 
 		/// <summary>
@@ -166,7 +175,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
 
 		#endregion
 	}
-}");
+}
+");
             return this.GenerationEnvironment.ToString();
         }
     }

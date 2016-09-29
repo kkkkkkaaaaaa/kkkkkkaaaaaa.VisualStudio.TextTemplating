@@ -11,22 +11,30 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
     public class NotifyPropertyChangedFacts : TextTemplatingFacts
     {
         [Fact()]
-        public void Fact()
+        public void CreateViewModelsFact()
         {
-            var ns = @"ComponentModel";
-            var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), ns);
-            var context = new EntitiesContext()
+            var entities = new Entities(new EntitiesContext
+                {
+                    Namespace = new Namespace(NAMESPACE, @"Aggregates.Entities"),
+                    TypeName = new TypeName(@"", @"Entity"),
+                }).GetEntities();
+
+            var ns = new Namespace(NAMESPACE, @"Windows.ComponentModel");
+            var output = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+            var context = new NotifyPropertyChangedContext
             {
-                Namespace = new Namespace(NAMESPACE, ns),
-                Imports = new[] {@"System.ComponentModel", @"DataTransferObjects"},
-                TypeName = new TypeName(@"", @"TB_MATE_SALE_PRICE", @"ViewModel"),
-                Inherits = @"TestViewModel",
-                Implements = new[] {@"INortifyPropertyChanged"},
-                OutputPath = output,
+                Namespace = ns,
+                Imports = new[] { @"System.ComponentModel", @"System.Runtime.CompilerServices", @".Redmine.Aggregates.Entities" },
+                Inherits = @"",
+                Implements = new[] { @"INotifyPropertyChanged" },
+                TypeName = new TypeName(@"", @"ViewModel"),
+                FileName = new FileName(@"", @"vm.cs"),
+                Entities = entities,
+                OutputPath = Path.Combine(output, ns.Child),
             };
 
             var viewmodel = new NotifyPropertyChanged(context);
-            viewmodel.CreateViewModel(context.TypeName.ToString());
+            viewmodel.CreateViewModels();
 
             TextTemplatingProcess.StartExplorer(context.OutputPath);
         }
