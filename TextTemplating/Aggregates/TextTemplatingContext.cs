@@ -14,6 +14,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
         public virtual TypeName TypeName { get; set; }
 
         /// <summary></summary>
+        public virtual LetterCases LetterCase { get; set; }
+
+        /// <summary></summary>
         public virtual string[] Imports { get; set; }
 
         /// <summary></summary>

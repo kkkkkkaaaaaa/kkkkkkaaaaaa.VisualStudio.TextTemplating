@@ -51,13 +51,32 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
             return new TypeName(this.Prefix, name, this.Suffix);
         }
 
+        public TypeName GetTypeName(string name, LetterCases letterCase)
+        {
+            if (letterCase == LetterCases.PascalCase)
+            {
+                var temp = @"";
+                var i = 0;
+                foreach (var c in name)
+                {
+                    if (i == 0) { temp += char.ToUpper(c); }
+                    else if (c == '_') { temp += char.ToUpper(name[i + 1]); }
+                    else if (name[i - 1] == '_') { this.doNothing(); }
+                    else { temp += c; }
+                    i++;
+                }
+                return new TypeName(this.Prefix, temp, this.Suffix);
+            }
+            else { return this.GetTypeName(name); }
+        }
+
         public override string ToString()
         {
             var s = string.Format(@"{0}{1}{2}", this.Prefix, this.Name, this.Suffix);
 
             return s;
         }
-
+        
         #region Private members...
 
         /// <summary>

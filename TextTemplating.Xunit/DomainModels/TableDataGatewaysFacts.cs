@@ -59,8 +59,9 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
                 Namespace = new Namespace(NAMESPACE, @"Aggregats.Entities"),
                 Imports = new[] {@"System",},
                 TypeAttributes = TypeAttributes.Public,
-                TypeName = new TypeName(@"", @"", @"Entity"),
                 Inherits = @"",
+                TypeName = new TypeName(@"", @"", @"Entity"),
+                LetterCase = LetterCases.PascalCase,
                 MemberAttribute = MemberAttributes.Assembly,
             }).GetEntities();
 
@@ -69,8 +70,9 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             var context = new TableDataGatewaysContext
             {
                 Namespace = new Namespace(NAMESPACE, ns),
-                Imports = new[] { "System.Data.Common", ".Data", @".Redmine.Aggregates.Entities" },
-                TypeName = new TypeName(@"", @"", @"Gateway"),
+                Imports = new[] { "System.Data.Common", "Data", @"Redmine.Aggregates.Entities" },
+                TypeName = new TypeName(@"", @"Gateway"),
+                LetterCase = LetterCases.PascalCase,
                 Inherits = "RedmineGateway",
                 Entities = entities,
                 OutputPath = output,

@@ -1,10 +1,8 @@
-﻿using System.CodeDom;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
@@ -52,9 +50,27 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         private EntitiesContext GetEntity(string table)
         {
             this.Context.TableName = table;
-            this.Context.TypeName = this.Context.TypeName.GetTypeName(table);
-            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TableName);
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(table, this.Context.LetterCase);
+            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName);
             this.Context.Columns = this.Schema.GetColumnsSchema(table);
+            this.Context.Columns.ToAsyncEnumerable().ForEach(column =>
+            {
+                if (this.Context.LetterCase != LetterCases.PascalCase) { return; }
+                column.MappingName = column.ColumnName;
+
+                // パスカルケース変換
+                var name = @"";
+                var i = 0;
+                foreach (var c in column.ColumnName)
+                {
+                    if (i == 0) { name += char.ToUpper(c); }
+                    else if (c == '_') { name += char.ToUpper(column.ColumnName[i + 1]); }
+                    else if (column.ColumnName[i - 1] == '_') { this.DoNothing(); }
+                    else { name += c; }
+                    i++;
+                }
+                column.ColumnName = name;
+            });
 
             var context = KandaDataMapper.MapToObject<EntitiesContext>(this.Context);
 
@@ -90,7 +106,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             // 現在のコンテキストを変更
             this.Context.Columns = await this.Schema.GetColumnsSchemaAsync(table);
             this.Context.TableName = table;
-            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName);
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName, this.Context.LetterCase);
             this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TableName);
             
             // コピー
@@ -127,11 +143,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// <returns></returns>
         public async Task<EntitiesContext> CreateEntityAsync(string table)
         {
-            // 現在のコンテキストを更新
-            this.Context.TableName = table;
-            this.Context.Columns = await this.Schema.GetColumnsSchemaAsync(table);
-            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName);
-            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName);
+            var context = this.GetEntity(table);
 
             // テンプレート変換
             var template = new EntityTemplate(this.Context);
@@ -141,9 +153,6 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             if (!Directory.Exists(this.OutputPath)) { Directory.CreateDirectory(this.OutputPath); }
             var path = Path.Combine(this.OutputPath, this.Context.FileName.ToString());
             this.Flush(path, text, new UTF8Encoding(true, true));
-
-            // 共通のコンテキストをコピー
-            var context = KandaDataMapper.MapToObject<EntitiesContext>(this.Context);
 
             // 生成時のコンテキストを返す
             return context;
@@ -155,10 +164,9 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// </summary>
         /// <param name="table"></param>
         /// <returns></returns>
-        public Entities CreateEntity(string table)
-        {   
-            this.Context.TypeName = this.Context.TypeName.GetTypeName(table);
-            this.Context.Columns = this.Schema.GetColumnsSchema(table);
+        public EntitiesContext CreateEntity(string table)
+        {
+            var context = this.GetEntity(table);
 
             var template = new EntityTemplate(this.Context);
             var text = template.TransformText();
@@ -168,7 +176,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             var path = Path.Combine(this.Context.OutputPath, string.Format(@"{0}.cs", this.Context.TypeName));
             this.Flush(path, text);
 
-            return this;
+            return context;
         }
 
 
@@ -176,17 +184,18 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// コンテキストとテンプレートから Entity を生成します。
         /// </summary>
         /// <returns></returns>
-        public Entities CreateEntities()
+        public IEnumerable<EntitiesContext> CreateEntities()
         {
-            // if (!Directory.Exists(this.Context.OutputPath)) { Directory.CreateDirectory(this.Context.OutputPath); }
+            var contexts = new Collection<EntitiesContext>();
 
             var tables = this.Schema.GetTablesSchema();
             foreach (var table in tables)
             {
-                this.CreateEntity(table.TableName);
+                var context = this.CreateEntity(table.TableName);
+                contexts.Add(context);
             }
 
-            return this;
+            return contexts;
         }
     }
 }

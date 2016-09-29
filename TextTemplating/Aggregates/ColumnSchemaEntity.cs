@@ -6,6 +6,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
     {
         public string ColumnName { get; set; }
 
+        public string MappingName { get; set; }
+
         public Type DataType { get; set; }
 
         public string DataTypeName { get; set; }

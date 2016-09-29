@@ -36,9 +36,29 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         public NotifyPropertyChangedContext CreateViewModel(string table)
         {
             this.Context.TableName = table;
-            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName);
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName, this.Context.LetterCase);
             this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName);
             this.Context.CurrentEntity = this.Context.Entities.FirstOrDefault(entity => entity.TableName == this.Context.TableName);
+            /*
+            this.Context.CurrentEntity.Columns.ToAsyncEnumerable().ForEach(column =>
+            {
+                if (this.Context.LetterCase != LetterCases.PascalCase) { return; }
+                column.MappingName = column.ColumnName;
+
+                // パスカルケース変換
+                var name = @"";
+                var i = 0;
+                foreach (var c in column.ColumnName)
+                {
+                    if (i == 0) { name += char.ToUpper(c); }
+                    else if (c == '_') { name += char.ToUpper(column.ColumnName[i + 1]); }
+                    else if (column.ColumnName[i - 1] == '_') { this.DoNothing(); }
+                    else { name += c; }
+                    i++;
+                }
+                column.ColumnName = name;
+            });
+            */
 
             var template = new NotifyPropertyChangedTemplate(this.Context);
             var text = template.TransformText();

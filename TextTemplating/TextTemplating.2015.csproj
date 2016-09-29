@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Aggregates\FileName.cs" />
     <Compile Include="Aggregates\ITextTemplatingAggregate.cs" />
+    <Compile Include="Aggregates\LetterCase.cs" />
     <Compile Include="Aggregates\TypeName.cs" />
     <Compile Include="Aggregates\Namespace.cs" />
     <Compile Include="Aggregates\NotifyPropertyChangedContext.cs" />

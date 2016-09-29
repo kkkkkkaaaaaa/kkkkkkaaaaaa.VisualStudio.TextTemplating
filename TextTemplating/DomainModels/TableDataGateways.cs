@@ -62,7 +62,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         {
             // 現在のコンテキストを変更
             this.Context.TableName = table;
-            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName);
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName, this.Context.LetterCase);
             this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName.ToString());
             this.Context.CurrentEntity = this.Context.Entities.First(e => e.TableName == table);
 
@@ -89,7 +89,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         {
             this.Context.TableName = table;
             this.Context.CurrentEntity = this.Context.Entities.FirstOrDefault(e => e.TableName == table);
-            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName);
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName, this.Context.LetterCase);
             this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName);
 
 

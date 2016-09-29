@@ -21,12 +21,13 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
             var context = new EntitiesContext
             {
                 Namespace = new Namespace(NAMESPACE, ns),
-                Imports = new[] { @"System", @".Data", },
+                Imports = new[] { @"System", @"Data", },
                 TypeAttributes = TypeAttributes.Public | TypeAttributes.Class, 
                 IsPartial = true,
                 TypeName = new TypeName(@"", @"", @"Entity"),
-                Inherits = @"EntityBase",
-                Implements = new [] { @"IEntity" },
+                LetterCase = LetterCases.PascalCase,
+                Inherits = @"",
+                Implements = new [] { @"" },
                 MemberAttribute = MemberAttributes.Assembly | MemberAttributes.Public | MemberAttributes.Final, // Public -> virtual, Public | Final -> public
                 OutputPath =  output,
             };
@@ -68,7 +69,7 @@ namespace kkkkkkaaaaaa.VIsualStudio.TextTemplating.Xunit.DomainModels
         #region Private members...
 
         /// <summary></summary>
-        private const string NAMESPACE = @".Redmine";
+        private const string NAMESPACE = @"Redmine";
 
         #endregion
     }

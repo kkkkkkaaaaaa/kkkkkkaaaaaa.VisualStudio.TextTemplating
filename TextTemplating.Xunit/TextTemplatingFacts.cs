@@ -20,7 +20,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Xunit
         }
 
         /// <summary></summary>
-        protected const string NAMESPACE = @".Redmine";
+        protected const string NAMESPACE = @"Redmine";
 
         #endregion
     }

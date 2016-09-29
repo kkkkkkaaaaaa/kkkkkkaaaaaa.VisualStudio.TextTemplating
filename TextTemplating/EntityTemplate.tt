@@ -1,8 +1,6 @@
 ﻿namespace <#= this.Context.Namespace #>
-{
-<# foreach(var import in this.Context.Imports) { #>
-	using <#= import #>;
-<# } #>
+{<# foreach(var import in this.Context.Imports) { #>
+	using <#= import #>;<# } #>
 
 	/// <summary>
 	/// <#= string.Format(@"{0} のエンティティを表します。", this.Context.TypeName) #>

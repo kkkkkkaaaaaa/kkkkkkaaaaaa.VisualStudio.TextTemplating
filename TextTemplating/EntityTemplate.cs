@@ -32,7 +32,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write("\n{\n");
+            this.Write("\n{");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
  foreach(var import in this.Context.Imports) { 
@@ -46,7 +46,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write(";\n");
+            this.Write(";");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\EntityTemplate.tt"
  } 
@@ -85,14 +85,21 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\t\t/// <summary>\n\t\t/// ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(@"{0} を取得または設定します。", column.ColumnName)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
             
             #line default
             #line hidden
-            this.Write("\n\t\t/// </summary>\n\t\t[EstelleDbParameterMapping(@\"");
+            this.Write(" を取得または設定します。\n\t\t/// </summary>\n\t\t[EstelleDbDataMapping(@\"");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.MappingName));
+            
+            #line default
+            #line hidden
+            this.Write("\", Ignore = true)]\n\t\t[EstelleDbParameterMapping(@\"");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.MappingName));
             
             #line default
             #line hidden
