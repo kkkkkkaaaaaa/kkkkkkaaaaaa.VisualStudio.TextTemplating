@@ -96,8 +96,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write(".Factory.CreateReader(connection, transaction);\r\n\t\r\n\t\t\tEstelleDbDataMapper.MapToP" +
-                    "arameters(reader, criteria);\r\n\t\t\t\r\n\t\t\treader.CommandText = string.Format(@\"");
+            this.Write(".Factory.CreateReader(connection, transaction);\r\n\t\r\n\t\t\tKandaDbDataMapper.MapToPar" +
+                    "ameters(reader, criteria);\r\n\t\t\t\r\n\t\t\treader.CommandText = string.Format(@\"");
             this.Write("SELECT\r\n");
             
             #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
@@ -189,8 +189,8 @@ foreach (var column in  this.Context.CurrentEntity.Columns) {
             
             #line default
             #line hidden
-            this.Write(".Factory.CreateCommand(connection, transaction);\r\n\r\n\t\t\tEstelleDbDataMapper.MapToP" +
-                    "arameters(command, criteria);\r\n\t\t\t\r\n\t\t\tcommand.CommandText = string.Format(@\"");
+            this.Write(".Factory.CreateCommand(connection, transaction);\r\n\r\n\t\t\tKandaDbDataMapper.MapToPar" +
+                    "ameters(command, criteria);\r\n\t\t\t\r\n\t\t\tcommand.CommandText = string.Format(@\"");
             this.Write("INSERT INTO ");
             
             #line 2 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
@@ -280,7 +280,7 @@ foreach (var column in this.Context.CurrentEntity.Columns) {
             #line hidden
             this.Write(")\r\n");
             this.Write("\");\r\n\t\t\t\r\n\t\t\tvar affected = command.ExecuteNonQuery();\r\n\r\n\t\t\treturn affected;\r\n\t\t" +
-                    "}\r\n\r\n\t\tpublic int Update(");
+                    "}\r\n\r\n\t\tpublic static int Update(");
             
             #line 42 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
@@ -295,8 +295,8 @@ foreach (var column in this.Context.CurrentEntity.Columns) {
             
             #line default
             #line hidden
-            this.Write(".Factory.CreateCommand(connection, transaction);\r\n\r\n\t\t\tEstelleDbDataMapper.MapToP" +
-                    "arameters(command, criteria);\r\n\t\t\t\r\n\t\t\tcommand.CommandText = string.Format(@\"");
+            this.Write(".Factory.CreateCommand(connection, transaction);\r\n\r\n\t\t\tKandaDbDataMapper.MapToPar" +
+                    "ameters(command, criteria);\r\n\t\t\t\r\n\t\t\tcommand.CommandText = string.Format(@\"");
             this.Write("UPDATE\r\n\t");
             
             #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
@@ -366,7 +366,7 @@ foreach (var column in  this.Context.CurrentEntity.Columns) {
             #line default
             #line hidden
             this.Write("\");\r\n\t\t\t\r\n\t\t\tvar affected = command.ExecuteNonQuery();\r\n\r\n\t\t\treturn affected;\r\n\t\t" +
-                    "}\r\n\r\n\t\t#region Internal members...\r\n\r\n\t\tinternal int Delete(");
+                    "}\r\n\r\n\t\t#region Internal members...\r\n\r\n\t\tinternal static int Delete(");
             
             #line 57 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
@@ -381,8 +381,8 @@ foreach (var column in  this.Context.CurrentEntity.Columns) {
             
             #line default
             #line hidden
-            this.Write(".Factory.CreateCommand(connection, transaction);\r\n\r\n\t\t\tEstelleDbDataMapper.MapToP" +
-                    "arameters(command, criteria);\r\n\t\t\t\r\n\t\t\tcommand.CommandText = string.Format(@\"");
+            this.Write(".Factory.CreateCommand(connection, transaction);\r\n\r\n\t\t\tKandaDbDataMapper.MapToPar" +
+                    "ameters(command, criteria);\r\n\t\t\t\r\n\t\t\tcommand.CommandText = string.Format(@\"");
             this.Write("DELETE FROM\r\n\t");
             
             #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayDeleteStatementTemplate.t4"
@@ -419,8 +419,8 @@ foreach (var column in  this.Context.CurrentEntity.Columns) {
             #line default
             #line hidden
             this.Write("\");\r\n\t\t\t\r\n\t\t\tvar affected = command.ExecuteNonQuery();\r\n\r\n\t\t\treturn affected;\r\n\t\t" +
-                    "}\r\n\r\n\t\tinternal static int Truncate(string table, DbConnection connection, DbTra" +
-                    "nsaction transaction)\r\n\t\t{\r\n\t\t\tvar affected = ");
+                    "}\r\n\r\n\t\tinternal static int Truncate(DbConnection connection, DbTransaction trans" +
+                    "action)\r\n\t\t{\r\n\t\t\tvar affected = ");
             
             #line 72 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\TableDataGatewayTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.Inherits));

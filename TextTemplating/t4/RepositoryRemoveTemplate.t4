@@ -1,0 +1,6 @@
+﻿		internal static bool Remove(<#= this.Context.CurrentEntity.TypeName #> entity, DbConnection connection, DbTransaction transaction = null)
+		{
+			var affected = <#= this.Context.CurrentGateway.TypeName #>.Delete(entity, connection, transaction);
+
+			return (affected == 1);
+		}

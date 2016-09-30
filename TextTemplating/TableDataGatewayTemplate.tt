@@ -18,7 +18,7 @@
 		{
 			var reader = <#= this.Context.Inherits #>.Factory.CreateReader(connection, transaction);
 	
-			EstelleDbDataMapper.MapToParameters(reader, criteria);
+			KandaDbDataMapper.MapToParameters(reader, criteria);
 			
 			reader.CommandText = string.Format(@"<#@ include file="t4\GatewaySelectStatementTemplate.t4" #>");
 			reader.ExecuteReader();
@@ -30,7 +30,7 @@
 		{
 			var command = <#= this.Context.Inherits #>.Factory.CreateCommand(connection, transaction);
 
-			EstelleDbDataMapper.MapToParameters(command, criteria);
+			KandaDbDataMapper.MapToParameters(command, criteria);
 			
 			command.CommandText = string.Format(@"<#@ include file="t4\GatewayInsertStatementTemplate.t4" #>");
 			
@@ -39,11 +39,11 @@
 			return affected;
 		}
 
-		public int Update(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		public static int Update(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
 		{
 			var command = <#= this.Context.Inherits #>.Factory.CreateCommand(connection, transaction);
 
-			EstelleDbDataMapper.MapToParameters(command, criteria);
+			KandaDbDataMapper.MapToParameters(command, criteria);
 			
 			command.CommandText = string.Format(@"<#@ include file="t4\GatewayUpdateStatementTemplate.t4" #>");
 			
@@ -54,11 +54,11 @@
 
 		#region Internal members...
 
-		internal int Delete(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
+		internal static int Delete(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction)
 		{
 			var command = <#= this.Context.Inherits #>.Factory.CreateCommand(connection, transaction);
 
-			EstelleDbDataMapper.MapToParameters(command, criteria);
+			KandaDbDataMapper.MapToParameters(command, criteria);
 			
 			command.CommandText = string.Format(@"<#@ include file="t4\GatewayDeleteStatementTemplate.t4" #>");
 			
@@ -67,7 +67,7 @@
 			return affected;
 		}
 
-		internal static int Truncate(string table, DbConnection connection, DbTransaction transaction)
+		internal static int Truncate(DbConnection connection, DbTransaction transaction)
 		{
 			var affected = <#= this.Context.Inherits #>.TruncateTable(<#= this.Context.TypeName #>.TableName, connection, transaction);
 

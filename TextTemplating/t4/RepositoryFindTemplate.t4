@@ -6,13 +6,13 @@
 			{
 				var criteria = new <#= this.Context.CurrentEntity.TypeName #>
 				{
-					// ID = id,
+					// Id = id,
 				};
 				reader = <#= this.Context.CurrentGateway.TypeName #>.Select(criteria, connection, transaction);
 
 				var result = reader.Read()
-					? KandaDbDataMapper.MapToObject(reader)
-					: new <#= this.Context.CurrentEntity.TypeName #>.NotFound;
+					? KandaDbDataMapper.MapToObject<<#= this.Context.CurrentEntity.TypeName #>>(reader)
+					: new <#= this.Context.CurrentEntity.TypeName #> { Id = -1, };
 
 				return result;
 			}

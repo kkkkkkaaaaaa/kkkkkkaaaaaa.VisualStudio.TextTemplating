@@ -1,10 +1,14 @@
-﻿
-		public static IEnumerable<<#= this.Context.CurrentEntity.TypeName #>> Retrieve(<#= this.Context.CurrentEntity.TypeName #> criteria, DbConnection connection, DbTransaction transaction = null)
+﻿		public static IEnumerable<<#= this.Context.CurrentEntity.TypeName #>> Get(DbConnection connection, DbTransaction transaction = null)
 		{
 			var reader = default(DbDataReader);
 
 			try
 			{
+				var criteria = new <#= this.Context.CurrentEntity.TypeName #>
+				{
+					
+				};
+
 				reader = <#= this.Context.CurrentGateway.TypeName #>.Select(criteria, connection, transaction);
 				var result = KandaDbDataMapper.MapToEnumerable<<#= this.Context.CurrentEntity.TypeName #>>(reader);
 
@@ -14,5 +18,4 @@
 			{
 				if (reader != null) { reader.Close(); }
 			}
-			
 		}

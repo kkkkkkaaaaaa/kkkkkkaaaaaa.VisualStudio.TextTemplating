@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates;
-using kkkkkkaaaaaa.VisualStudio.TextTemplating.Data.Repositories;
 
 namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
 {
@@ -21,6 +18,10 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             this.DoNothing();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<TableDataGatewaysContext> CreateGateways()
         {
             var contexts = new Collection<TableDataGatewaysContext>();
@@ -36,6 +37,42 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             return contexts;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<TableDataGatewaysContext> GetGateways()
+        {
+            var contexts = new Collection<TableDataGatewaysContext>();
+
+            var tables = this.Schema.GetTablesSchema();
+
+            foreach (var table in tables)
+            {
+                var context = this.GetGateway(table.TableName);
+                contexts.Add(context);
+            }
+
+            return contexts;
+        }
+
+        private TableDataGatewaysContext GetGateway(string table)
+        {
+            this.Context.TableName = table;
+            this.Context.CurrentEntity = this.Context.Entities.FirstOrDefault(e => e.TableName == table);
+            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName, this.Context.LetterCase);
+            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName);
+
+            var context = KandaDataMapper.MapToObject<TableDataGatewaysContext>(this.Context);
+
+            return context;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<TableDataGatewaysContext>> CreateGatewaysAsync()
         {
             var gateways = new Collection<TableDataGatewaysContext>();
@@ -87,19 +124,13 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
         /// <param name="table"></param>
         public TableDataGatewaysContext CreateGateway(string table)
         {
-            this.Context.TableName = table;
-            this.Context.CurrentEntity = this.Context.Entities.FirstOrDefault(e => e.TableName == table);
-            this.Context.TypeName = this.Context.TypeName.GetTypeName(this.Context.TableName, this.Context.LetterCase);
-            this.Context.FileName = this.Context.FileName.GetFileName(this.Context.TypeName);
-
-
-            var context = KandaDataMapper.MapToObject<TableDataGatewaysContext>(this.Context);
+            var context = this.GetGateway(table);
 
             var template = new TableDataGatewayTemplate(context);
             var text = template.TransformText();
 
             if (!Directory.Exists(this.OutputPath)) { Directory.CreateDirectory(this.OutputPath); }
-            var file = Path.Combine(this.OutputPath, string.Format(@"{0}.cs", this.Context.FileName));
+            var file = Path.Combine(this.OutputPath, this.Context.FileName.ToString());
             this.Flush(file, text);
 
             return context;

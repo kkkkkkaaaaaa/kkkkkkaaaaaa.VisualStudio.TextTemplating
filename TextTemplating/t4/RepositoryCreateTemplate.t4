@@ -1,0 +1,6 @@
+﻿		public static bool Create(<#= this.Context.CurrentEntity.TypeName #> entity, DbConnection connection, DbTransaction transaction = null)
+		{
+			var affected = <#= this.Context.CurrentGateway.TypeName #>.Insert(entity, connection, transaction);
+
+			return (affected == 1);
+		}

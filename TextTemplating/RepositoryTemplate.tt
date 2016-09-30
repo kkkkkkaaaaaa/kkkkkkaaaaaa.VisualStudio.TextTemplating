@@ -6,33 +6,22 @@
 
 	public /* static */ class <#= this.Context.TypeName #> : <#= this.Context.Inherits #>
 	{
-<#@		include file="t4\RepositoryFind.t4" #>
-		
-		public static IEnumerable<<#= this.Context.CurrentEntity.TypeName #>> Get(DbConnection connection, DbTransaction transaction = null)
-		{
-			
-		}
+<#@			include file="t4\RepositoryFindTemplate.t4" #>
 
-<#@		include file="t4\RepositoryRetrieveTemplate.t4" #>
+<#@			include file="t4\RepositoryGetTemplate.t4" #>
 
-		public static bool Create(<#= this.Context.CurrentEntity.TypeName #> entity, DbConnection connection, DbTransaction transaction = null)
-		{
-			
-		}
+<#@			include file="t4\RepositoryRetrieveTemplate.t4" #>
 
-		public static bool Update(<#= this.Context.CurrentEntity.TypeName #> entity, DbConnection connection, DbTransaction transaction = null)
-		{
-			
-		}
+<#@			include file="t4\RepositoryCreateTemplate.t4" #>
 
-		internal static bool Delete(<#= this.Context.CurrentEntity.TypeName #> entity, DbConnection connection, DbTransaction transaction = null)
-		{
-			
-		}
+<#@			include file="t4\RepositoryModifyTemplate.t4" #>
 
-		internal static bool Clear(DbConnection connection, DbTransaction transaction = null)
-		{
-			
-		}
+#region Internal members...
+
+<#@			include file="t4\RepositoryRemoveTemplate.t4" #>
+
+<#@			include file="t4\RepositoryClearTemplate.t4" #>
+
+		#endregion
 	}
 }

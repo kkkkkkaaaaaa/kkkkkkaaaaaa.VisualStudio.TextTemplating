@@ -1,0 +1,6 @@
+﻿		internal static bool Clear(DbConnection connection, DbTransaction transaction = null)
+		{
+			var affected = <#= this.Context.CurrentGateway.TypeName #>.Truncate(connection, transaction);
+
+			return (affected == 1);
+		}

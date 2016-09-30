@@ -1,0 +1,6 @@
+﻿		public static bool Modify(<#= this.Context.CurrentEntity.TypeName #> entity, DbConnection connection, DbTransaction transaction = null)
+		{
+			var affected = <#= this.Context.CurrentGateway.TypeName #>.Update(entity, connection, transaction);
+
+			return (affected == 1);
+		}

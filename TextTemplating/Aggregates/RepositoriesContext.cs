@@ -8,8 +8,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 
         public virtual IEnumerable<TableDataGatewaysContext> Gateways { get; set; }
 
-        public TableDataGatewaysContext CurrentGateway { get; set; }
+        public virtual TableDataGatewaysContext CurrentGateway { get; set; }
 
-        public EntitiesContext CurrentEntity { get; set; }
+        public virtual EntitiesContext CurrentEntity { get; set; }
     }
 }

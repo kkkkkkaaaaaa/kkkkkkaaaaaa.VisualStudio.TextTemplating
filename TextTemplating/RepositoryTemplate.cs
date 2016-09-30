@@ -70,7 +70,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write("\r\n\t{\r\n");
             this.Write("\t\tpublic ");
             
-            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryFind.t4"
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryFindTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
@@ -78,37 +78,69 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(" Find(int id, DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t" +
                     "\tvar reader = default(DbDataReader);\r\n\r\n\t\t\ttry\r\n\t\t\t{\r\n\t\t\t\tvar criteria = new ");
             
-            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryFind.t4"
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryFindTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
-            this.Write("\r\n\t\t\t\t{\r\n\t\t\t\t\t// ID = id,\r\n\t\t\t\t};\r\n\t\t\t\treader = ");
+            this.Write("\r\n\t\t\t\t{\r\n\t\t\t\t\t// Id = id,\r\n\t\t\t\t};\r\n\t\t\t\treader = ");
             
-            #line 11 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryFind.t4"
+            #line 11 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryFindTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentGateway.TypeName));
             
             #line default
             #line hidden
             this.Write(".Select(criteria, connection, transaction);\r\n\r\n\t\t\t\tvar result = reader.Read()\r\n\t\t" +
-                    "\t\t\t? KandaDbDataMapper.MapToObject(reader)\r\n\t\t\t\t\t: new ");
+                    "\t\t\t? KandaDbDataMapper.MapToObject<");
             
-            #line 15 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryFind.t4"
+            #line 14 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryFindTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
-            this.Write(".NotFound;\r\n\r\n\t\t\t\treturn result;\r\n\t\t\t}\r\n\t\t\tfinally\r\n\t\t\t{\r\n\t\t\t\tif (reader == null)" +
+            this.Write(">(reader)\r\n\t\t\t\t\t: new ");
+            
+            #line 15 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryFindTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(" { Id = -1, };\r\n\r\n\t\t\t\treturn result;\r\n\t\t\t}\r\n\t\t\tfinally\r\n\t\t\t{\r\n\t\t\t\tif (reader == n" +
+                    "ull) { reader.Close(); }\r\n\t\t\t}\r\n\t\t}");
+            this.Write("\r\n\r\n");
+            this.Write("\t\tpublic static IEnumerable<");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryGetTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write("> Get(DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\tvar rea" +
+                    "der = default(DbDataReader);\r\n\r\n\t\t\ttry\r\n\t\t\t{\r\n\t\t\t\tvar criteria = new ");
+            
+            #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryGetTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n\t\t\t\t{\r\n\t\t\t\t\t\r\n\t\t\t\t};\r\n\r\n\t\t\t\treader = ");
+            
+            #line 12 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryGetTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentGateway.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(".Select(criteria, connection, transaction);\r\n\t\t\t\tvar result = KandaDbDataMapper.M" +
+                    "apToEnumerable<");
+            
+            #line 13 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryGetTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(">(reader);\r\n\r\n\t\t\t\treturn result;\r\n\t\t\t}\r\n\t\t\tfinally\r\n\t\t\t{\r\n\t\t\t\tif (reader != null)" +
                     " { reader.Close(); }\r\n\t\t\t}\r\n\t\t}");
-            this.Write("\r\n\t\t\r\n\t\tpublic static IEnumerable<");
-            
-            #line 11 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\RepositoryTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
-            
-            #line default
-            #line hidden
-            this.Write("> Get(DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\t\r\n\t\t}\r\n" +
-                    "\r\n");
+            this.Write("\r\n\r\n");
             this.Write("\t\tpublic static IEnumerable<");
             
             #line 2 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryRetrieveTemplate.t4"
@@ -132,41 +164,77 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             #line default
             #line hidden
             this.Write(".Select(criteria, connection, transaction);\r\n\t\t\t\tvar result = KandaDbDataMapper.M" +
-                    "apToEnumerable<IEnumerable<");
+                    "apToEnumerable<");
             
             #line 9 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryRetrieveTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
-            this.Write(">>(reader);\r\n\r\n\t\t\t\treturn result;\r\n\t\t\t}\r\n\t\t\tfinally\r\n\t\t\t{\r\n\t\t\t\tif (reader ! = nul" +
-                    "l) { reader.Close(); }\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}");
-            this.Write("\r\n\r\n\t\tpublic static bool Create(");
+            this.Write(">(reader);\r\n\r\n\t\t\t\treturn result;\r\n\t\t\t}\r\n\t\t\tfinally\r\n\t\t\t{\r\n\t\t\t\tif (reader != null)" +
+                    " { reader.Close(); }\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}");
+            this.Write("\r\n\r\n");
+            this.Write("\t\tpublic static bool Create(");
             
-            #line 18 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\RepositoryTemplate.tt"
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryCreateTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
-            this.Write(" entity, DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\t\r\n\t\t" +
-                    "}\r\n\r\n\t\tpublic static bool Update(");
+            this.Write(" entity, DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\tvar " +
+                    "affected = ");
             
-            #line 23 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\RepositoryTemplate.tt"
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryCreateTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentGateway.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(".Insert(entity, connection, transaction);\r\n\r\n\t\t\treturn (affected == 1);\r\n\t\t}");
+            this.Write("\r\n\r\n");
+            this.Write("\t\tpublic static bool Modify(");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryModifyTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
-            this.Write(" entity, DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\t\r\n\t\t" +
-                    "}\r\n\r\n\t\tinternal static bool Delete(");
+            this.Write(" entity, DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\tvar " +
+                    "affected = ");
             
-            #line 28 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\RepositoryTemplate.tt"
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryModifyTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentGateway.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(".Update(entity, connection, transaction);\r\n\r\n\t\t\treturn (affected == 1);\r\n\t\t}");
+            this.Write("\r\n\r\n#region Internal members...\r\n\r\n");
+            this.Write("\t\tinternal static bool Remove(");
+            
+            #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryRemoveTemplate.t4"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentEntity.TypeName));
             
             #line default
             #line hidden
-            this.Write(" entity, DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\t\r\n\t\t" +
-                    "}\r\n\r\n\t\tinternal static bool Clear(DbConnection connection, DbTransaction transac" +
-                    "tion = null)\r\n\t\t{\r\n\t\t\t\r\n\t\t}\r\n\t}\r\n}\r\n");
+            this.Write(" entity, DbConnection connection, DbTransaction transaction = null)\r\n\t\t{\r\n\t\t\tvar " +
+                    "affected = ");
+            
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryRemoveTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentGateway.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(".Delete(entity, connection, transaction);\r\n\r\n\t\t\treturn (affected == 1);\r\n\t\t}");
+            this.Write("\r\n\r\n");
+            this.Write("\t\tinternal static bool Clear(DbConnection connection, DbTransaction transaction =" +
+                    " null)\r\n\t\t{\r\n\t\t\tvar affected = ");
+            
+            #line 3 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\RepositoryClearTemplate.t4"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.CurrentGateway.TypeName));
+            
+            #line default
+            #line hidden
+            this.Write(".Truncate(connection, transaction);\r\n\r\n\t\t\treturn (affected == 1);\r\n\t\t}");
+            this.Write("\r\n\r\n\t\t#endregion\r\n\t}\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
