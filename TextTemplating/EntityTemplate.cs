@@ -113,7 +113,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             this.Write(" ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\EntityPropertyTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.MappedName));
             
             #line default
             #line hidden

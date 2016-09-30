@@ -16,9 +16,9 @@ foreach (var column in this.Context.CurrentEntity.Columns) {
 var k = 0;
 foreach (var column in this.Context.CurrentEntity.Columns) {
 	if (k == 0) { #>
-	 @<#= column.ColumnName #>
+	 @<#= column.ParameterName #>
 <#	} else { #>
-	 , @<#= column.ColumnName #>
+	 , @<#= column.ParameterName #>
 <#	}
 	k++;
 } #>)

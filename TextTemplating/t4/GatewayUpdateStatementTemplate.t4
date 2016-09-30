@@ -7,12 +7,12 @@ SET
 var l = 0;
 foreach (var column in  this.Context.CurrentEntity.Columns) {
 	if (0 < l) { #>
-	<#= column.ColumnName #> = @<#= column.ColumnName #>
+	<#= column.ColumnName #> = @<#= column.ParameterName #>
 <#	}
 	l++;
 } #>
 
 WHERE 1 <> 1 -- 実装時に 1 = 1 にする
 <# foreach (var column in  this.Context.CurrentEntity.Columns) { #>
-	-- AND <#= column.ColumnName #> = @<#= column.ColumnName #>
+	-- AND <#= column.ColumnName #> = @<#= column.ParameterName #>
 <# } #>

@@ -3,4 +3,4 @@
 		/// </summary>
 		[EstelleDbDataMapping(@"<#= column.MappingName #>", Ignore = true)]
 		[EstelleDbParameterMapping(@"<#= column.MappingName #>", Ignore = true)]
-		public virtual <#= column.DataType.FullName #> <#= column.ColumnName #> { get; set; }
+		public virtual <#= column.DataType.FullName #> <#= column.MappedName #> { get; set; }

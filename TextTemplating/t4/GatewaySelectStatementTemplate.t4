@@ -16,5 +16,5 @@ FROM
 
 WHERE 1 = 1
 <# foreach (var column in  this.Context.CurrentEntity.Columns) { #>
-	-- AND <#= column.ColumnName #> = @<#= column.ColumnName #>
+	-- AND <#= column.ColumnName #> = @<#= column.ParameterName #>
 <# } #>

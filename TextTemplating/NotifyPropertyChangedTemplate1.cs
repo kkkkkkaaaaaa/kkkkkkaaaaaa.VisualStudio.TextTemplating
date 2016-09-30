@@ -60,7 +60,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating
             
             #line default
             #line hidden
-            this.Write(" の View Model を表します。\n\t/// </summary>\n\tpublic class ");
+            this.Write(" の View Model を表します。\n\t/// </summary>\n\tpublic partial class ");
             
             #line 1 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\NotifyPropertyChangedTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Context.TypeName));

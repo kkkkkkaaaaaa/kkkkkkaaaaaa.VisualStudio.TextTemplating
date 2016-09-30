@@ -162,7 +162,7 @@ foreach (var column in  this.Context.CurrentEntity.Columns) {
             this.Write(" = @");
             
             #line 19 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewaySelectStatementTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ParameterName));
             
             #line default
             #line hidden
@@ -251,7 +251,7 @@ foreach (var column in this.Context.CurrentEntity.Columns) {
             this.Write("\t @");
             
             #line 19 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ParameterName));
             
             #line default
             #line hidden
@@ -265,7 +265,7 @@ foreach (var column in this.Context.CurrentEntity.Columns) {
             this.Write("\t , @");
             
             #line 21 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayInsertStatementTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ParameterName));
             
             #line default
             #line hidden
@@ -324,7 +324,7 @@ foreach (var column in  this.Context.CurrentEntity.Columns) {
             this.Write(" = @");
             
             #line 10 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ParameterName));
             
             #line default
             #line hidden
@@ -354,7 +354,7 @@ foreach (var column in  this.Context.CurrentEntity.Columns) {
             this.Write(" = @");
             
             #line 17 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayUpdateStatementTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ParameterName));
             
             #line default
             #line hidden
@@ -407,7 +407,7 @@ foreach (var column in  this.Context.CurrentEntity.Columns) {
             this.Write(" = @");
             
             #line 7 "C:\Projects\kkkkkkaaaaaa.VisualStudio.TextTemplating\TextTemplating\t4\GatewayDeleteStatementTemplate.t4"
-            this.Write(this.ToStringHelper.ToStringWithCulture(column.ColumnName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(column.ParameterName));
             
             #line default
             #line hidden

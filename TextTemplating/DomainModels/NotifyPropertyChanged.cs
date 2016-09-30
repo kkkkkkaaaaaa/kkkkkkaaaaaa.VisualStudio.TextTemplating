@@ -44,6 +44,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             {
                 if (this.Context.LetterCase != LetterCases.PascalCase) { return; }
                 column.MappingName = column.ColumnName;
+                column.MappedName = column.ColumnName;
 
                 // パスカルケース変換
                 var name = @"";
@@ -56,7 +57,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
                     else { name += c; }
                     i++;
                 }
-                column.ColumnName = name;
+                column.MappedName = name;
             });
             */
 

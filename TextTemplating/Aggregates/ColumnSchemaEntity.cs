@@ -8,6 +8,10 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.Aggregates
 
         public string MappingName { get; set; }
 
+        public string MappedName { get; set; }
+
+        public string ParameterName { get; set; }
+
         public Type DataType { get; set; }
 
         public string DataTypeName { get; set; }

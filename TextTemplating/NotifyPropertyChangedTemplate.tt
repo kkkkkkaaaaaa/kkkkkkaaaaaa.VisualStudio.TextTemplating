@@ -5,7 +5,7 @@
 	/// <summary>
 	/// <#= this.Context.TypeName #> の View Model を表します。
 	/// </summary>
-	public class <#= this.Context.TypeName #> : <#= this.Context.CurrentEntity.TypeName #><# foreach(var implement in this.Context.Implements) { #>, <#= implement #><# } #>
+	public partial class <#= this.Context.TypeName #> : <#= this.Context.CurrentEntity.TypeName #><# foreach(var implement in this.Context.Implements) { #>, <#= implement #><# } #>
 	{
 		/// <summary>
 		/// プロパティ値が変更するときに発生します。

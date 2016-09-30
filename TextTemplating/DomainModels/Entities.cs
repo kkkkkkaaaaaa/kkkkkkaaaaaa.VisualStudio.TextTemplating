@@ -57,6 +57,7 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
             {
                 if (this.Context.LetterCase != LetterCases.PascalCase) { return; }
                 column.MappingName = column.ColumnName;
+                column.MappedName = column.ColumnName;
 
                 // パスカルケース変換
                 var name = @"";
@@ -69,7 +70,8 @@ namespace kkkkkkaaaaaa.VisualStudio.TextTemplating.DomainModels
                     else { name += c; }
                     i++;
                 }
-                column.ColumnName = name;
+                column.MappedName = name;
+                column.ParameterName = char.ToLower(name[0]) + name.Substring(1);
             });
 
             var context = KandaDataMapper.MapToObject<EntitiesContext>(this.Context);
